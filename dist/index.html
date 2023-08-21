@@ -13,23 +13,30 @@
     <div class="container">
         <div class="menu-container">
 
-            
-            <p class="menu-text">Menu</p>
-            
             <div>
-                <span>All tasks</span>
-                <span>Today</span>
+                <span class="menu-text">Menu</span>
+                <span class="hamburger-menu">#</span>
             </div>
             
-            <div>
+            <div class="main-options-container menu-options">
+                <ul>
+                    <li class="all-tasks">All tasks <span class="number-of-tasks">15</span></li>
+                    <li class="today-tasks">Today <span class="number-of-tasks">3</span></li>
+                    <li class="this-week-tasks">This week <spanc class="number-of-tasks">7</spanc></li>
+                </ul>
+            </div>
+            
+            <div class="projects-container">
                 <span>Projects</span>
-                <div>
-                    <span>Gym</span>
-                    <span>Random</span>
+                <div class="projects">
+                    <ul class="projects-list menu-options">
+                        <li>Gym <span class="number-of-tasks">4</span></li>
+                        <li>Random</li>
+                    </ul>
                 </div>
             </div>
 
-            <button>add new project</button>
+            <button class="btn btn-addProjec">Add new project</button>
         </div>
 
         <div class="tasks-container">
