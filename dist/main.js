@@ -1,1 +1,1 @@
-(()=>{"use strict";class t{constructor(t,s){this.title=t,this.tasks=s}}new t("All tasks",[]),new t("Learning",[new class{constructor(t,s,i,e){this.title=t,this.description=s,this.date=i,this.priority=e}}("Study","You have to study classes.","18/08/23","high")])})();
+(()=>{"use strict";document.querySelector(".tasks-container"),document.querySelectorAll(".projects-list > li");let e=document.querySelectorAll(".menu-options > li");function o(e){}console.log(e),e.forEach((e=>{console.log(e),e.addEventListener("click",o)}))})();
