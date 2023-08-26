@@ -1,12 +1,16 @@
+import { Project } from "./Project";
+
+let newProjectContainer;
+let projectsHtml = document.querySelector('.projects');
+
 export function addNewProject() {
 
-    let projectsHtml = document.querySelector('.projects');
+    // ** Call function only if new project html doesn't exist in DOM
+    if (document.querySelector('.new-project-container') == null) {
+        projectsHtml.appendChild(drawNewProjectHTML());
+    }
 
-    projectsHtml.appendChild(drawNewProjectHTML());
-
-    
     //console.log(this);  // 'this' is button that is clicked
-
 }
 
 function addNewProjectPseudo() {
@@ -25,18 +29,19 @@ function addNewProjectPseudo() {
 
 function drawNewProjectHTML() {
 
-    // console.log(projectsHtml);
+    newProjectContainer = document.createElement('div');
+    newProjectContainer.classList.add('new-project-container');
 
-    let newProjectContainer = document.createElement('div');
-
-    // Kreirat simple input field i kvacicu pored u listi (vidit dizajn na TOP primjeru)
+    // ** Kreirat simple input field i kvacicu pored u listi (vidit dizajn na TOP primjeru)
     let input = document.createElement('input');
 
     let btnAddProject = document.createElement('button');
     btnAddProject.innerText = 'Add project';
+    btnAddProject.addEventListener('click', createProject);
 
     let btnCancel = document.createElement('button');
     btnCancel.innerText = 'Cancel';
+    btnCancel.addEventListener('click', deleteNewProjectHTML);
 
     newProjectContainer.appendChild(input);
     newProjectContainer.appendChild(btnAddProject);
@@ -44,5 +49,53 @@ function drawNewProjectHTML() {
 
     return newProjectContainer;
 
-    //** Dodat klase i stajling, i sta sve treba na elemente
+    // TODO: Dodat klase i stajling, i sta sve treba na elemente
 }
+
+function deleteNewProjectHTML() {
+
+    // newProjectContainer = document.querySelector('.new-project-container');
+    newProjectContainer.outerHTML = '';
+}
+
+let allProjects = [];
+function createProject() {
+
+    let newProjectCreated = false;
+
+    let inputText = newProjectContainer.querySelector('input').value;
+    // console.log(inputText);
+
+    let newProject = new Project(inputText, []);
+    allProjects.push(newProject);
+    newProjectCreated = true;
+
+    // console.log(allProjects);
+
+    if (newProjectCreated) {
+        appendProjectToDOM(newProject); 
+    }
+
+    deleteNewProjectHTML();
+}
+
+function appendProjectToDOM(project) {
+
+    console.log(project);
+
+    let createdProject = document.createElement('li');
+    createdProject.innerText = project.title;
+    createdProject.setAttribute('id', project.title);
+
+    // ?? Da li deo sa zadacima treba ici vamo (postavit broj zadataka samo kad projekat ima zadatke u sebi)
+    let numberOfTasks = document.createElement('span');
+    numberOfTasks.classList.add('.number-of-tasks');
+    numberOfTasks.innerText = project.tasks.length;
+    createdProject.appendChild(numberOfTasks);
+
+    projectsHtml.appendChild(createdProject);
+
+}
+
+// ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
+// TODO: Funkcija za provjeravanje projekt imena (ne smju bit isti)
