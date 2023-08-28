@@ -1,4 +1,5 @@
 import { Project } from "./Project";
+import { allProjects } from ".";
 
 let newProjectContainer;
 let projectsHtml = document.querySelector('.projects');
@@ -27,6 +28,7 @@ function addNewProjectPseudo() {
     }
 }
 
+// ** Create HTML for new project
 function drawNewProjectHTML() {
 
     newProjectContainer = document.createElement('div');
@@ -52,26 +54,31 @@ function drawNewProjectHTML() {
     // TODO: Dodat klase i stajling, i sta sve treba na elemente
 }
 
+// ** Delete HTML that is created on add project button
 function deleteNewProjectHTML() {
 
-    // newProjectContainer = document.querySelector('.new-project-container');
     newProjectContainer.outerHTML = '';
 }
 
-let allProjects = [];
+// ** Create new project if it's valid and push it to the allProjects array
 function createProject() {
 
     let newProjectCreated = false;
+    let projectValid = false;
 
     let inputText = newProjectContainer.querySelector('input').value;
     // console.log(inputText);
 
     let newProject = new Project(inputText, []);
-    allProjects.push(newProject);
-    newProjectCreated = true;
 
-    // console.log(allProjects);
+    projectValid = checkIfProjectValid(newProject);
+    if (projectValid) {
 
+        allProjects.push(newProject);
+        newProjectCreated = true;
+
+    }
+   
     if (newProjectCreated) {
         appendProjectToDOM(newProject); 
     }
@@ -79,10 +86,10 @@ function createProject() {
     deleteNewProjectHTML();
 }
 
+// ** Append new project to the DOM
 function appendProjectToDOM(project) {
 
-    console.log(project);
-
+    let projectList = projectsHtml.querySelector('ul');
     let createdProject = document.createElement('li');
     createdProject.innerText = project.title;
     createdProject.setAttribute('id', project.title);
@@ -93,9 +100,28 @@ function appendProjectToDOM(project) {
     numberOfTasks.innerText = project.tasks.length;
     createdProject.appendChild(numberOfTasks);
 
-    projectsHtml.appendChild(createdProject);
+    projectList.appendChild(createdProject)
+    projectsHtml.appendChild(projectList);
 
 }
 
+// ** Check if new project has a valid name
+function checkIfProjectValid(newProject) {
+
+    // console.log(newProject);
+
+    let bool = false;
+    bool = true;
+    // newProject.title = '';
+     
+    // TODO: Proc kroz sve projekte i usporedit imena, ne smje bit isto
+    // TODO: Ime projekta ne moze bit prazno
+
+    return bool;
+}
+
 // ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
-// TODO: Funkcija za provjeravanje projekt imena (ne smju bit isti)
+// ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
+
+// TODO: Dodat local storage kod kreiranja projekta (kad bude uspjesno obrisat test projekte u html)
+// TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
