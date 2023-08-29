@@ -1,8 +1,9 @@
 import { Project } from "./Project";
-import { allProjects } from ".";
+// import { allProjects } from ".";
 
 let newProjectContainer;
 let projectsHtml = document.querySelector('.projects');
+let allProjects = [];
 
 export function addNewProject() {
 
@@ -12,20 +13,6 @@ export function addNewProject() {
     }
 
     //console.log(this);  // 'this' is button that is clicked
-}
-
-function addNewProjectPseudo() {
-
-    drawNewProjectHTML()
-
-    // ?? Kako dohvatit koje je dugme kliknuto
-    if (btnAddProject.clicked) {
-
-    createProject(input.text)
-
-    } else {
-    close()
-    }
 }
 
 // ** Create HTML for new project
@@ -74,9 +61,9 @@ function createProject() {
     projectValid = checkIfProjectValid(newProject);
     if (projectValid) {
 
-        allProjects.push(newProject);
         newProjectCreated = true;
-
+        allProjects.push(newProject);
+        localStorage.setItem('allProjects', JSON.stringify(allProjects));
     }
    
     if (newProjectCreated) {
@@ -87,9 +74,9 @@ function createProject() {
 }
 
 // ** Append new project to the DOM
-function appendProjectToDOM(project) {
+export function appendProjectToDOM(project) {
 
-    let projectList = projectsHtml.querySelector('ul');
+    let projectsList = projectsHtml.querySelector('ul');
     let createdProject = document.createElement('li');
     createdProject.innerText = project.title;
     createdProject.setAttribute('id', project.title);
@@ -100,8 +87,8 @@ function appendProjectToDOM(project) {
     numberOfTasks.innerText = project.tasks.length;
     createdProject.appendChild(numberOfTasks);
 
-    projectList.appendChild(createdProject)
-    projectsHtml.appendChild(projectList);
+    projectsList.appendChild(createdProject)
+    projectsHtml.appendChild(projectsList);
 
 }
 
@@ -114,6 +101,7 @@ function checkIfProjectValid(newProject) {
     bool = true;
     // newProject.title = '';
      
+    // TODO: Projekti ne mogu imat isto ime (zbog id konflikta)
     // TODO: Proc kroz sve projekte i usporedit imena, ne smje bit isto
     // TODO: Ime projekta ne moze bit prazno
 
@@ -123,5 +111,5 @@ function checkIfProjectValid(newProject) {
 // ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
 // ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
 
-// TODO: Dodat local storage kod kreiranja projekta (kad bude uspjesno obrisat test projekte u html)
 // TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
+// ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak) 
