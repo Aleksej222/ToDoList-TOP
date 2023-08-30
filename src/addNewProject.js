@@ -1,9 +1,8 @@
 import { Project } from "./Project";
-// import { allProjects } from ".";
+import { allProjects } from ".";
 
 let newProjectContainer;
 let projectsHtml = document.querySelector('.projects');
-let allProjects = [];
 
 export function addNewProject() {
 
@@ -104,6 +103,7 @@ function checkIfProjectValid(newProject) {
     // TODO: Projekti ne mogu imat isto ime (zbog id konflikta)
     // TODO: Proc kroz sve projekte i usporedit imena, ne smje bit isto
     // TODO: Ime projekta ne moze bit prazno
+    // TODO: Ogranicit ime projekta (pr. 20 slova)
 
     return bool;
 }
@@ -112,4 +112,5 @@ function checkIfProjectValid(newProject) {
 // ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
 
 // TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
-// ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak) 
+// ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak)
+// TODO: Omogucit dodavanje projekta na enter tipku 

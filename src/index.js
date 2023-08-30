@@ -2,9 +2,16 @@ import { Task } from "./Task";
 import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 
-//export let allProjects = [];  // !! Ako bude bug sa varijablom
-let allProjects = localStorage.getItem('allProjects');
-allProjects = JSON.parse(allProjects);
+
+export let allProjects;
+
+// ** Get projects from local storage if they exist
+if (localStorage.getItem('allProjects')) {
+    
+    allProjects = localStorage.getItem('allProjects');
+    allProjects = JSON.parse(allProjects);
+    showProjects();  // ** Call function if projects exist
+}
 
 function showProjects() {
 
@@ -16,8 +23,6 @@ function showProjects() {
 
 }
 
-// ** Show all projects from allProjects array in the DOM when the page is loaded
-showProjects();
 
 let tasksContainer = document.querySelector('.tasks-container');
 
@@ -30,10 +35,7 @@ btnTestFnc.addEventListener('click', testThis);
 
 function testThis() {
     console.log(allProjects);
-
-    showProjects();
 }
 
-// TODO: funkcija showProjects() (poziva se samo jednom, na otvaranju stranice)
-
-// !! Vazan bug: ako je localStorage prazan bice bug sa varijablom i parserom (smislit kako bi se to popravilo)
+// ** Lepo rasporedit kod po fajlovima, za dodavanje projekta u jedan, za brisanje u drugi, za edit u treci (primjer)
+// ?? Di ide kod za prve tri opcije (all tasks....), kako to izvest
