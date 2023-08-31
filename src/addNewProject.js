@@ -4,6 +4,13 @@ import { allProjects } from ".";
 let newProjectContainer;
 let projectsHtml = document.querySelector('.projects');
 
+// Set allProjects array as an empty array if it doesn't exist in local storage
+if (!allProjects) {
+
+    allProjects = [];
+
+}
+
 export function addNewProject() {
 
     // ** Call function only if new project html doesn't exist in DOM
@@ -94,18 +101,36 @@ export function appendProjectToDOM(project) {
 // ** Check if new project has a valid name
 function checkIfProjectValid(newProject) {
 
-    // console.log(newProject);
+    let isValid = false;
+    isValid = true;
 
-    let bool = false;
-    bool = true;
-    // newProject.title = '';
+    let isDuplicate = projectTitleDuplicate(newProject.title);    
+    isValid = (isDuplicate == false);
      
     // TODO: Projekti ne mogu imat isto ime (zbog id konflikta)
     // TODO: Proc kroz sve projekte i usporedit imena, ne smje bit isto
     // TODO: Ime projekta ne moze bit prazno
     // TODO: Ogranicit ime projekta (pr. 20 slova)
 
-    return bool;
+    return isValid;
+}
+
+// Check if projects array contains project with same title
+function projectTitleDuplicate(title) {
+
+    let isDuplicate = false;
+
+    allProjects.map(project => {
+        
+        if (project.title == title) {
+
+            isDuplicate = true;
+        }
+        
+    })
+
+    return isDuplicate;
+
 }
 
 // ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
@@ -114,3 +139,4 @@ function checkIfProjectValid(newProject) {
 // TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
 // ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak)
 // TODO: Omogucit dodavanje projekta na enter tipku 
+// TODO: Dodat ID property (ime projekta) u li item (u projekat) kad se appenda u DOM
