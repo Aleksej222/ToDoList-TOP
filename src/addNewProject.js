@@ -8,7 +8,6 @@ let projectsHtml = document.querySelector('.projects');
 if (!allProjects) {
 
     allProjects = [];
-
 }
 
 export function addNewProject() {
@@ -29,6 +28,8 @@ function drawNewProjectHTML() {
 
     // ** Kreirat simple input field i kvacicu pored u listi (vidit dizajn na TOP primjeru)
     let input = document.createElement('input');
+    input.setAttribute('maxLength', 25);
+    // input.setAttribute('required','');
 
     let btnAddProject = document.createElement('button');
     btnAddProject.innerText = 'Add project';
@@ -87,30 +88,42 @@ export function appendProjectToDOM(project) {
     createdProject.innerText = project.title;
     createdProject.setAttribute('id', project.title);
 
-    // ?? Da li deo sa zadacima treba ici vamo (postavit broj zadataka samo kad projekat ima zadatke u sebi)
     let numberOfTasks = document.createElement('span');
     numberOfTasks.classList.add('.number-of-tasks');
-    numberOfTasks.innerText = project.tasks.length;
+    // numberOfTasks.innerText = project.tasks.length;
     createdProject.appendChild(numberOfTasks);
 
     projectsList.appendChild(createdProject)
     projectsHtml.appendChild(projectsList);
-
 }
 
 // ** Check if new project has a valid name
 function checkIfProjectValid(newProject) {
 
     let isValid = false;
-    isValid = true;
+    let errorMsg = '';
 
-    let isDuplicate = projectTitleDuplicate(newProject.title);    
+    let isDuplicate = projectTitleDuplicate(newProject.title);
+    if (isDuplicate) {
+        errorMsg = 'Project with that name already exists.';
+    }
+
+    let isEmpty = projectTitleEmpty(newProject.title);
+    if (isEmpty) {
+        errorMsg = 'Project name can\'t be empty.';
+    }    
+
+    let isTooLong = projectTitleTooLong(newProject.title);
+    if (isTooLong) {
+        errorMsg = 'Project name is too long.';
+    }
+
+    let errorMsgSpan = document.querySelector('.error-message');
+    errorMsgSpan.innerText = errorMsg;
+
     isValid = (isDuplicate == false);
-     
-    // TODO: Projekti ne mogu imat isto ime (zbog id konflikta)
-    // TODO: Proc kroz sve projekte i usporedit imena, ne smje bit isto
-    // TODO: Ime projekta ne moze bit prazno
-    // TODO: Ogranicit ime projekta (pr. 20 slova)
+    isValid = isValid && (isEmpty == false);
+    isValid = isValid && (isTooLong == false);
 
     return isValid;
 }
@@ -122,7 +135,7 @@ function projectTitleDuplicate(title) {
 
     allProjects.map(project => {
         
-        if (project.title == title) {
+        if (project.title.toLowerCase() == title.toLowerCase()) {
 
             isDuplicate = true;
         }
@@ -130,13 +143,23 @@ function projectTitleDuplicate(title) {
     })
 
     return isDuplicate;
+}
 
+function projectTitleEmpty(title) {
+
+    return title.length < 1 ? true : false;
+}
+
+function projectTitleTooLong(title) {
+
+    return title.length >= 25 ? true : false;
 }
 
 // ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
 // ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
+// ** Brisanje projekta napravit u novom file-u
 
 // TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
 // ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak)
 // TODO: Omogucit dodavanje projekta na enter tipku 
-// TODO: Dodat ID property (ime projekta) u li item (u projekat) kad se appenda u DOM
+// ** numberOfTasks.innerText = project.tasks.length; - linija, dodat kasnije na add task, kad se bude mijenjao broj zadataka u projektu
