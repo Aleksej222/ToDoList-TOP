@@ -20,14 +20,29 @@ function showProjects() {
         appendProjectToDOM(project);
 
     });
-
 }
 
 
-let tasksContainer = document.querySelector('.tasks-container');
-
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
+
+let listOptions = document.querySelectorAll('.menu-options > li');
+
+// ?? Mozda napissat funkciju u posebnom file-u
+listOptions.forEach(option => {
+
+    option.addEventListener('click', showCorrectProject);
+
+});
+
+function showCorrectProject() {
+
+    // ** Deo za prve tri opcije napisat odvojeno, tj malo drukcije
+    console.log(this);
+
+}
+
+// let tasksContainer = document.querySelector('.tasks-container');
 
 let btnTestFnc = document.querySelector('.edit-task');
 

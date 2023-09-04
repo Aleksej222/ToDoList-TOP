@@ -84,7 +84,9 @@ function createProject() {
 export function appendProjectToDOM(project) {
 
     let projectsList = projectsHtml.querySelector('ul');
+
     let createdProject = document.createElement('li');
+    createdProject.classList.add('project');
     createdProject.innerText = project.title;
     createdProject.setAttribute('id', project.title);
 

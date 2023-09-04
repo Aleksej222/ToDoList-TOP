@@ -48,3 +48,7 @@ body {
 .task {
     border: 3px solid black;
 }
+
+.menu-options > li {
+    cursor: pointer;
+}
