@@ -1,7 +1,7 @@
 import { Task } from "./Task";
 import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
-
+import { showCorrectProject } from "./showCorrectProject";
 
 export let allProjects;
 
@@ -13,6 +13,7 @@ if (localStorage.getItem('allProjects')) {
     showProjects();  // ** Call function if projects exist
 }
 
+// ** Call append function for every project in allProjects array
 function showProjects() {
 
     allProjects.forEach(project => {
@@ -22,25 +23,16 @@ function showProjects() {
     });
 }
 
-
-let buttonAddProject = document.querySelector('.btn-addProject');
-buttonAddProject.addEventListener('click', addNewProject);
-
 let listOptions = document.querySelectorAll('.menu-options > li');
-
-// ?? Mozda napissat funkciju u posebnom file-u
 listOptions.forEach(option => {
 
     option.addEventListener('click', showCorrectProject);
 
 });
 
-function showCorrectProject() {
 
-    // ** Deo za prve tri opcije napisat odvojeno, tj malo drukcije
-    console.log(this);
-
-}
+let buttonAddProject = document.querySelector('.btn-addProject');
+buttonAddProject.addEventListener('click', addNewProject);
 
 // let tasksContainer = document.querySelector('.tasks-container');
 
