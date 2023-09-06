@@ -24,6 +24,8 @@ function showProjects() {
 }
 
 let listOptions = document.querySelectorAll('.menu-options > li');
+// !! Trebace za kasnije (kad se bude prikazivala defaultna vrednost na on load stranice - all tasks)
+let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
 listOptions.forEach(option => {
 
     option.addEventListener('click', showCorrectProject);

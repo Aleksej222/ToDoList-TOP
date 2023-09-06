@@ -1,5 +1,13 @@
-let listOptions = document.querySelectorAll('.menu-options > li');
-let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
+import { allProjects } from ".";
+
+// Set allProjects array as an empty array if it doesn't exist in local storage
+if (!allProjects) {
+
+    allProjects = [];
+}
+
+// let listOptions = document.querySelectorAll('.menu-options > li');
+// let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
 
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
@@ -7,7 +15,9 @@ export function showCorrectProject() {
     // ** Deo za prve tri opcije napisat odvojeno, tj malo drukcije
     // console.log(this);
 
-    listOptionSelected = this.id; 
+    let listOptions = document.querySelectorAll('.menu-options > li');
+
+    let listOptionSelected = this.id; 
 
     let selectedProject = allProjects.find(project => {
         return project.title == listOptionSelected;
@@ -24,7 +34,7 @@ function displayProjectTasks(selectedProject) {
 
     console.log(selectedProject);
 
-    console.log(listOptions);
+    // console.log(listOptions);
 
 }
 
