@@ -32,6 +32,18 @@ listOptions.forEach(option => {
 
 });
 
+// !! Test part
+let selectedProject = allProjects[0];
+
+let testTask = new Task('First task', 'This is first task created that belongs to the project.', '07.09.2023','low');
+selectedProject.tasks.push(testTask);
+let anotherTask = new Task('Random task', 'This task belongs to the same project.', '07.09.2023','medium');
+selectedProject.tasks.push(anotherTask);
+
+selectedProject = allProjects[1];
+let anotherProjectTask = new Task('Different project', 'This task belongs to the different project.', '07.09.2023','medium');
+selectedProject.tasks.push(anotherProjectTask);
+// !! End test part
 
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
@@ -43,7 +55,11 @@ let btnTestFnc = document.querySelector('.edit-task');
 btnTestFnc.addEventListener('click', testThis);
 
 function testThis() {
-    console.log(allProjects);
+    // console.log(allProjects);
+
+    console.log(selectedProject);
+
+    
 }
 
 // ** Lepo rasporedit kod po fajlovima, za dodavanje projekta u jedan, za brisanje u drugi, za edit u treci (primjer)

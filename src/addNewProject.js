@@ -165,3 +165,4 @@ function projectTitleTooLong(title) {
 // ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak)
 // TODO: Omogucit dodavanje projekta na enter tipku 
 // ** numberOfTasks.innerText = project.tasks.length; - linija, dodat kasnije na add task, kad se bude mijenjao broj zadataka u projektu
+// TODO: Onemogucit imena projekta sa glavne liste (all-tasks...)
