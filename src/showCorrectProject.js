@@ -1,4 +1,5 @@
 import { allProjects } from ".";
+// import { allTasks } from ".";
 
 // ** Set allProjects array as an empty array if it doesn't exist in local storage
 if (!allProjects) {
@@ -6,53 +7,56 @@ if (!allProjects) {
     allProjects = [];
 }
 
-// let listOptions = document.querySelectorAll('.menu-options > li');
-// let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
-
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
 
-    
     let listOptionSelected = this.id;
     let selectedProjectTasks;
 
-    switch (listOptionSelected) {
-        case 'All tasks':
-            selectedProjectTasks = showAllTasks();
-            break;
+    let previousOptionSelected = document.querySelector('.project-name').innerText;
 
-        case 'Today':
-            selectedProjectTasks = showTodayTasks();
-            break;
+    if (previousOptionSelected !== listOptionSelected) {
+
+        switch (listOptionSelected) {
+            case 'All tasks':
+                selectedProjectTasks = showAllTasks();
+                break;
     
-        case 'This week':
-            selectedProjectTasks = showThisWeekTasks();
-            break;
-
-        default:
-            selectedProjectTasks = otherProjectTasks(listOptionSelected);
-            break;
+            case 'Today':
+                selectedProjectTasks = showTodayTasks();
+                break;
+        
+            case 'This week':
+                selectedProjectTasks = showThisWeekTasks();
+                break;
+    
+            default:
+                selectedProjectTasks = otherProjectTasks(listOptionSelected);
+                break;
+        }
+        
+        clearTasksHTML();
+        displayProjectTasks(listOptionSelected, selectedProjectTasks);
     }
     
-    displayProjectTasks(listOptionSelected, selectedProjectTasks);
 }
 
 // ** Show tasks from every project
 function showAllTasks() {
 
-    let allTasksArr = [];
+    let allTasks = [];
 
     // Go through every element in the list (projects) and push all the tasks into the main array that will show those tasks
     allProjects.forEach(project => {
 
         project.tasks.forEach(task => {
             
-            allTasksArr.push(task);
+            allTasks.push(task);
 
         });
     });
 
-    return allTasksArr;  
+    return allTasks;  
 }
 
 // ** Show tasks with today's date
@@ -76,9 +80,7 @@ function otherProjectTasks(listOptionSelected) {
 }
 
 // ** Display selected project tasks in the DOM
-function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
-
-    // console.log(selectedProjectTasks);
+export function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
 
     let tasksContainer = document.querySelector('.tasks-container');
     let projectName = tasksContainer.querySelector('.project-name');
@@ -91,8 +93,12 @@ function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
         tasksList.appendChild(createTaskHTML(task));
 
     });
+}
 
+function clearTasksHTML() {
 
+    let tasksList = document.querySelector('.tasks-list');
+    tasksList.innerHTML = '';
 }
 
 function createTaskHTML(task) {
@@ -115,6 +121,17 @@ function createTaskHTML(task) {
     let taskBtns = document.createElement('div');
     taskBtns.classList.add('tasks-btns');
 
+    let editTaskBtn = document.createElement('button');
+    editTaskBtn.classList.add('edit-task');
+    editTaskBtn.innerText = 'pen';
+
+    let deleteTaskBtn = document.createElement('button');
+    deleteTaskBtn.classList.add('delete-task');
+    deleteTaskBtn.innerText = 'trash-can'
+
+    taskBtns.appendChild(editTaskBtn);
+    taskBtns.appendChild(deleteTaskBtn);
+
     taskContainer.appendChild(taskDate);
     taskContainer.appendChild(taskTitle);
     taskContainer.appendChild(taskDescription);
@@ -125,16 +142,4 @@ function createTaskHTML(task) {
     // !! Color changes based on priority of the task
 }   
 
-/* 
-<div class="task">
-<span class="task-date">22/08/23</span>
-<h4 class="task-title">Study math</h4>
-<span class="task-description">Go through all the tasks in the book.</span>
-<div class="task-btns">
-    <button class="edit-task">pen</button>
-    <button class="delete-task">trash-can</button>
-</div>
-</div>
-
-*/
-// !! Bug ne prikaze title novo dodanog projekta
+// !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)

@@ -2,8 +2,10 @@ import { Task } from "./Task";
 import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 import { showCorrectProject } from "./showCorrectProject";
+import { displayProjectTasks } from "./showCorrectProject";
 
 export let allProjects;
+// export let allTasks;
 
 // ** Get projects from local storage if they exist
 if (localStorage.getItem('allProjects')) {
@@ -31,6 +33,9 @@ listOptions.forEach(option => {
     option.addEventListener('click', showCorrectProject);
 
 });
+
+// displayProjectTasks(listOptionSelected, allTasks);
+
 
 // !! Test part
 // let selectedProject = allProjects[0];
@@ -63,4 +68,5 @@ buttonAddProject.addEventListener('click', addNewProject);
 // }
 
 // ** Lepo rasporedit kod po fajlovima, za dodavanje projekta u jedan, za brisanje u drugi, za edit u treci (primjer)
-// ?? Di ide kod za prve tri opcije (all tasks....), kako to izvest
+
+// !! Kako dobit allTasks, popravit kad se napravi funkcija za dodavanje zadataka
