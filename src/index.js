@@ -1,11 +1,9 @@
-import { Task } from "./Task";
 import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 import { showCorrectProject } from "./showCorrectProject";
-import { displayProjectTasks } from "./showCorrectProject";
+import { addNewTask } from "./addNewTask";
 
 export let allProjects;
-// export let allTasks;
 
 // ** Get projects from local storage if they exist
 if (localStorage.getItem('allProjects')) {
@@ -26,15 +24,16 @@ function showProjects() {
 }
 
 let listOptions = document.querySelectorAll('.menu-options > li');
-// !! Trebace za kasnije (kad se bude prikazivala defaultna vrednost na on load stranice - all tasks)
 let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
+
 listOptions.forEach(option => {
-
+    
     option.addEventListener('click', showCorrectProject);
-
+    
 });
 
-// displayProjectTasks(listOptionSelected, allTasks);
+// ** Simulate click event, so that a function for showing tasks inside a project is called
+listOptionSelected.click();
 
 
 // !! Test part
@@ -52,6 +51,9 @@ listOptions.forEach(option => {
 
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
+
+let buttonAddTask = document.querySelector('.btn-add-task');
+buttonAddTask.addEventListener('click', addNewTask);
 
 // let tasksContainer = document.querySelector('.tasks-container');
 

@@ -7,10 +7,12 @@ if (!allProjects) {
     allProjects = [];
 }
 
+export let listOptionSelected;
+
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
 
-    let listOptionSelected = this.id;
+    listOptionSelected = this.id;
     let selectedProjectTasks;
 
     let previousOptionSelected = document.querySelector('.project-name').innerText;
@@ -80,7 +82,7 @@ function otherProjectTasks(listOptionSelected) {
 }
 
 // ** Display selected project tasks in the DOM
-export function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
+function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
 
     let tasksContainer = document.querySelector('.tasks-container');
     let projectName = tasksContainer.querySelector('.project-name');
@@ -95,12 +97,14 @@ export function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
     });
 }
 
+// ** Delete HTML content (tasks) to avoid same tasks on the same project
 function clearTasksHTML() {
 
     let tasksList = document.querySelector('.tasks-list');
     tasksList.innerHTML = '';
 }
 
+// ** Create HTML for task
 function createTaskHTML(task) {
 
     let taskContainer = document.createElement('div');
@@ -143,3 +147,4 @@ function createTaskHTML(task) {
 }   
 
 // !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
+// TODO: Dodat dugme add task u html, napravit da se ne vidi ako je main opcija odabrana
