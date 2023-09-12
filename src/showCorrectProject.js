@@ -95,6 +95,17 @@ function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
         tasksList.appendChild(createTaskHTML(task));
 
     });
+
+    let addTaskBtn = document.querySelector('.btn-add-task');
+
+    // Hide button if selected project is one of the main options
+    if (listOptionSelected == 'All tasks' || listOptionSelected == 'Today' || listOptionSelected == 'This week') {
+        addTaskBtn.style.display = 'none';
+    }
+    else {
+        addTaskBtn.style.display = 'block';
+    }
+
 }
 
 // ** Delete HTML content (tasks) to avoid same tasks on the same project
@@ -147,4 +158,4 @@ function createTaskHTML(task) {
 }   
 
 // !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
-// TODO: Dodat dugme add task u html, napravit da se ne vidi ako je main opcija odabrana
+// TODO: Zavrsit funkcije za today i this week, kad se napravi dodavanje zadatka (zbog datuma)
