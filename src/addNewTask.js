@@ -3,7 +3,7 @@ import { listOptionSelected } from "./showCorrectProject";
 
 export function addNewTask() {
     
-    console.log(listOptionSelected);
+    // console.log(listOptionSelected);
 
     // ** Dodat u listOptionSelected projekt zadatak
 
@@ -13,7 +13,10 @@ export function addNewTask() {
 
 function openModalWindow() {
 
-    createModalWindowHTML();
+    let tasksContainer = document.querySelector('.tasks-container');
+
+    // TODO: Dodat position absolute (tako nekako), pravilno pozicionirat modal window
+    tasksContainer.appendChild(createModalWindowHTML());
 
 }
 
@@ -35,6 +38,7 @@ function createModalWindowHTML() {
     addTaskTitle.innerText = 'Add New Task';
     
     let closeTask = document.createElement('span');
+    closeTask.classList.add('close-modal');
     closeTask.innerText = '&times;  ';
 
     modalTop.appendChild(addTaskTitle);
@@ -44,11 +48,45 @@ function createModalWindowHTML() {
     containerTaskInfo.classList.add('container-task-info');
 
     let formTaskInfo = document.createElement('form');
-    // TODO: Set attributes later
+    // TODO: Set attributes later (for everything), look at html example
 
-    // containerModal.appendChild(modalTop);
-    // modalContent.appendChild(containerModal);
-    // modalWindow.appendChild(modalContent);
+    let spanRequired = document.createElement('span');  // This span element is used multiple times
+    spanRequired.innerText = '*';
+
+    let containerInput1 = document.createElement('div');
+    containerInput1.classList.add('container-input');
+    
+
+    let labelTitle = document.createElement('label');
+    labelTitle.innerText = 'Title';
+    labelTitle.appendChild(spanRequired);
+
+    let inputTitle = document.createElement('input');
+
+    let spanTitleError = document.createElement('span');
+    spanTitleError.classList.add('error-message');
+    spanTitleError.appendChild(spanRequired);
+
+    containerInput1.appendChild(labelTitle);
+    containerInput1.appendChild(inputTitle);
+    containerInput1.appendChild(spanTitleError);
+    
+    // TODO: Kalendar za datum
+
+    // TODO: Textarea za deskripciju
+
+    // TODO: Dropdown za priority zadatka
+
+    formTaskInfo.appendChild(containerInput1);
+
+    containerTaskInfo.appendChild(formTaskInfo);
+
+    containerModal.appendChild(modalTop);
+    containerModal.appendChild(containerTaskInfo);
+    modalContent.appendChild(containerModal);
+    modalWindow.appendChild(modalContent);
+
+    return modalWindow;
 }
 
 /*
@@ -66,7 +104,7 @@ function createModalWindowHTML() {
             <!-- Put required back later -->
             <div class="container-book-info">
                 <form id="book-info-form" action="" method="post">
-                    <!-- <form id="book-info-form"> -->
+                   
                     <div class="container-input">
                         <label for="title">Title<span aria-label="required">*</span></label>
                         <input data-form-field type="text" name="title" placeholder="Title" minlength="2">
