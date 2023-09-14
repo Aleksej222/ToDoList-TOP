@@ -55,7 +55,6 @@ function createModalWindowHTML() {
 
     let containerInput1 = document.createElement('div');
     containerInput1.classList.add('container-input');
-    
 
     let labelTitle = document.createElement('label');
     labelTitle.innerText = 'Title';
@@ -72,12 +71,64 @@ function createModalWindowHTML() {
     containerInput1.appendChild(spanTitleError);
     
     // TODO: Kalendar za datum
+    let containerInput2 = document.createElement('div');
+    containerInput2.classList.add('container-input');
+
+    let labelDate = document.createElement('label');
+    labelDate.innerText = 'Date';
+    labelDate.appendChild(spanRequired);
+
+    let inputDate = document.createElement('input');
+    inputDate.type = 'date';
+
+    let spanDateError = document.createElement('span');
+    spanDateError.classList.add('error-message');
+    spanDateError.appendChild(spanRequired);
+
+    containerInput2.appendChild(labelDate);
+    containerInput2.appendChild(inputDate);
+    containerInput2.appendChild(spanDateError);
 
     // TODO: Textarea za deskripciju
+    let containerInput3 = document.createElement('div');
+    containerInput3.classList.add('container-input');
 
+    let labelDescription = document.createElement('label');
+    labelDescription.innerText = 'Description';
+    labelDescription.appendChild(spanRequired);
+
+    let inputDescription = document.createElement('textarea');
+
+    let spanDescriptionError = document.createElement('span');
+    spanDescriptionError.classList.add('error-message');
+    spanDescriptionError.appendChild(spanRequired);
+
+    containerInput3.appendChild(labelDescription);
+    containerInput3.appendChild(inputDescription);
+    containerInput3.appendChild(spanDescriptionError);
+    
     // TODO: Dropdown za priority zadatka
+    let containerInput4 = document.createElement('div');
+    containerInput4.classList.add('container-input');
 
+    let labelDropdown = document.createElement('label');
+    labelDropdown.innerText = 'Priority';
+    labelDropdown.appendChild(spanRequired);
+
+    let inputDropdown = document.createElement('select');
+
+    let spanDropdownError = document.createElement('span');
+    spanDropdownError.classList.add('error-message');
+    spanDropdownError.appendChild(spanRequired);
+
+    containerInput4.appendChild(labelDropdown);
+    containerInput4.appendChild(inputDropdown);
+    containerInput4.appendChild(spanDropdownError);
+    
     formTaskInfo.appendChild(containerInput1);
+    formTaskInfo.appendChild(containerInput2);
+    formTaskInfo.appendChild(containerInput3);
+    formTaskInfo.appendChild(containerInput4);
 
     containerTaskInfo.appendChild(formTaskInfo);
 
@@ -88,6 +139,8 @@ function createModalWindowHTML() {
 
     return modalWindow;
 }
+
+// !! Bug: Required znak * prikaze samo na zadnjem polju
 
 /*
 
