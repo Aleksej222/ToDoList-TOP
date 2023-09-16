@@ -2,6 +2,7 @@ import { Task } from "./Task";
 import { listOptionSelected } from "./showCorrectProject";
 import { createTaskHTML } from "./showCorrectProject";
 
+// ** Main function that creates task
 export function addNewTask() {
     
     // console.log(listOptionSelected);
@@ -11,7 +12,7 @@ export function addNewTask() {
     openModalWindow();
 }
 
-
+// ** Open modal window on add task button click
 function openModalWindow() {
 
     let tasksContainer = document.querySelector('.tasks-container');
@@ -21,6 +22,34 @@ function openModalWindow() {
 
 }
 
+// ** Add task on button click
+function addTaskClicked(e) {
+
+    e.preventDefault();  // Prevent from submiting form
+
+    let taskValid = false;
+
+    //let inputText = newProjectContainer.querySelector('input').value;
+
+    // projectValid = checkIfProjectValid(newProject);
+    taskValid = validateTask(newTask);
+
+    if (taskValid) {
+
+    }
+}
+
+// ** Check if input is valid
+function validateTask() {
+
+    // TODO: Query-at sve inpute u modal-u, validirat ih i vratit true ako jesu ili false i dodat jos error messages (gledat primjere)
+    let taskName = document.querySelector('.task-name');
+
+    return false;
+
+}
+
+// ** Create HTML content for modal window
 function createModalWindowHTML() {
 
     let modalWindow = document.createElement('div');
@@ -146,6 +175,7 @@ function createModalWindowHTML() {
     let btnSubmit = document.createElement('button');
     btnSubmit.innerText = 'Add task';
     btnSubmit.setAttribute('type', 'submit');
+    btnSubmit.addEventListener('click', addTaskClicked);
     
     formTaskInfo.appendChild(containerInput1);
     formTaskInfo.appendChild(containerInput2);

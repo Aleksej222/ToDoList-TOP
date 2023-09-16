@@ -10,6 +10,7 @@ if (!allProjects) {
     allProjects = [];
 }
 
+// ** Main function that creates project
 export function addNewProject() {
 
     // ** Call function only if new project html doesn't exist in DOM
