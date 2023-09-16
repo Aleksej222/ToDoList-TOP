@@ -1,5 +1,6 @@
 import { Task } from "./Task";
 import { listOptionSelected } from "./showCorrectProject";
+import { createTaskHTML } from "./showCorrectProject";
 
 export function addNewTask() {
     
@@ -116,6 +117,23 @@ function createModalWindowHTML() {
     labelDropdown.appendChild(spanRequired);
 
     let inputDropdown = document.createElement('select');
+    
+    let optionLow = document.createElement('option');
+    optionLow.innerText = 'Low';
+    optionLow.setAttribute('value', 'low');
+    optionLow.setAttribute('selected', 'selected');
+
+    let optionMedium = document.createElement('option');
+    optionMedium.innerText = 'Medium';
+    optionMedium.setAttribute('value', 'medium');
+    
+    let optionHigh = document.createElement('option');
+    optionHigh.innerText = 'High';
+    optionHigh.setAttribute('value', 'high');
+
+    inputDropdown.appendChild(optionLow);
+    inputDropdown.appendChild(optionMedium);
+    inputDropdown.appendChild(optionHigh);
 
     let spanDropdownError = document.createElement('span');
     spanDropdownError.classList.add('error-message');
@@ -124,11 +142,16 @@ function createModalWindowHTML() {
     containerInput4.appendChild(labelDropdown);
     containerInput4.appendChild(inputDropdown);
     containerInput4.appendChild(spanDropdownError);
+
+    let btnSubmit = document.createElement('button');
+    btnSubmit.innerText = 'Add task';
+    btnSubmit.setAttribute('type', 'submit');
     
     formTaskInfo.appendChild(containerInput1);
     formTaskInfo.appendChild(containerInput2);
     formTaskInfo.appendChild(containerInput3);
     formTaskInfo.appendChild(containerInput4);
+    formTaskInfo.appendChild(btnSubmit);
 
     containerTaskInfo.appendChild(formTaskInfo);
 

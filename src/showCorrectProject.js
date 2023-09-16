@@ -116,7 +116,7 @@ function clearTasksHTML() {
 }
 
 // ** Create HTML for task
-function createTaskHTML(task) {
+export function createTaskHTML(task) {
 
     let taskContainer = document.createElement('div');
     taskContainer.classList.add('task');
