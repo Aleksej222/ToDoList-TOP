@@ -27,11 +27,17 @@ function addTaskClicked(e) {
 
     e.preventDefault();  // Prevent from submiting form
 
+    let taskName = document.querySelector('input.task-name').value;
+    let taskDate = document.querySelector('input.task-date').value;
+    let taskDescription = document.querySelector('textarea.task-description').value;
+    let taskPriority = document.querySelector('select.task-priority').value;
+    
     let taskValid = false;
 
-    //let inputText = newProjectContainer.querySelector('input').value;
+    console.log(taskDescription);
+    let newTask = new Task(taskName, taskDate, taskDescription, taskPriority);
 
-    // projectValid = checkIfProjectValid(newProject);
+    // console.log(newTask);
     taskValid = validateTask(newTask);
 
     if (taskValid) {
@@ -40,12 +46,42 @@ function addTaskClicked(e) {
 }
 
 // ** Check if input is valid
-function validateTask() {
+function validateTask(task) {
 
-    // TODO: Query-at sve inpute u modal-u, validirat ih i vratit true ako jesu ili false i dodat jos error messages (gledat primjere)
-    let taskName = document.querySelector('.task-name');
+    let taskOk = true;
+    // TODO: Dohvatit errorMsg i mijenjat na osnovu greske
+    let errorMsg = '';
 
-    return false;
+    // TODO: taskName:
+    // ?? Pravilno ime za zadatk, otprilike 15 charactera, ostalo bi sve trebalo bit dozvoljeno
+    // TODO: Dodat validaciju i u HTML
+    if (task.title.length < 1) {
+        taskOk = false;
+        errorMsg = 'Task name can\'t be empty.';
+    }
+
+    if (task.title.length > 15) {
+        taskOk = false;
+        errorMsg = 'Task name can\'t be longer than 15 characters.';
+    }
+
+    // !! BUG: Zasto je value prazan
+    console.log(task.description);
+    // Promjenit na 150
+    if (task.description.length > 15) {
+        console.log('HEY');
+        taskOk = false;
+        errorMsg = 'Task description can\'t be longer than 150 characters.';
+    }
+
+    // TODO: Postavit datum da bude uvijek danasnji dan
+
+    // TODO: taskDescription: 
+    // ?? Otprilike max 100 (mozda je puno) charactera, moze bit prazno
+
+    console.log(errorMsg);
+    console.log(taskOk);
+    return taskOk;
 
 }
 
@@ -91,6 +127,8 @@ function createModalWindowHTML() {
     labelTitle.appendChild(spanRequired);
 
     let inputTitle = document.createElement('input');
+    // inputTitle.classList.add('task');
+    inputTitle.classList.add('task-name');
 
     let spanTitleError = document.createElement('span');
     spanTitleError.classList.add('error-message');
@@ -110,6 +148,8 @@ function createModalWindowHTML() {
 
     let inputDate = document.createElement('input');
     inputDate.type = 'date';
+    // inputDate.classList.add('task');
+    inputDate.classList.add('task-date');
 
     let spanDateError = document.createElement('span');
     spanDateError.classList.add('error-message');
@@ -128,6 +168,8 @@ function createModalWindowHTML() {
     labelDescription.appendChild(spanRequired);
 
     let inputDescription = document.createElement('textarea');
+    // inputDescription.classList.add('task');
+    inputDescription.classList.add('task-description');
 
     let spanDescriptionError = document.createElement('span');
     spanDescriptionError.classList.add('error-message');
@@ -146,6 +188,7 @@ function createModalWindowHTML() {
     labelDropdown.appendChild(spanRequired);
 
     let inputDropdown = document.createElement('select');
+    inputDropdown.classList.add('task-priority');
     
     let optionLow = document.createElement('option');
     optionLow.innerText = 'Low';
@@ -194,6 +237,7 @@ function createModalWindowHTML() {
 }
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
+// ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
 
 /*
 

@@ -3,8 +3,8 @@ export class Task {
     constructor(title, description, date, priority) {
         
         this.title = title;
-        this.description = description;
         this.date = date;
+        this.description = description;
         this.priority = priority;
     }
 
