@@ -15,7 +15,7 @@ export function addNewTask() {
 // ** Open modal window on add task button click
 function openModalWindow() {
 
-    let tasksContainer = document.querySelector('.tasks-container');
+    const tasksContainer = document.querySelector('.tasks-container');
 
     // TODO: Dodat position absolute (tako nekako), pravilno pozicionirat modal window
     tasksContainer.appendChild(createModalWindowHTML());
@@ -34,8 +34,8 @@ function addTaskClicked(e) {
     
     let taskValid = false;
 
-    console.log(taskDescription);
-    let newTask = new Task(taskName, taskDate, taskDescription, taskPriority);
+    // console.log(taskDescription);
+    let newTask = new Task(taskName, taskDescription, taskDate, taskPriority);
 
     // console.log(newTask);
     taskValid = validateTask(newTask);
@@ -65,22 +65,17 @@ function validateTask(task) {
         errorMsg = 'Task name can\'t be longer than 15 characters.';
     }
 
-    // !! BUG: Zasto je value prazan
-    console.log(task.description);
     // Promjenit na 150
     if (task.description.length > 15) {
-        console.log('HEY');
         taskOk = false;
         errorMsg = 'Task description can\'t be longer than 150 characters.';
     }
 
+    console.log(task.date);
+
     // TODO: Postavit datum da bude uvijek danasnji dan
 
-    // TODO: taskDescription: 
-    // ?? Otprilike max 100 (mozda je puno) charactera, moze bit prazno
-
     console.log(errorMsg);
-    console.log(taskOk);
     return taskOk;
 
 }
@@ -88,16 +83,16 @@ function validateTask(task) {
 // ** Create HTML content for modal window
 function createModalWindowHTML() {
 
-    let modalWindow = document.createElement('div');
+    const modalWindow = document.createElement('div');
     modalWindow.classList.add('modal-window');
 
-    let modalContent = document.createElement('div');
+    const modalContent = document.createElement('div');
     modalContent.classList.add('modal-content');
 
-    let containerModal = document.createElement('div');
+    const containerModal = document.createElement('div');
     containerModal.classList.add('container-modal');   
 
-    let modalTop = document.createElement('div');
+    const modalTop = document.createElement('div');
     modalTop.classList.add('modal-top');
 
     let addTaskTitle = document.createElement('h3');
@@ -150,6 +145,11 @@ function createModalWindowHTML() {
     inputDate.type = 'date';
     // inputDate.classList.add('task');
     inputDate.classList.add('task-date');
+
+    let todayDate = getTodayDate();
+    console.log(todayDate);
+    inputDate.value = todayDate;
+    console.log(inputDate.value);
 
     let spanDateError = document.createElement('span');
     spanDateError.classList.add('error-message');
@@ -236,8 +236,21 @@ function createModalWindowHTML() {
     return modalWindow;
 }
 
+// ** 
+function getTodayDate() {
+    const newDate = new Date();
+    
+    const year = newDate.getFullYear();
+    const month = newDate.getMonth() + 1;
+    const day = newDate.getDate();
+
+    const todayDate= year.toString() + '-' + month.toString()+ '-' + day.toString();
+    return todayDate;
+}
+
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
+// ** Bug: Zasto datum ne radi
 
 /*
 
