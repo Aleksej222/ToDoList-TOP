@@ -147,9 +147,7 @@ function createModalWindowHTML() {
     inputDate.classList.add('task-date');
 
     let todayDate = getTodayDate();
-    console.log(todayDate);
-    inputDate.value = todayDate;
-    console.log(inputDate.value);
+    inputDate.value = todayDate; // Correct format: '2020-08-01';
 
     let spanDateError = document.createElement('span');
     spanDateError.classList.add('error-message');
@@ -240,9 +238,13 @@ function createModalWindowHTML() {
 function getTodayDate() {
     const newDate = new Date();
     
-    const year = newDate.getFullYear();
-    const month = newDate.getMonth() + 1;
-    const day = newDate.getDate();
+    let year = newDate.getFullYear();
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate();
+
+    if (month < 10) {
+        month = '0' + month;
+    }
 
     const todayDate= year.toString() + '-' + month.toString()+ '-' + day.toString();
     return todayDate;
@@ -250,7 +252,6 @@ function getTodayDate() {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
-// ** Bug: Zasto datum ne radi
 
 /*
 
