@@ -55,10 +55,8 @@ buttonAddProject.addEventListener('click', addNewProject);
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
 
-// let tasksContainer = document.querySelector('.tasks-container');
 
 // let btnTestFnc = document.querySelector('.edit-task');
-
 // btnTestFnc.addEventListener('click', testThis);
 
 // function testThis() {

@@ -1,14 +1,23 @@
 import { Task } from "./Task";
+import { allProjects } from ".";
 import { listOptionSelected } from "./showCorrectProject";
 import { createTaskHTML } from "./showCorrectProject";
+
+// ** Set allProjects array as an empty array if it doesn't exist in local storage
+if (!allProjects) {
+
+    allProjects = [];
+}
 
 // ** Main function that creates task
 export function addNewTask() {
     
-    // console.log(listOptionSelected);
+    //console.log(listOptionSelected);
+    // console.log(allProjects);
+
+    // TODO: Saznat u kom se projektu nalazi user, i pushat zadatak u taj projekt
 
     // ** Dodat u listOptionSelected projekt zadatak
-
     openModalWindow();
 }
 
@@ -32,6 +41,7 @@ function addTaskClicked(e) {
     let taskDescription = document.querySelector('textarea.task-description').value;
     let taskPriority = document.querySelector('select.task-priority').value;
     
+    let newTaskCreated = false;
     let taskValid = false;
 
     // console.log(taskDescription);
@@ -41,6 +51,16 @@ function addTaskClicked(e) {
     taskValid = validateTask(newTask);
 
     if (taskValid) {
+
+        newTaskCreated = true;
+        // allProjects.push(newProject);
+        // localStorage.setItem('allProjects', JSON.stringify(allProjects));
+
+    }
+
+    if (newTaskCreated) {
+
+        // appendProjectToDOM(newProject);
 
     }
 }
@@ -52,30 +72,28 @@ function validateTask(task) {
     // TODO: Dohvatit errorMsg i mijenjat na osnovu greske
     let errorMsg = '';
 
-    // TODO: taskName:
     // ?? Pravilno ime za zadatk, otprilike 15 charactera, ostalo bi sve trebalo bit dozvoljeno
-    // TODO: Dodat validaciju i u HTML
+    // TODO: Dodat validaciju i u HTML (ili mozda ne, provjerit jos)
     if (task.title.length < 1) {
-        taskOk = false;
+        // taskOk = false;
         errorMsg = 'Task name can\'t be empty.';
     }
 
     if (task.title.length > 15) {
-        taskOk = false;
+        // taskOk = false;
         errorMsg = 'Task name can\'t be longer than 15 characters.';
     }
 
     // Promjenit na 150
     if (task.description.length > 15) {
-        taskOk = false;
+        // taskOk = false;
         errorMsg = 'Task description can\'t be longer than 150 characters.';
     }
 
-    console.log(task.date);
-
-    // TODO: Postavit datum da bude uvijek danasnji dan
-
     console.log(errorMsg);
+    taskOk = (errorMsg == '');  // ?? Mozda je ovakva provjera ok
+    console.log(taskOk);
+
     return taskOk;
 
 }
