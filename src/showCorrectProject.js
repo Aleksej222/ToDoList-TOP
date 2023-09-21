@@ -7,7 +7,8 @@ if (!allProjects) {
     allProjects = [];
 }
 
-export let listOptionSelected;
+export let selectedProject  // Send selected project to addNewTask
+let listOptionSelected;
 
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
@@ -77,6 +78,8 @@ function otherProjectTasks(listOptionSelected) {
     let selectedProjectTasks = allProjects.find(project => {
         return project.title == listOptionSelected;
     });
+
+    selectedProject = selectedProjectTasks;  // Don't understand why is selectedProjectTasks the whole project object
 
     return selectedProjectTasks.tasks;
 }

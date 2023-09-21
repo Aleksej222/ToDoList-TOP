@@ -1,23 +1,15 @@
 import { Task } from "./Task";
-import { allProjects } from ".";
-import { listOptionSelected } from "./showCorrectProject";
+import { selectedProject } from "./showCorrectProject";
 import { createTaskHTML } from "./showCorrectProject";
-
-// ** Set allProjects array as an empty array if it doesn't exist in local storage
-if (!allProjects) {
-
-    allProjects = [];
-}
 
 // ** Main function that creates task
 export function addNewTask() {
     
-    //console.log(listOptionSelected);
-    // console.log(allProjects);
+    console.log(selectedProject);
 
     // TODO: Saznat u kom se projektu nalazi user, i pushat zadatak u taj projekt
 
-    // ** Dodat u listOptionSelected projekt zadatak
+    // ** Dodat u selectedProject projekt zadatak
     openModalWindow();
 }
 
@@ -90,9 +82,9 @@ function validateTask(task) {
         errorMsg = 'Task description can\'t be longer than 150 characters.';
     }
 
-    console.log(errorMsg);
+    // console.log(errorMsg);
     taskOk = (errorMsg == '');  // ?? Mozda je ovakva provjera ok
-    console.log(taskOk);
+    // console.log(taskOk);
 
     return taskOk;
 
