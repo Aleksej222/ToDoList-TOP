@@ -17,7 +17,6 @@ if (localStorage.getItem('allProjects')) {
 function showProjects() {
 
     allProjects.forEach(project => {
-
         appendProjectToDOM(project);
 
     });

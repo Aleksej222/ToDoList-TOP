@@ -1,4 +1,5 @@
 import { allProjects } from ".";
+import generateId from "./generateId";
 // import { allTasks } from ".";
 
 // ** Set allProjects array as an empty array if it doesn't exist in local storage
@@ -53,9 +54,8 @@ function showAllTasks() {
     allProjects.forEach(project => {
 
         project.tasks.forEach(task => {
-            
             allTasks.push(task);
-
+            
         });
     });
 

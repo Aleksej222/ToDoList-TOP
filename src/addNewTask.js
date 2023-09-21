@@ -1,6 +1,7 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
 import { createTaskHTML } from "./showCorrectProject";
+import generateId from "./generateId";
 
 // ** Main function that creates task
 export function addNewTask() {
@@ -28,18 +29,19 @@ function addTaskClicked(e) {
 
     e.preventDefault();  // Prevent from submiting form
 
+    let taskId = generateId();
     let taskName = document.querySelector('input.task-name').value;
     let taskDate = document.querySelector('input.task-date').value;
     let taskDescription = document.querySelector('textarea.task-description').value;
     let taskPriority = document.querySelector('select.task-priority').value;
     
+
     let newTaskCreated = false;
     let taskValid = false;
 
-    // console.log(taskDescription);
-    let newTask = new Task(taskName, taskDescription, taskDate, taskPriority);
+    let newTask = new Task(taskId, taskName, taskDescription, taskDate, taskPriority);
 
-    // console.log(newTask);
+    console.log(newTask);
     taskValid = validateTask(newTask);
 
     if (taskValid) {

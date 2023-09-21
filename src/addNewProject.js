@@ -1,5 +1,6 @@
 import { Project } from "./Project";
 import { allProjects } from ".";
+import generateId from "./generateId";
 
 let newProjectContainer;
 let projectsHtml = document.querySelector('.projects');
@@ -61,10 +62,10 @@ function createProject() {
     let newProjectCreated = false;
     let projectValid = false;
 
+    let projectId = generateId();
     let inputText = newProjectContainer.querySelector('input').value;
-    // console.log(inputText);
 
-    let newProject = new Project(inputText, []);
+    let newProject = new Project(projectId,inputText, []);
 
     projectValid = checkIfProjectValid(newProject);
     if (projectValid) {
@@ -167,3 +168,5 @@ function projectTitleTooLong(title) {
 // TODO: Omogucit dodavanje projekta na enter tipku 
 // ** numberOfTasks.innerText = project.tasks.length; - linija, dodat kasnije na add task, kad se bude mijenjao broj zadataka u projektu
 // TODO: Onemogucit imena projekta sa glavne liste (all-tasks...)
+
+// TODO: Uklonit razlicita imena za projekte (bazirano na id) (provjerit za main opcije, dal imaju id, i dodat ako nemaju)
