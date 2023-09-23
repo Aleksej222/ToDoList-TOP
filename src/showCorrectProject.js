@@ -1,4 +1,5 @@
 import { allProjects } from ".";
+import { createTaskHTML } from "./addNewTask";
 import generateId from "./generateId";
 // import { allTasks } from ".";
 
@@ -118,47 +119,7 @@ function clearTasksHTML() {
     tasksList.innerHTML = '';
 }
 
-// ** Create HTML for task
-export function createTaskHTML(task) {
-
-    let taskContainer = document.createElement('div');
-    taskContainer.classList.add('task');
-
-    let taskDate = document.createElement('span');
-    taskDate.classList.add('task-date');
-    taskDate.innerText = task.date;
-
-    let taskTitle = document.createElement('h4');
-    taskTitle.classList.add('task-title');
-    taskTitle.innerText = task.title;
-
-    let taskDescription = document.createElement('span');
-    taskDescription.classList.add('task-description');
-    taskDescription.innerText = task.description;
-
-    let taskBtns = document.createElement('div');
-    taskBtns.classList.add('tasks-btns');
-
-    let editTaskBtn = document.createElement('button');
-    editTaskBtn.classList.add('edit-task');
-    editTaskBtn.innerText = 'pen';
-
-    let deleteTaskBtn = document.createElement('button');
-    deleteTaskBtn.classList.add('delete-task');
-    deleteTaskBtn.innerText = 'trash-can'
-
-    taskBtns.appendChild(editTaskBtn);
-    taskBtns.appendChild(deleteTaskBtn);
-
-    taskContainer.appendChild(taskDate);
-    taskContainer.appendChild(taskTitle);
-    taskContainer.appendChild(taskDescription);
-    taskContainer.appendChild(taskBtns);
-
-    return taskContainer;
-
-    // !! Color changes based on priority of the task
-}   
+ 
 
 // !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
 // TODO: Zavrsit funkcije za today i this week, kad se napravi dodavanje zadatka (zbog datuma)

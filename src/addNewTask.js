@@ -1,16 +1,11 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
-import { createTaskHTML } from "./showCorrectProject";
 import generateId from "./generateId";
+import { allProjects } from ".";
 
 // ** Main function that creates task
 export function addNewTask() {
     
-    console.log(selectedProject);
-
-    // TODO: Saznat u kom se projektu nalazi user, i pushat zadatak u taj projekt
-
-    // ** Dodat u selectedProject projekt zadatak
     openModalWindow();
 }
 
@@ -35,27 +30,32 @@ function addTaskClicked(e) {
     let taskDescription = document.querySelector('textarea.task-description').value;
     let taskPriority = document.querySelector('select.task-priority').value;
     
+    let tasksContainer = document.querySelector('.tasks-container');
+    let tasksList = tasksContainer.querySelector('.tasks-list');
 
     let newTaskCreated = false;
     let taskValid = false;
 
     let newTask = new Task(taskId, taskName, taskDescription, taskDate, taskPriority);
 
-    console.log(newTask);
+    // console.log(newTask);
     taskValid = validateTask(newTask);
+
+    console.log(selectedProject);
 
     if (taskValid) {
 
         newTaskCreated = true;
-        // allProjects.push(newProject);
-        // localStorage.setItem('allProjects', JSON.stringify(allProjects));
+        selectedProject.tasks.push(newTask);
+        
+        // console.log(selectedProject);
 
     }
 
     if (newTaskCreated) {
 
-        // appendProjectToDOM(newProject);
-
+        tasksList.appendChild(createTaskHTML(newTask));
+        localStorage.setItem('allProjects', JSON.stringify(allProjects));
     }
 }
 
@@ -246,6 +246,48 @@ function createModalWindowHTML() {
     return modalWindow;
 }
 
+// ** Create HTML for task
+export function createTaskHTML(task) {
+
+    let taskContainer = document.createElement('div');
+    taskContainer.classList.add('task');
+
+    let taskDate = document.createElement('span');
+    taskDate.classList.add('task-date');
+    taskDate.innerText = task.date;
+
+    let taskTitle = document.createElement('h4');
+    taskTitle.classList.add('task-title');
+    taskTitle.innerText = task.title;
+
+    let taskDescription = document.createElement('span');
+    taskDescription.classList.add('task-description');
+    taskDescription.innerText = task.description;
+
+    let taskBtns = document.createElement('div');
+    taskBtns.classList.add('tasks-btns');
+
+    let editTaskBtn = document.createElement('button');
+    editTaskBtn.classList.add('edit-task');
+    editTaskBtn.innerText = 'pen';
+
+    let deleteTaskBtn = document.createElement('button');
+    deleteTaskBtn.classList.add('delete-task');
+    deleteTaskBtn.innerText = 'trash-can'
+
+    taskBtns.appendChild(editTaskBtn);
+    taskBtns.appendChild(deleteTaskBtn);
+
+    taskContainer.appendChild(taskDate);
+    taskContainer.appendChild(taskTitle);
+    taskContainer.appendChild(taskDescription);
+    taskContainer.appendChild(taskBtns);
+
+    return taskContainer;
+
+    // !! Color changes based on priority of the task
+}  
+
 // ** 
 function getTodayDate() {
     const newDate = new Date();
@@ -264,6 +306,7 @@ function getTodayDate() {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
+// !! Bug: Nekad ne doda zadatak (otkrit zasto, probat replicirat bug)
 
 /*
 
