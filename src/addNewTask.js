@@ -300,6 +300,10 @@ function getTodayDate() {
         month = '0' + month;
     }
 
+    if (day < 10) {
+        day = '0' + day;
+    }
+
     const todayDate= year.toString() + '-' + month.toString()+ '-' + day.toString();
     return todayDate;
 }
