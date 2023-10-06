@@ -1,5 +1,6 @@
 import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
+import { getTodayDate } from "./getTodayDate";
 import generateId from "./generateId";
 // import { allTasks } from ".";
 
@@ -11,6 +12,7 @@ if (!allProjects) {
 
 export let selectedProject  // Send selected project to addNewTask
 let listOptionSelected;
+let allTasks;
 
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
@@ -49,7 +51,8 @@ export function showCorrectProject() {
 // ** Show tasks from every project
 function showAllTasks() {
 
-    let allTasks = [];
+    allTasks = [];
+    // console.log(allTasks);
 
     // Go through every element in the list (projects) and push all the tasks into the main array that will show those tasks
     allProjects.forEach(project => {
@@ -66,10 +69,30 @@ function showAllTasks() {
 // ** Show tasks with today's date
 function showTodayTasks() {
 
+    let todayTasks = [];
+    let todayDate = getTodayDate();
+
+    allTasks.forEach(task => {
+
+        if (task.date == todayDate) {
+            console.log('yes');
+
+            todayTasks.push(task);
+
+        }
+
+    });
+
+    return todayTasks;
+
 }
 
 // ** Show tasks that are in this week
 function showThisWeekTasks() {
+
+    let thisWeekTasks = [];
+
+    return thisWeekTasks;
 
 }
 

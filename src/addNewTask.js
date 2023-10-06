@@ -1,7 +1,8 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
-import generateId from "./generateId";
 import { allProjects } from ".";
+import { getTodayDate } from "./getTodayDate";
+import generateId from "./generateId";
 
 // ** Main function that creates task
 export function addNewTask() {
@@ -288,25 +289,7 @@ export function createTaskHTML(task) {
     // !! Color changes based on priority of the task
 }  
 
-// ** 
-function getTodayDate() {
-    const newDate = new Date();
-    
-    let year = newDate.getFullYear();
-    let month = newDate.getMonth() + 1;
-    let day = newDate.getDate();
 
-    if (month < 10) {
-        month = '0' + month;
-    }
-
-    if (day < 10) {
-        day = '0' + day;
-    }
-
-    const todayDate= year.toString() + '-' + month.toString()+ '-' + day.toString();
-    return todayDate;
-}
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
