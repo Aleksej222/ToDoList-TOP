@@ -79,10 +79,9 @@ function validateTask(task) {
         errorMsg = 'Task name can\'t be longer than 15 characters.';
     }
 
-    // Promjenit na 150
-    if (task.description.length > 15) {
+    if (task.description.length > 300) {
         // taskOk = false;
-        errorMsg = 'Task description can\'t be longer than 150 characters.';
+        errorMsg = 'Task description can\'t be longer than 300 characters.';
     }
 
     // console.log(errorMsg);
@@ -293,7 +292,6 @@ export function createTaskHTML(task) {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
-// !! Bug: Nekad ne doda zadatak (otkrit zasto, probat replicirat bug)
 
 /*
 
