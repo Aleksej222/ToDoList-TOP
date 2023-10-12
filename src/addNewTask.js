@@ -1,7 +1,7 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
 import { allProjects } from ".";
-import { getTodayDate } from "./getTodayDate";
+import { getTodayDate } from "./getDate";
 import generateId from "./generateId";
 
 // ** Main function that creates task
@@ -64,29 +64,24 @@ function addTaskClicked(e) {
 function validateTask(task) {
 
     let taskOk = true;
-    // TODO: Dohvatit errorMsg i mijenjat na osnovu greske
+    // TODO: Dohvatit errorMsg i mijenjat na osnovu greske u HTML-u
     let errorMsg = '';
 
-    // ?? Pravilno ime za zadatk, otprilike 15 charactera, ostalo bi sve trebalo bit dozvoljeno
+    // ** Valid task name, about 15 characters, everything should be alowed
     // TODO: Dodat validaciju i u HTML (ili mozda ne, provjerit jos)
     if (task.title.length < 1) {
-        // taskOk = false;
         errorMsg = 'Task name can\'t be empty.';
     }
 
     if (task.title.length > 15) {
-        // taskOk = false;
         errorMsg = 'Task name can\'t be longer than 15 characters.';
     }
 
     if (task.description.length > 300) {
-        // taskOk = false;
         errorMsg = 'Task description can\'t be longer than 300 characters.';
     }
 
-    // console.log(errorMsg);
-    taskOk = (errorMsg == '');  // ?? Mozda je ovakva provjera ok
-    // console.log(taskOk);
+    taskOk = (errorMsg == '');
 
     return taskOk;
 
@@ -292,6 +287,7 @@ export function createTaskHTML(task) {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
+// TODO: Dodat broj zadataka pored projekt imena u HTML-u
 
 /*
 

@@ -1,6 +1,7 @@
 import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
-import { getTodayDate } from "./getTodayDate";
+import { getTodayDate } from "./getDate";
+import { getLastWeekDate } from "./getDate";
 import generateId from "./generateId";
 // import { allTasks } from ".";
 
@@ -75,8 +76,6 @@ function showTodayTasks() {
     allTasks.forEach(task => {
 
         if (task.date == todayDate) {
-            console.log('yes');
-
             todayTasks.push(task);
 
         }
@@ -91,6 +90,25 @@ function showTodayTasks() {
 function showThisWeekTasks() {
 
     let thisWeekTasks = [];
+    let todayDate = getTodayDate();
+    let lastWeekDate = getLastWeekDate();
+   
+    // let d1 = todayDate.split('/');
+    // let d2 = lastWeekDate.split('/');
+
+    // console.log(d1);
+
+   // TODO: Calculate correct date range
+    allTasks.forEach(task => {
+
+        if (task.date >= lastWeekDate && task.date <= todayDate) {
+            thisWeekTasks.push(task);
+
+        }
+
+    });
+
+   
 
     return thisWeekTasks;
 
