@@ -98,13 +98,20 @@ function showThisWeekTasks() {
 
     // console.log(d1);
 
+    // console.log(todayDate);
+    console.log(todayDate > lastWeekDate);
+    // console.log(allTasks);
+
    // TODO: Calculate correct date range
     allTasks.forEach(task => {
 
-        if (task.date >= lastWeekDate && task.date <= todayDate) {
-            thisWeekTasks.push(task);
+        console.log(task.date>= lastWeekDate);
 
+        if (task.date <= todayDate && task.date >= lastWeekDate) {
+            thisWeekTasks.push(task);
         }
+    //   let taskDate = task.date.split('/').join();
+    //   console.log(taskDate);
 
     });
 
@@ -163,4 +170,4 @@ function clearTasksHTML() {
  
 
 // !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
-// TODO: Zavrsit funkcije za today i this week, kad se napravi dodavanje zadatka (zbog datuma)
+// !! Bug: ne prikaze zadatak koji je tek dodan u all tasks, today tasks i this week tasks (bez refresh-a stranice)

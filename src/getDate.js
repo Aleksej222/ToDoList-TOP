@@ -24,9 +24,9 @@ export function getLastWeekDate() {
     const newDate = new Date(); 
     let lastWeekDate = new Date(newDate.getTime() - 7 * 24 * 60 * 60 * 1000); 
 
-    let year = newDate.getFullYear();
-    let month = newDate.getMonth() + 1;
-    let day = newDate.getDate();
+    let year = lastWeekDate.getFullYear();
+    let month = lastWeekDate.getMonth() + 1;
+    let day = lastWeekDate.getDate();
 
     if (month < 10) {
         month = '0' + month;
@@ -36,6 +36,7 @@ export function getLastWeekDate() {
         day = '0' + day;
     }
 
+    
     lastWeekDate = year.toString() + '-' + month.toString()+ '-' + day.toString();
     return lastWeekDate;
 
