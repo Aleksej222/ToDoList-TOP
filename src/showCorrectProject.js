@@ -93,29 +93,13 @@ function showThisWeekTasks() {
     let todayDate = getTodayDate();
     let lastWeekDate = getLastWeekDate();
    
-    // let d1 = todayDate.split('/');
-    // let d2 = lastWeekDate.split('/');
-
-    // console.log(d1);
-
-    // console.log(todayDate);
-    console.log(todayDate > lastWeekDate);
-    // console.log(allTasks);
-
-   // TODO: Calculate correct date range
     allTasks.forEach(task => {
-
-        console.log(task.date>= lastWeekDate);
 
         if (task.date <= todayDate && task.date >= lastWeekDate) {
             thisWeekTasks.push(task);
         }
-    //   let taskDate = task.date.split('/').join();
-    //   console.log(taskDate);
 
     });
-
-   
 
     return thisWeekTasks;
 

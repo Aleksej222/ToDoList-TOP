@@ -93,8 +93,12 @@ export function appendProjectToDOM(project) {
     createdProject.setAttribute('id', project.title);
 
     let numberOfTasks = document.createElement('span');
-    numberOfTasks.classList.add('.number-of-tasks');
-    // numberOfTasks.innerText = project.tasks.length;
+    numberOfTasks.classList.add('number-of-tasks');
+    
+    if (project.tasks.length > 0) {
+        numberOfTasks.innerText = "         " + project.tasks.length;
+    }
+
     createdProject.appendChild(numberOfTasks);
 
     projectsList.appendChild(createdProject)
@@ -164,9 +168,12 @@ function projectTitleTooLong(title) {
 // ** Brisanje projekta napravit u novom file-u
 
 // TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
-// ** Bug (minor): nula se dopise odma do zadatka (nula nebi ni trebala bit, a i treba bit razmak)
 // TODO: Omogucit dodavanje projekta na enter tipku 
-// ** numberOfTasks.innerText = project.tasks.length; - linija, dodat kasnije na add task, kad se bude mijenjao broj zadataka u projektu
 // TODO: Onemogucit imena projekta sa glavne liste (all-tasks...)
 
 // TODO: Uklonit razlicita imena za projekte (bazirano na id) (provjerit za main opcije, dal imaju id, i dodat ako nemaju)
+
+// !! BUG: sa razmakom kod broja zadataka
+// TODO: Popravit dizajn (3 taba razmaka) kod broja zadataka u projektu
+
+// TODO: Prikazat broj zadataka u glavne tri opcije (all tasks...)
