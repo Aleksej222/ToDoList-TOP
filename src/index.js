@@ -2,6 +2,7 @@ import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 import { showCorrectProject } from "./showCorrectProject";
 import { addNewTask } from "./addNewTask";
+import { deleteTask } from "./deleteTask";
 
 export let allProjects;
 

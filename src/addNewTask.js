@@ -3,6 +3,7 @@ import { selectedProject } from "./showCorrectProject";
 import { allProjects } from ".";
 import { getTodayDate } from "./getDate";
 import generateId from "./generateId";
+import { deleteTask } from "./deleteTask";
 
 // ** Main function that creates task
 export function addNewTask() {
@@ -263,12 +264,16 @@ export function createTaskHTML(task) {
     taskBtns.classList.add('tasks-btns');
 
     let editTaskBtn = document.createElement('button');
-    editTaskBtn.classList.add('edit-task');
+    editTaskBtn.classList.add('btn-edit-task');
     editTaskBtn.innerText = 'pen';
 
     let deleteTaskBtn = document.createElement('button');
-    deleteTaskBtn.classList.add('delete-task');
-    deleteTaskBtn.innerText = 'trash-can'
+    deleteTaskBtn.classList.add('btn-delete-task');
+    deleteTaskBtn.innerText = 'trash-can';
+    
+    deleteTaskBtn.addEventListener('click', function() {
+        deleteTask(task);
+    });
 
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);
@@ -288,6 +293,7 @@ export function createTaskHTML(task) {
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
 // TODO: Dodat broj zadataka pored projekt imena u HTML-u
+// !! Bug: Ne update-a broj zadataka kad je zadatak dodan
 
 /*
 
