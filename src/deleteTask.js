@@ -1,4 +1,6 @@
 import { allProjects } from ".";
+import { createTaskHTML } from "./addNewTask";
+import { selectedProject } from "./showCorrectProject";
 
 // ** Function that deletes task on button click
 export function deleteTask(taskDeleted) {
@@ -11,14 +13,17 @@ export function deleteTask(taskDeleted) {
         
             if (taskDeleted.id == task.id) {
                 allProjects[i].tasks.splice(0,1);  // Delete the correct task
-                localStorage.setItem('allProjects', JSON.stringify(allProjects));
+                // localStorage.setItem('allProjects', JSON.stringify(allProjects));
             }
         }
     }
+    
+    console.log(selectedProject);
 }
 
 // TODO: Spremit u local storage
 // ?? Mozda pozvat funkciju za prikazivanje zadataka u projektu ??
 // !! Kako uklonit html zadatka
+// ?? Kako dobit selected project (da nebude undefined)
 
 // ?? Da se dobije broj zadataka u main opcijama (all tasks...) uzet ukupan broj u html (pr. tasks.length, children.length) sa queryselector all, pogodit element

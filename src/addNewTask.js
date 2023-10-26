@@ -74,8 +74,8 @@ function validateTask(task) {
         errorMsg = 'Task name can\'t be empty.';
     }
 
-    if (task.title.length > 15) {
-        errorMsg = 'Task name can\'t be longer than 15 characters.';
+    if (task.title.length > 30) {
+        errorMsg = 'Task name can\'t be longer than 30 characters.';
     }
 
     if (task.description.length > 300) {
