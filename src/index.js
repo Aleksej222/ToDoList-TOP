@@ -27,7 +27,7 @@ let listOptions = document.querySelectorAll('.menu-options > li');
 let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
 
 listOptions.forEach(option => {
-    
+    // console.log(option);
     option.addEventListener('click', showCorrectProject);
     
 });

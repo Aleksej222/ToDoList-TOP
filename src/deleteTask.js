@@ -1,6 +1,6 @@
 import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
-import { selectedProject } from "./showCorrectProject";
+import { selectedProject, showCorrectProject } from "./showCorrectProject";
 
 // ** Function that deletes task on button click
 export function deleteTask(taskDeleted) {
@@ -18,7 +18,14 @@ export function deleteTask(taskDeleted) {
         }
     }
     
-    console.log(selectedProject);
+    // console.log(selectedProject);
+
+    let projectName = document.querySelector('.project-name');
+    // let optionSelected = document.querySelector('#');
+    // let optionSelected = document.querySelector('#Random');
+    // console.log(optionSelected);
+    console.log(projectName.textContent);
+    // showCorrectProject()
 }
 
 // TODO: Spremit u local storage

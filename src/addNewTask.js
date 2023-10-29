@@ -84,6 +84,11 @@ function validateTask(task) {
 
     taskOk = (errorMsg == '');
 
+    if (!taskOk) {
+        alert(errorMsg);
+
+    }
+
     return taskOk;
 
 }
