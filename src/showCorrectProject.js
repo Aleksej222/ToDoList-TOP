@@ -53,7 +53,6 @@ export function showCorrectProject() {
 function showAllTasks() {
 
     allTasks = [];
-    // console.log(allTasks);
 
     // Go through every element in the list (projects) and push all the tasks into the main array that will show those tasks
     allProjects.forEach(project => {

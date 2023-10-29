@@ -3,6 +3,7 @@ import { selectedProject } from "./showCorrectProject";
 import { allProjects } from ".";
 import { getTodayDate } from "./getDate";
 import generateId from "./generateId";
+import { updateTask } from "./updateTask";
 import { deleteTask } from "./deleteTask";
 
 // ** Main function that creates task
@@ -271,6 +272,10 @@ export function createTaskHTML(task) {
     let editTaskBtn = document.createElement('button');
     editTaskBtn.classList.add('btn-edit-task');
     editTaskBtn.innerText = 'pen';
+
+    editTaskBtn.addEventListener('click', function() {
+        updateTask(task);
+    });
 
     let deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('btn-delete-task');

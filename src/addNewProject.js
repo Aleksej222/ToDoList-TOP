@@ -95,9 +95,9 @@ export function appendProjectToDOM(project) {
     let numberOfTasks = document.createElement('span');
     numberOfTasks.classList.add('number-of-tasks');
     
-    if (project.tasks.length > 0) {
-        numberOfTasks.innerText = "         " + project.tasks.length;
-    }
+    // if (project.tasks.length > 0) {
+        numberOfTasks.innerText = "         " + project.tasks.length;  // TODO: Fix format later (kasnije koristit css)
+    // }
 
     createdProject.appendChild(numberOfTasks);
 
