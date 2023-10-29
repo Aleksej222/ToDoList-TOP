@@ -12,20 +12,25 @@ export function deleteTask(taskDeleted) {
             let task = projectTasks[j];
         
             if (taskDeleted.id == task.id) {
-                allProjects[i].tasks.splice(0,1);  // Delete the correct task
-                // localStorage.setItem('allProjects', JSON.stringify(allProjects));
+                allProjects[i].tasks.splice(j,1);  // Delete the correct task
+                localStorage.setItem('allProjects', JSON.stringify(allProjects));
             }
         }
     }
     
-    // console.log(selectedProject);
+    showTasksInAProject()
+}
 
-    let projectName = document.querySelector('.project-name');
-    // let optionSelected = document.querySelector('#');
-    // let optionSelected = document.querySelector('#Random');
+function showTasksInAProject() {
+    let projectName = document.querySelector('.project-name').textContent;
+    
+    let optionSelected = document.querySelector(`[id="${projectName}" ]`);
+    // console.log(projectName);
     // console.log(optionSelected);
-    console.log(projectName.textContent);
     // showCorrectProject()
+
+    optionSelected.addEventListener('click', showCorrectProject);
+    optionSelected.click();
 }
 
 // TODO: Spremit u local storage

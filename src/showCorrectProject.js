@@ -23,7 +23,7 @@ export function showCorrectProject() {
 
     let previousOptionSelected = document.querySelector('.project-name').innerText;
 
-    if (previousOptionSelected !== listOptionSelected) {
+    // if (previousOptionSelected !== listOptionSelected) {  // ?? WHY was this here??
 
         switch (listOptionSelected) {
             case 'All tasks':
@@ -45,7 +45,7 @@ export function showCorrectProject() {
         
         clearTasksHTML();
         displayProjectTasks(listOptionSelected, selectedProjectTasks);
-    }
+    // }
     
 }
 
