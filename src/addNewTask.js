@@ -1,8 +1,9 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
+import { createModalWindow } from "./createModalWindow";
 import { allProjects } from ".";
-import { getTodayDate } from "./getDate";
 import generateId from "./generateId";
+import { getTodayDate } from "./getDate";
 import { updateTask } from "./updateTask";
 import { deleteTask } from "./deleteTask";
 
@@ -19,6 +20,7 @@ function openModalWindow() {
 
     // TODO: Dodat position absolute (tako nekako), pravilno pozicionirat modal window
     tasksContainer.appendChild(createModalWindowHTML());
+    // tasksContainer.appendChild(createModalWindow());
 
 }
 
