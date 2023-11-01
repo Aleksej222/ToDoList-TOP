@@ -1,6 +1,5 @@
 import { Task } from "./Task";
 import { selectedProject } from "./showCorrectProject";
-import { createModalWindow } from "./createModalWindow";
 import { allProjects } from ".";
 import generateId from "./generateId";
 import { getTodayDate } from "./getDate";
@@ -20,7 +19,6 @@ function openModalWindow() {
 
     // TODO: Dodat position absolute (tako nekako), pravilno pozicionirat modal window
     tasksContainer.appendChild(createModalWindowHTML());
-    // tasksContainer.appendChild(createModalWindow());
 
 }
 
@@ -46,14 +44,17 @@ function addTaskClicked(e) {
     // console.log(newTask);
     taskValid = validateTask(newTask);
 
-    console.log(selectedProject);
-
+    // console.log(selectedProject);
+    
     if (taskValid) {
-
+        
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
         
-        // console.log(selectedProject);
+        let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
+        let numberOfTasks = selectedProjectMenu.querySelector('.number-of-tasks').textContent;
+
+        // numberOfTasks.textContent = Number(numberOfTasks) + 1;
 
     }
 
