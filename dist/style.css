@@ -52,3 +52,7 @@ body {
 .menu-options > li {
     cursor: pointer;
 }
+
+.modal-window {
+    background-color: turquoise;
+}

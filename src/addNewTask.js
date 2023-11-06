@@ -24,7 +24,6 @@ function openModalWindow() {
 
 // ** Add task on button click
 function addTaskClicked(e) {
-
     e.preventDefault();  // Prevent from submiting form
 
     let taskId = generateId();
@@ -60,6 +59,7 @@ function addTaskClicked(e) {
 
     if (newTaskCreated) {
 
+        closeModalWindow();
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
     }
@@ -103,11 +103,11 @@ function createModalWindowHTML() {
     const modalWindow = document.createElement('div');
     modalWindow.classList.add('modal-window');
 
-    const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content');
+    // const modalContent = document.createElement('div');
+    // modalContent.classList.add('modal-content');
 
-    const containerModal = document.createElement('div');
-    containerModal.classList.add('container-modal');   
+    // const containerModal = document.createElement('div');
+    // containerModal.classList.add('container-modal');   
 
     const modalTop = document.createElement('div');
     modalTop.classList.add('modal-top');
@@ -234,21 +234,36 @@ function createModalWindowHTML() {
     btnSubmit.innerText = 'Add task';
     btnSubmit.setAttribute('type', 'submit');
     btnSubmit.addEventListener('click', addTaskClicked);
+
+    let btnCacnel = document.createElement('button');
+    btnCacnel.innerText = 'Cancel';
+    btnCacnel.setAttribute('type', 'button');
+    btnCacnel.addEventListener('click', closeModalWindow);
     
     formTaskInfo.appendChild(containerInput1);
     formTaskInfo.appendChild(containerInput2);
     formTaskInfo.appendChild(containerInput3);
     formTaskInfo.appendChild(containerInput4);
     formTaskInfo.appendChild(btnSubmit);
+    formTaskInfo.appendChild(btnCacnel);
 
     containerTaskInfo.appendChild(formTaskInfo);
 
-    containerModal.appendChild(modalTop);
-    containerModal.appendChild(containerTaskInfo);
-    modalContent.appendChild(containerModal);
-    modalWindow.appendChild(modalContent);
+    modalWindow.appendChild(modalTop);
+    modalWindow.appendChild(containerTaskInfo);
+    // modalContent.appendChild(containerModal);
+    // modalWindow.appendChild(modalContent);
 
     return modalWindow;
+}
+
+// ** Close the modal window on button click
+function closeModalWindow() {
+    
+    let modalWindow = document.querySelector('.modal-window');
+    // modalWindow.innerHTML = '';
+    modalWindow.remove();
+
 }
 
 // ** Create HTML for task

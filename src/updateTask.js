@@ -1,12 +1,12 @@
 
-
+// ** Function for task update
 export function updateTask(taskUpdated) {
     // console.log(taskUpdated);
     // console.log(this);
 
 
     // openModalEditTask();
-    createUpdateTaskModal(taskUpdated);
+    // createUpdateTaskModal(taskUpdated);
 
 }
 
