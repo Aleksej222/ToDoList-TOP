@@ -51,9 +51,10 @@ function addTaskClicked(e) {
         selectedProject.tasks.push(newTask);
         
         let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
-        let numberOfTasks = selectedProjectMenu.querySelector('.number-of-tasks').textContent;
+        let numberOfTasksHtml = selectedProjectMenu.querySelector('.number-of-tasks');
+        let numberOfTasks = Number(numberOfTasksHtml.textContent) + 1;
 
-        // numberOfTasks.textContent = Number(numberOfTasks) + 1;
+        numberOfTasksHtml.textContent = String(numberOfTasks);
 
     }
 
@@ -259,9 +260,8 @@ function createModalWindowHTML() {
 
 // ** Close the modal window on button click
 function closeModalWindow() {
-    
+
     let modalWindow = document.querySelector('.modal-window');
-    // modalWindow.innerHTML = '';
     modalWindow.remove();
 
 }
@@ -317,11 +317,12 @@ export function createTaskHTML(task) {
 }  
 
 
-
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
 // TODO: Dodat broj zadataka pored projekt imena u HTML-u
-// !! Bug: Ne update-a broj zadataka kad je zadatak dodan
+// ** Bug: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
+// TODO: Dodat da na klik izvan modala zatvori modal window automatski (zato sto se modal prenese u sledeci projekt)
+// TODO: Napravit decrease task funckciju, kad se izbirse zadatak da se pokaze ispravno u html
 
 /*
 

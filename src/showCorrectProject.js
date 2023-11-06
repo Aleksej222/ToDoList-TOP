@@ -2,18 +2,18 @@ import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
 import { getTodayDate } from "./getDate";
 import { getLastWeekDate } from "./getDate";
-import generateId from "./generateId";
 // import { allTasks } from ".";
+
+
+export let selectedProject  // Send selected project to addNewTask
+let listOptionSelected;
+let allTasks;
 
 // ** Set allProjects array as an empty array if it doesn't exist in local storage
 if (!allProjects) {
 
     allProjects = [];
 }
-
-export let selectedProject  // Send selected project to addNewTask
-let listOptionSelected;
-let allTasks;
 
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
@@ -106,8 +106,8 @@ function showThisWeekTasks() {
 
 // ** Show tasks from project that is not in the main list (all-tasks...)
 function otherProjectTasks(listOptionSelected) {
-
     let selectedProjectTasks = allProjects.find(project => {
+
         return project.title == listOptionSelected;
     });
 
