@@ -5,6 +5,7 @@ import generateId from "./generateId";
 import { getTodayDate } from "./getDate";
 import { updateTask } from "./updateTask";
 import { deleteTask } from "./deleteTask";
+import { changeNumberOfTasks } from "./changeNumberOfTasks";
 
 // ** Main function that creates task
 export function addNewTask() {
@@ -50,11 +51,7 @@ function addTaskClicked(e) {
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
         
-        let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
-        let numberOfTasksHtml = selectedProjectMenu.querySelector('.number-of-tasks');
-        let numberOfTasks = Number(numberOfTasksHtml.textContent) + 1;
-
-        numberOfTasksHtml.textContent = String(numberOfTasks);
+        changeNumberOfTasks('increase');
 
     }
 
