@@ -155,12 +155,17 @@ export function createModalWindowHTML(action, task) {
     btnSubmit.setAttribute('type', 'submit');
    
     if (action == 'add') {
+        
         btnSubmit.innerText = 'Add task';
         btnSubmit.addEventListener('click', addTaskClicked);
 
     } else if (action == 'update') {
+        // btnSubmit.setAttribute('type', 'submit');
         btnSubmit.innerText = 'Update task';
-        btnSubmit.addEventListener('click', updateTaskClicked);
+        btnSubmit.addEventListener('click', function(e) {
+            e.preventDefault();
+            updateTaskClicked(task);
+        });
     }
    
 
