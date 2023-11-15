@@ -10,6 +10,7 @@ export function changeNumberOfTasks(action) {
 
     if (action == 'increase') {
         numberOfTasks++;
+        
     } else if (action == 'decrease') {
         numberOfTasks--;
     }

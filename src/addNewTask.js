@@ -47,7 +47,6 @@ export function addTaskClicked(e) {
     // console.log(selectedProject);
     
     if (taskValid) {
-        
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
         
@@ -56,7 +55,6 @@ export function addTaskClicked(e) {
     }
 
     if (newTaskCreated) {
-
         closeModalWindow();
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
