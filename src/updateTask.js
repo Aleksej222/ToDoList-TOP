@@ -1,6 +1,7 @@
 import { createModalWindowHTML } from "./modalWindow";
 import { allProjects } from ".";
 import { showTasksInAProject } from "./showTasksInAProject";
+import { validateTask } from "./validateTask";
 
 // ** Function for task update
 export function updateTask(task) {
@@ -25,9 +26,10 @@ export function updateTaskClicked(taskUpdated) {
     taskUpdated.description = taskDescription;
     taskUpdated.priority = taskPriority;
 
-    let validUpdate = true;  // TODO: Fix later
+    let taskValid = false;
+    taskValid = validateTask(taskUpdated);
 
-    if (validUpdate) {
+    if (taskValid) {
 
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
 

@@ -74,10 +74,11 @@ export function createModalWindowHTML(action, task) {
 
     if (action == 'update') {
         inputDate.value = task.date;
-    }
 
-    let todayDate = getTodayDate();
-    inputDate.value = todayDate; // Correct format: '2020-08-01';
+    } else if (action == 'add') {
+        let todayDate = getTodayDate();
+        inputDate.value = todayDate; // Correct format: '2020-08-01';
+    }
 
     let spanDateError = document.createElement('span');
     spanDateError.classList.add('error-message');
