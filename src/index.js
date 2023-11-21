@@ -2,9 +2,9 @@ import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 import { showCorrectProject } from "./showCorrectProject";
 import { addNewTask } from "./addNewTask";
-import { deleteTask } from "./deleteTask";
 
 export let allProjects;
+export let totalNumberOfTasks = 0;
 
 // ** Get projects from local storage if they exist
 if (localStorage.getItem('allProjects')) {
@@ -22,6 +22,17 @@ function showProjects() {
 
     });
 }
+
+// TODO: Premjestit u posebnu funkciju
+// ** Get total number of tasks and show it in list
+for (let i = 0; i < allProjects.length; i++) {
+
+    totalNumberOfTasks = totalNumberOfTasks + allProjects[i].tasks.length;
+
+}
+
+let totalNumberOfTasksHtml = document.querySelector('.all-tasks-number-of-tasks');
+totalNumberOfTasksHtml.textContent = totalNumberOfTasks;
 
 let listOptions = document.querySelectorAll('.menu-options > li');
 let listOptionSelected = listOptions[0];  // Default All tasks as selected option 

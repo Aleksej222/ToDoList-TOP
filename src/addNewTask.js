@@ -4,7 +4,7 @@ import { allProjects } from ".";
 import generateId from "./generateId";
 import { updateTask } from "./updateTask";
 import { deleteTask } from "./deleteTask";
-import { changeNumberOfTasks } from "./changeNumberOfTasks";
+import { changeNumberOfTasksHtml } from "./changeNumberOfTasksHtml";
 import { createModalWindowHTML, closeModalWindow } from "./modalWindow";
 import { validateTask } from "./validateTask";
 
@@ -51,7 +51,8 @@ export function addTaskClicked(e) {
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
         
-        changeNumberOfTasks('increase');
+        console.log(selectedProject.tasks.length);
+        changeNumberOfTasksHtml('increase', selectedProject.tasks.length);
 
     }
 
