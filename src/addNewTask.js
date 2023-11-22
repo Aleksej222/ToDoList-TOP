@@ -51,7 +51,6 @@ export function addTaskClicked(e) {
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
         
-        console.log(selectedProject.tasks.length);
         changeNumberOfTasksHtml('increase', selectedProject.tasks.length);
 
     }
@@ -62,8 +61,6 @@ export function addTaskClicked(e) {
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
     }
 }
-
-
 
 // ** Create HTML for task
 export function createTaskHTML(task) {
@@ -117,11 +114,10 @@ export function createTaskHTML(task) {
 
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
-// ** Bug: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
+// TODO: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
 // TODO: Dodat broj zadataka pored projekt imena u HTML-u
-// ** Bug: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
+// TODO: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
 // TODO: Dodat da na klik izvan modala zatvori modal window automatski (zato sto se modal prenese u sledeci projekt)
-// TODO: Napravit decrease task funckciju, kad se izbirse zadatak da se pokaze ispravno u html
 
 /*
 

@@ -1,13 +1,12 @@
 import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
-import { getTodayDate } from "./getDate";
 import { getLastWeekDate } from "./getDate";
-// import { allTasks } from ".";
-
+import { getAllTasks } from "./getAllTasks";
+import { getTodayTasks } from "./getTodayTasks";
+import { getThisWeekTasks } from "./getThisWeekTasks";
 
 export let selectedProject  // Send selected project to addNewTask
 let listOptionSelected;
-let allTasks;
 
 // ** Set allProjects array as an empty array if it doesn't exist in local storage
 if (!allProjects) {
@@ -21,87 +20,27 @@ export function showCorrectProject() {
     listOptionSelected = this.id;
     let selectedProjectTasks;
 
-    let previousOptionSelected = document.querySelector('.project-name').innerText;
+    switch (listOptionSelected) {
+        case 'All tasks':
+            selectedProjectTasks = getAllTasks();
+            break;
 
-    // if (previousOptionSelected !== listOptionSelected) {  // ?? WHY was this here??
-
-        switch (listOptionSelected) {
-            case 'All tasks':
-                selectedProjectTasks = showAllTasks();
-                break;
+        case 'Today':
+            selectedProjectTasks = getTodayTasks();
+            break;
     
-            case 'Today':
-                selectedProjectTasks = showTodayTasks();
-                break;
-        
-            case 'This week':
-                selectedProjectTasks = showThisWeekTasks();
-                break;
+        case 'This week':
+            selectedProjectTasks = getThisWeekTasks();
+            break;
+
+        default:
+            selectedProjectTasks = otherProjectTasks(listOptionSelected);
+            break;
+    }
     
-            default:
-                selectedProjectTasks = otherProjectTasks(listOptionSelected);
-                break;
-        }
-        
-        clearTasksHTML();
-        displayProjectTasks(listOptionSelected, selectedProjectTasks);
-    // }
+    clearTasksHTML();
+    displayProjectTasks(listOptionSelected, selectedProjectTasks);
     
-}
-
-// ** Show tasks from every project
-function showAllTasks() {
-
-    allTasks = [];
-
-    // Go through every element in the list (projects) and push all the tasks into the main array that will show those tasks
-    allProjects.forEach(project => {
-
-        project.tasks.forEach(task => {
-            allTasks.push(task);
-            
-        });
-    });
-
-    return allTasks;  
-}
-
-// ** Show tasks with today's date
-function showTodayTasks() {
-
-    let todayTasks = [];
-    let todayDate = getTodayDate();
-
-    allTasks.forEach(task => {
-
-        if (task.date == todayDate) {
-            todayTasks.push(task);
-
-        }
-
-    });
-
-    return todayTasks;
-
-}
-
-// ** Show tasks that are in this week
-function showThisWeekTasks() {
-
-    let thisWeekTasks = [];
-    let todayDate = getTodayDate();
-    let lastWeekDate = getLastWeekDate();
-   
-    allTasks.forEach(task => {
-
-        if (task.date <= todayDate && task.date >= lastWeekDate) {
-            thisWeekTasks.push(task);
-        }
-
-    });
-
-    return thisWeekTasks;
-
 }
 
 // ** Show tasks from project that is not in the main list (all-tasks...)

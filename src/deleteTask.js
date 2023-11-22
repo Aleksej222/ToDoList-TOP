@@ -22,3 +22,6 @@ export function deleteTask(taskDeleted) {
     
     showTasksInAProject();
 }
+
+
+// !! Bug: undefined kad se brise zadatak iz today i this week opcija
