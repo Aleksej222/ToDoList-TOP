@@ -1,5 +1,8 @@
 import { selectedProject } from "./showCorrectProject";
 import { totalNumberOfTasks } from ".";
+import { setAllTasksNumber } from "./setAllTasksNumber";
+import { setTodayTasksNumber } from "./setTodayTasksNumber";
+import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 
 // ** Set tasks number inside of a project on task added/deleted
 export function changeNumberOfTasksHtml(action, numberOfTasks) {
@@ -25,10 +28,12 @@ export function changeNumberOfTasksHtml(action, numberOfTasks) {
 
 }
 
-// ** Update all tasks number in html
+// ** Update all main options tasks number in html
 function updateNumberOfTasksHtml() {
-    let totalNumberOfTasksHtml = document.querySelector('.all-tasks-number-of-tasks');
-    totalNumberOfTasksHtml.textContent = totalNumberOfTasks;
+
+    setAllTasksNumber();
+    setTodayTasksNumber();
+    setThisWeekTasksNumber()
 
 }
 

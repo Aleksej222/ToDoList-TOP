@@ -2,6 +2,9 @@ import { addNewProject } from "./addNewProject";
 import { appendProjectToDOM } from "./addNewProject";
 import { showCorrectProject } from "./showCorrectProject";
 import { addNewTask } from "./addNewTask";
+import { setAllTasksNumber } from "./setAllTasksNumber";
+import { setTodayTasksNumber } from "./setTodayTasksNumber";
+import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 
 export let allProjects;
 export let totalNumberOfTasks = 0;
@@ -23,22 +26,19 @@ function showProjects() {
     });
 }
 
-// TODO: Premjestit u posebnu funkciju
-// ** Get total number of tasks and show it in list
-for (let i = 0; i < allProjects.length; i++) {
+// ** Call function for setting all tasks number
+setAllTasksNumber();
 
-    totalNumberOfTasks = totalNumberOfTasks + allProjects[i].tasks.length;
+// ** Call function for setting today tasks number
+setTodayTasksNumber();
 
-}
-
-let totalNumberOfTasksHtml = document.querySelector('.all-tasks-number-of-tasks');
-totalNumberOfTasksHtml.textContent = totalNumberOfTasks;
+// ** Call function for setting this week tasks number
+setThisWeekTasksNumber()
 
 let listOptions = document.querySelectorAll('.menu-options > li');
 let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
 
 listOptions.forEach(option => {
-    // console.log(option);
     option.addEventListener('click', showCorrectProject);
     
 });
@@ -46,38 +46,8 @@ listOptions.forEach(option => {
 // ** Simulate click event, so that a function for showing tasks inside a project is called
 listOptionSelected.click();
 
-
-// !! Test part
-// let selectedProject = allProjects[0];
-
-// let testTask = new Task('First task', 'This is first task created that belongs to the project.', '07.09.2023','low');
-// selectedProject.tasks.push(testTask);
-// let anotherTask = new Task('Random task', 'This task belongs to the same project.', '07.09.2023','medium');
-// selectedProject.tasks.push(anotherTask);
-
-// selectedProject = allProjects[1];
-// let anotherProjectTask = new Task('Different project', 'This task belongs to the different project.', '07.09.2023','medium');
-// selectedProject.tasks.push(anotherProjectTask);
-// !! End test part
-
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
 
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
-
-
-// let btnTestFnc = document.querySelector('.edit-task');
-// btnTestFnc.addEventListener('click', testThis);
-
-// function testThis() {
-//     // console.log(allProjects);
-
-//     console.log(selectedProject);
-
-    
-// }
-
-// ** Lepo rasporedit kod po fajlovima, za dodavanje projekta u jedan, za brisanje u drugi, za edit u treci (primjer)
-
-// !! Kako dobit allTasks, popravit kad se napravi funkcija za dodavanje zadataka
