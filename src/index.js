@@ -5,6 +5,7 @@ import { addNewTask } from "./addNewTask";
 import { setAllTasksNumber } from "./setAllTasksNumber";
 import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
+import { editProjectName } from "./editProjectName";
 
 export let allProjects;
 export let totalNumberOfTasks = 0;
@@ -43,11 +44,28 @@ listOptions.forEach(option => {
     
 });
 
+
 // ** Simulate click event, so that a function for showing tasks inside a project is called
 listOptionSelected.click();
 
+// ** Add project on button click
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
 
+// ** Edit project name on button click
+let buttonEditProject = document.querySelector('.btn-edit-project');
+buttonEditProject.addEventListener('click', editProjectName);
+
+// ** Add task on button click
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
+
+
+
+// TODO: Napravit delete i update projekta (konfirmacija na brisanje, jer se izbrisu i svi zadaci sa projektom)
+// TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
+// TODO: displayProjectTasks funckiju prebacit u zasebnu funkciju
+
+// ?? Kako razdvojit kod oko promjene projekta
+
+// TODO: Sklonit edit i delete button ako je jedan od main projekata (pogledat primjer sa add tasks)

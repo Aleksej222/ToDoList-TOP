@@ -53,6 +53,21 @@ body {
     cursor: pointer;
 }
 
+.project-title-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 .modal-window {
     background-color: turquoise;
+}
+
+.task {
+    /* background-color: #7CFC00; */
+    /* background-color: #98FB98; */
+    /* background-color: #7efd58; */
+
+
+    /* background-color: #ff3c35f1; */
 }

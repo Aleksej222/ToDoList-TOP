@@ -1,6 +1,5 @@
 import { allProjects } from ".";
 import { createTaskHTML } from "./addNewTask";
-import { getLastWeekDate } from "./getDate";
 import { getAllTasks } from "./getAllTasks";
 import { getTodayTasks } from "./getTodayTasks";
 import { getThisWeekTasks } from "./getThisWeekTasks";
