@@ -16,6 +16,9 @@ if (!allProjects) {
 // ** Get the project that was clicked and show its tasks in the DOM
 export function showCorrectProject() {
 
+    let projectNameText = document.querySelector('.project-name');
+    if (projectNameText.style.display == 'none') return;  // If edit of project is in process stop function from showing project
+
     listOptionSelected = this.id;
     let selectedProjectTasks;
 
