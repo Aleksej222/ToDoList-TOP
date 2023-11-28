@@ -56,6 +56,9 @@ buttonAddProject.addEventListener('click', addNewProject);
 let buttonEditProject = document.querySelector('.btn-edit-project');
 buttonEditProject.addEventListener('click', editProjectName);
 
+// ** Delete project on button click
+let deleteProject = document.querySelector('.btn-delete-project');
+
 // ** Add task on button click
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);

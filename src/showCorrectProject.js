@@ -70,13 +70,19 @@ function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
     });
 
     let addTaskBtn = document.querySelector('.btn-add-task');
+    let editProjectNameBtn = document.querySelector('.btn-edit-project');
+    let deleteProjectBtn = document.querySelector('.btn-delete-project');
 
     // Hide button if selected project is one of the main options
     if (listOptionSelected == 'All tasks' || listOptionSelected == 'Today' || listOptionSelected == 'This week') {
         addTaskBtn.style.display = 'none';
+        editProjectNameBtn.style.display = 'none';
+        deleteProjectBtn.style.display = 'none';
     }
     else {
         addTaskBtn.style.display = 'block';
+        editProjectNameBtn.style.display = 'block';
+        deleteProjectBtn.style.display = 'block';
     }
 
 }

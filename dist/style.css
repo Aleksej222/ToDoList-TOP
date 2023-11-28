@@ -59,6 +59,12 @@ body {
     gap: 1em;
 }
 
+.project-title-btns {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 .project-name-input-edit {
     display: none;
 }
