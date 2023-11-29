@@ -137,7 +137,7 @@ function checkIfProjectValid(newProject) {
 }
 
 // Check if projects array contains project with same title
-function projectTitleDuplicate(title) {
+export function projectTitleDuplicate(title) {
 
     let isDuplicate = false;
 

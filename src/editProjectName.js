@@ -1,10 +1,13 @@
+import { allProjects } from ".";
+import { selectedProject } from "./showCorrectProject";
+import { projectTitleDuplicate } from "./addNewProject";
+
 // ** Edit project title on button click
 export function editProjectName() {
     
    createEditHtml();
 
 }
-
 
 let editProjectNameBtn;
 let deleteProjectBtn;
@@ -39,7 +42,9 @@ function createEditHtml() {
     cancelEditBtn.textContent = 'Cancel';
 
     editDoneBtn.addEventListener('click', editProjectNameClicked);
-    cancelEditBtn.addEventListener('click', cancelEditProjectName);
+    cancelEditBtn.addEventListener('click', function() {
+        cancelEditHtml(false);
+    });
 
     projectTitleBtns.appendChild(editDoneBtn);
     projectTitleBtns.appendChild(cancelEditBtn);
@@ -49,19 +54,44 @@ function createEditHtml() {
 // ** Do the logic for project renaming
 function editProjectNameClicked() {
     
+    let validName = false;
+    let saveNewName = false;
+
     let projectNameInput = document.querySelector('.project-name-input-edit');
     let newName = projectNameInput.value;
+    
+    let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
+    let numberOfTasks = selectedProjectMenu.querySelector('.number-of-tasks');
+    
+    let isDuplicate = projectTitleDuplicate(newName);
+    validName = (!isDuplicate);
+    validName = validName & ((newName.length >= 1) & (newName.length <= 25));
+    
+    if (validName) {
+        saveNewName = true;
+        
+        selectedProject.title = newName;
+        
+        selectedProjectMenu.id = newName;
+        selectedProjectMenu.textContent = newName;
+        
+        numberOfTasks.textContent = "         " + String(selectedProject.tasks.length);
+        selectedProjectMenu.textContent = selectedProjectMenu.textContent + numberOfTasks.textContent;
 
+        localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
+    } 
 
-    // ?? Kako pronac pravi projekt
-    // ?? Spremit promjene u projektu
-    // TODO: Sklonit edit i delete button u main opcijama u listi
+    cancelEditHtml(saveNewName);
 
 }
 
-// ** Cancel edit of project name
-export function cancelEditProjectName() {
+// ** Revert back to the the original html, if save true set new project title
+function cancelEditHtml(save) {
+
+    if (save == true) {
+        projectNameText.textContent = projectNameInput.value;
+    }
 
     projectNameText.style.display = 'block';
     projectNameInput.style.display = 'none';
@@ -74,4 +104,6 @@ export function cancelEditProjectName() {
 
 }
 
-// ** Napravit da bude isto ko sa edit task (isto input da bude)
+
+// ?? Kako update-at listu projekata u html
+// TODO: Pocet pisat logiku za brisanje i za mijenjanje imena
