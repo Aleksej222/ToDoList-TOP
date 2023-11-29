@@ -6,6 +6,7 @@ import { setAllTasksNumber } from "./setAllTasksNumber";
 import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
+import { deleteProject } from "./deleteProject";
 
 export let allProjects;
 export let totalNumberOfTasks = 0;
@@ -57,7 +58,9 @@ let buttonEditProject = document.querySelector('.btn-edit-project');
 buttonEditProject.addEventListener('click', editProjectName);
 
 // ** Delete project on button click
-let deleteProject = document.querySelector('.btn-delete-project');
+let buttondeleteProject = document.querySelector('.btn-delete-project');
+buttondeleteProject.addEventListener('click', deleteProject);
+
 
 // ** Add task on button click
 let buttonAddTask = document.querySelector('.btn-add-task');

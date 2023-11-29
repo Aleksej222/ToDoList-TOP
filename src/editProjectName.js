@@ -103,7 +103,3 @@ function cancelEditHtml(save) {
     cancelEditBtn.style.display = 'none';
 
 }
-
-
-// ?? Kako update-at listu projekata u html
-// TODO: Pocet pisat logiku za brisanje i za mijenjanje imena
