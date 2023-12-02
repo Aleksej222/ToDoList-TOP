@@ -12,12 +12,18 @@ export function deleteProject() {
 
 }
 
+let confirmationModal;
+let confirmationContainer;
+
 // ** Create html for confirmation modal window
 function openConfirmationModal() {
 
     let taskContainer = document.querySelector('.tasks-container');
 
-    let confirmationContainer = document.createElement('div');
+    confirmationModal = document.createElement('div');
+    confirmationModal.classList.add('confirmation-modal');
+
+    confirmationContainer = document.createElement('div');
     confirmationContainer.classList.add('confirmation-container');
     
     let messageText = document.createElement('span');
@@ -25,15 +31,18 @@ function openConfirmationModal() {
 
     let btnConfirm = document.createElement('button');
     btnConfirm.textContent = 'Yes';
+    btnConfirm.addEventListener('click', deleteProjectConfirmed);
 
     let btnDeny = document.createElement('button');
     btnDeny.textContent = 'No';
+    btnDeny.addEventListener('click', cancelDelete);
 
     confirmationContainer.appendChild(messageText);
     confirmationContainer.appendChild(btnConfirm);
     confirmationContainer.appendChild(btnDeny);
 
-    taskContainer.appendChild(confirmationContainer);
+    confirmationModal.appendChild(confirmationContainer);
+    taskContainer.insertAdjacentElement('beforebegin',confirmationModal);
 
 }
 
@@ -44,6 +53,7 @@ function deleteProjectConfirmed() {
 
 // ** Cancel delete of project, delete modal window html
 function cancelDelete() {
+    confirmationModal.style.display = 'none';
 
 }
 
