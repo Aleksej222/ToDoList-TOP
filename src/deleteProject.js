@@ -5,9 +5,6 @@ import { selectedProject } from "./showCorrectProject";
 // ** Delete the whole project, and all of its tasks
 export function deleteProject() {
 
-    // console.log('test');
-
-    // let deleteBool = openConfirmationModal();
     openConfirmationModal();
 
 }
@@ -49,6 +46,18 @@ function openConfirmationModal() {
 // ** Function that deletes the selected project
 function deleteProjectConfirmed() {
 
+    for (let i = 0; i < allProjects.length; i++) {
+        
+        let project = allProjects[i];
+
+        if (selectedProject.id == project.id) {
+            
+            allProjects.splice(i,1);
+            localStorage.setItem('allProjects', JSON.stringify(allProjects));
+
+            location.reload();
+        }
+    }
 }
 
 // ** Cancel delete of project, delete modal window html
@@ -59,6 +68,4 @@ function cancelDelete() {
 
 
 // TODO: Dodat stajling za confirmation modal
-
-// TODO: Postavit confirmation modal window, prije brisanja, sa upozorenjem
 // TODO: Napravit refresh kad se obrise cijeli projekt (najlakse)
