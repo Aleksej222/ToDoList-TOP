@@ -66,8 +66,6 @@ buttondeleteProject.addEventListener('click', deleteProject);
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
 
-
-
 // TODO: Napravit delete i update projekta (konfirmacija na brisanje, jer se izbrisu i svi zadaci sa projektom)
 // TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
 // TODO: displayProjectTasks funckiju prebacit u zasebnu funkciju

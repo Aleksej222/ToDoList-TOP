@@ -67,7 +67,7 @@ function createProject() {
 
     let newProject = new Project(projectId,inputText, []);
 
-    projectValid = checkIfProjectValid(newProject);
+    projectValid = checkIfProjectValid(newProject.title);
     if (projectValid) {
 
         newProjectCreated = true;
@@ -106,24 +106,29 @@ export function appendProjectToDOM(project) {
 }
 
 // ** Check if new project has a valid name
-function checkIfProjectValid(newProject) {
+export function checkIfProjectValid(newProjectTitle) {
 
     let isValid = false;
     let errorMsg = '';
 
-    let isDuplicate = projectTitleDuplicate(newProject.title);
+    let isDuplicate = projectTitleDuplicate(newProjectTitle);
     if (isDuplicate) {
         errorMsg = 'Project with that name already exists.';
     }
 
-    let isEmpty = projectTitleEmpty(newProject.title);
+    let isEmpty = projectTitleEmpty(newProjectTitle);
     if (isEmpty) {
         errorMsg = 'Project name can\'t be empty.';
     }    
 
-    let isTooLong = projectTitleTooLong(newProject.title);
+    let isTooLong = projectTitleTooLong(newProjectTitle);
     if (isTooLong) {
         errorMsg = 'Project name is too long.';
+    }
+
+    let isMainOption = projectTitleIsMainOption(newProjectTitle);
+    if (isMainOption) {
+        errorMsg = "Project name can't be the same as the main option name.";
     }
 
     let errorMsgSpan = document.querySelector('.error-message');
@@ -132,12 +137,13 @@ function checkIfProjectValid(newProject) {
     isValid = (isDuplicate == false);
     isValid = isValid && (isEmpty == false);
     isValid = isValid && (isTooLong == false);
+    isValid = isValid && (isMainOption == false);
 
     return isValid;
 }
 
-// Check if projects array contains project with same title
-export function projectTitleDuplicate(title) {
+//** Check if projects array contains project with same title
+function projectTitleDuplicate(title) {
 
     let isDuplicate = false;
 
@@ -153,27 +159,35 @@ export function projectTitleDuplicate(title) {
     return isDuplicate;
 }
 
+// ** Project title can't be empty
 function projectTitleEmpty(title) {
 
     return title.length < 1 ? true : false;
 }
 
+// ** Project title can't be longer than 25 characters
 function projectTitleTooLong(title) {
 
     return title.length >= 25 ? true : false;
+}
+
+// ** Project title can't have the same name as one of the main options
+function projectTitleIsMainOption(title) {
+
+    let isMainOption = (title.toLowerCase() == 'all tasks');
+    isMainOption = isMainOption || (title.toLowerCase() == 'today');
+    isMainOption = isMainOption || (title.toLowerCase() == 'this week')
+
+    return isMainOption;
 }
 
 // ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
 // ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
 // ** Brisanje projekta napravit u novom file-u
 
-// TODO: Napravit funkciju za provjeravanje broja zadataka (ne prikazat kad je nula)
+
 // TODO: Omogucit dodavanje projekta na enter tipku 
 // TODO: Onemogucit imena projekta sa glavne liste (all-tasks...)
 
-// TODO: Uklonit razlicita imena za projekte (bazirano na id) (provjerit za main opcije, dal imaju id, i dodat ako nemaju)
-
 // !! BUG: sa razmakom kod broja zadataka
 // TODO: Popravit dizajn (3 taba razmaka) kod broja zadataka u projektu
-
-// TODO: Prikazat broj zadataka u glavne tri opcije (all tasks...)
