@@ -13,7 +13,7 @@ export function deleteTask(taskDeleted) {
         
             if (taskDeleted.id == task.id) {
                 allProjects[i].tasks.splice(j,1);  // Delete the correct task
-                localStorage.setItem('allProjects', JSON.stringify(allProjects));
+                // localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
                 changeNumberOfTasksHtml('decrease', allProjects[i].tasks.length);
             }
@@ -24,4 +24,4 @@ export function deleteTask(taskDeleted) {
 }
 
 
-// !! Bug: undefined kad se brise zadatak iz today i this week opcija
+// !! Bug: undefined kad se brise zadatak iz all tasks, today i this week opcija

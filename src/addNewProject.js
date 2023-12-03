@@ -181,13 +181,10 @@ function projectTitleIsMainOption(title) {
     return isMainOption;
 }
 
-// ?? Kako dohvatit allProjects arr (kako napravit taj deo), ili mozda napravit array allTasks pa odma tamo pushat (razmislit jos o ovom djelu)
-// ?? Kako obrisat projekt (Na hover dodat x simbol, pogledat primjer na webu, stajling isto slican napravit)
-// ** Brisanje projekta napravit u novom file-u
+
 
 
 // TODO: Omogucit dodavanje projekta na enter tipku 
-// TODO: Onemogucit imena projekta sa glavne liste (all-tasks...)
-
-// !! BUG: sa razmakom kod broja zadataka
+// !! Bug: Ne moze se otvorit projekt koji je tek dodan
+// !! Bug: sa razmakom kod broja zadataka
 // TODO: Popravit dizajn (3 taba razmaka) kod broja zadataka u projektu

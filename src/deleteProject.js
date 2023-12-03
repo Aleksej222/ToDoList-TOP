@@ -68,4 +68,3 @@ function cancelDelete() {
 
 
 // TODO: Dodat stajling za confirmation modal
-// TODO: Napravit refresh kad se obrise cijeli projekt (najlakse)

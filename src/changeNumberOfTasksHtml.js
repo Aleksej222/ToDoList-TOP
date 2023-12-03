@@ -7,13 +7,13 @@ import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 // ** Set tasks number inside of a project on task added/deleted
 export function changeNumberOfTasksHtml(action, numberOfTasks) {
 
+    console.log(selectedProject);
+    if (!selectedProject) return;
+
     let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
     let numberOfTasksHtml = selectedProjectMenu.querySelector('.number-of-tasks');
 
     numberOfTasksHtml.textContent = numberOfTasks;
-
-    // console.log(selectedProjectMenu);
-    // console.log(numberOfTasksHtml);
 
     if (action == 'increase') {
         totalNumberOfTasks++;
@@ -36,6 +36,3 @@ function updateNumberOfTasksHtml() {
     setThisWeekTasksNumber()
 
 }
-
-// TODO: Get today and this week tasks
-// ?? Probat napravit zasebnu funkciju za today i this week odvojit i exportat broj zadataka, i onda samo pozvat na klik da prikaze zadatke
