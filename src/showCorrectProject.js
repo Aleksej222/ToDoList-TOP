@@ -97,7 +97,5 @@ function clearTasksHTML() {
     tasksList.innerHTML = '';
 }
 
-//  return selectedProject;
-
 // !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
 // !! Bug: ne prikaze zadatak koji je tek dodan u all tasks, today tasks i this week tasks (bez refresh-a stranice)
