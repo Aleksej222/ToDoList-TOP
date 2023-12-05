@@ -64,10 +64,6 @@ function editProjectNameClicked() {
     let numberOfTasks = selectedProjectMenu.querySelector('.number-of-tasks');
     
     validName = checkIfProjectValid(newName);
-
-    // let isDuplicate = projectTitleDuplicate(newName);
-    // validName = (!isDuplicate);
-    // validName = validName & ((newName.length >= 1) & (newName.length <= 25));
     
     if (validName) {
         saveNewName = true;

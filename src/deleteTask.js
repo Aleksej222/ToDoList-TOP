@@ -1,5 +1,6 @@
 import { allProjects } from ".";
 import { changeNumberOfTasksHtml } from "./changeNumberOfTasksHtml";
+import { selectedProject } from "./showCorrectProject";
 import { showTasksInAProject } from "./showTasksInAProject";
 
 // ** Function that deletes task on button click
@@ -15,13 +16,12 @@ export function deleteTask(taskDeleted) {
                 allProjects[i].tasks.splice(j,1);  // Delete the correct task
                 // localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
+                selectedProject = allProjects[i];  // Set selected project, so it picks correct value if tasks is deleted from main option
                 changeNumberOfTasksHtml('decrease', allProjects[i].tasks.length);
+
             }
         }
     }
     
     showTasksInAProject();
 }
-
-
-// !! Bug: undefined kad se brise zadatak iz all tasks, today i this week opcija

@@ -7,19 +7,8 @@ import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 // ** Set tasks number inside of a project on task added/deleted
 export function changeNumberOfTasksHtml(action, numberOfTasks) {
 
-    // console.log(selectedProject);
-    // if (!selectedProject) return;
-
     let selectedProjectMenu = document.querySelector(`[id="${selectedProject.title}" ]`);
     let numberOfTasksHtml = selectedProjectMenu.querySelector('.number-of-tasks');
-
-
-    //if (!selectedProject) {
-
-        // let projectName = document.querySelector('.project-name').textContent;
-        // let optionSelected = document.querySelector(`[id="${projectName}" ]`);
-    //}
-
     numberOfTasksHtml.textContent = numberOfTasks;
 
     if (action == 'increase') {
@@ -40,6 +29,6 @@ function updateNumberOfTasksHtml() {
 
     setAllTasksNumber();
     setTodayTasksNumber();
-    setThisWeekTasksNumber()
+    setThisWeekTasksNumber();
 
 }
