@@ -9,7 +9,6 @@ import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
 
 export let allProjects;
-export let totalNumberOfTasks = 0;
 
 // ** Get projects from local storage if they exist
 if (localStorage.getItem('allProjects')) {
@@ -41,10 +40,10 @@ let listOptions = document.querySelectorAll('.menu-options > li');
 let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
 
 listOptions.forEach(option => {
+    // console.log(option);
     option.addEventListener('click', showCorrectProject);
     
 });
-
 
 // ** Simulate click event, so that a function for showing tasks inside a project is called
 listOptionSelected.click();

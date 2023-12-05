@@ -73,6 +73,7 @@ function createProject() {
         newProjectCreated = true;
         allProjects.push(newProject);
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
+
     }
    
     if (newProjectCreated) {
@@ -95,13 +96,11 @@ export function appendProjectToDOM(project) {
     let numberOfTasks = document.createElement('span');
     numberOfTasks.classList.add('number-of-tasks');
     
-    // if (project.tasks.length > 0) {
-        numberOfTasks.innerText = "         " + project.tasks.length;  // TODO: Fix format later (kasnije koristit css)
-    // }
+    numberOfTasks.innerText = "         " + project.tasks.length;  // TODO: Fix format later (kasnije koristit css)
 
     createdProject.appendChild(numberOfTasks);
 
-    projectsList.appendChild(createdProject)
+    projectsList.appendChild(createdProject);
     projectsHtml.appendChild(projectsList);
 }
 
@@ -150,7 +149,6 @@ function projectTitleDuplicate(title) {
     allProjects.map(project => {
         
         if (project.title.toLowerCase() == title.toLowerCase()) {
-
             isDuplicate = true;
         }
         
@@ -161,13 +159,11 @@ function projectTitleDuplicate(title) {
 
 // ** Project title can't be empty
 function projectTitleEmpty(title) {
-
     return title.length < 1 ? true : false;
 }
 
 // ** Project title can't be longer than 25 characters
 function projectTitleTooLong(title) {
-
     return title.length >= 25 ? true : false;
 }
 
