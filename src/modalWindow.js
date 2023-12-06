@@ -2,10 +2,16 @@ import { getTodayDate } from "./getDate";
 import { addTaskClicked } from "./addNewTask";
 import { updateTaskClicked } from "./updateTask";
 
+let confirmationModal;
+
 // ** Create HTML content for modal window
 export function createModalWindowHTML(action, task) {
 
-    const modalWindow = document.createElement('div');
+    confirmationModal = document.createElement('div');
+    confirmationModal.classList.add('confirmation-modal');
+
+    let modalWindow = document.createElement('div');
+    modalWindow.classList.add('confirmation-container');
     modalWindow.classList.add('modal-window'); 
 
     const modalTop = document.createElement('div');
@@ -189,7 +195,10 @@ export function createModalWindowHTML(action, task) {
     // modalContent.appendChild(containerModal);
     // modalWindow.appendChild(modalContent);
 
-    return modalWindow;
+    confirmationModal.appendChild(modalWindow);
+
+    // return modalWindow;
+    return confirmationModal;
 }
 
 // ** Close the modal window on button click
@@ -197,5 +206,7 @@ export function closeModalWindow() {
 
     let modalWindow = document.querySelector('.modal-window');
     modalWindow.remove();
+
+    confirmationModal.style.display = 'none';
 
 }

@@ -60,6 +60,7 @@ export function addTaskClicked(e) {
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
     }
+    
 }
 
 // ** Create HTML for task
@@ -115,77 +116,4 @@ export function createTaskHTML(task) {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // TODO: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
-// TODO: Dodat broj zadataka pored projekt imena u HTML-u
 // TODO: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
-// TODO: Dodat da na klik izvan modala zatvori modal window automatski (zato sto se modal prenese u sledeci projekt)
-
-/*
-
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="container-modal">
-            <div class="modal-top">
-                <h3 class="add-book-title">Add New Book</h3>
-                <span class="close">&times;</span>
-            </div>
-
-            <!-- Put required back later -->
-            <div class="container-book-info">
-                <form id="book-info-form" action="" method="post">
-                   
-                    <div class="container-input">
-                        <label for="title">Title<span aria-label="required">*</span></label>
-                        <input data-form-field type="text" name="title" placeholder="Title" minlength="2">
-                        <span class="error-message"><span aria-label="required">*</span> Book title is
-                            required</span>
-                    </div>
-
-                    <div class="container-input">
-                        <label for="author">Author<span aria-label="required">*</span></label>
-                        <input data-form-field type="text" name="author" placeholder="Author" minlength="2" maxlength="20">
-                        <span class="error-message"><span aria-label="required">*</span> Book author is
-                            required</span>
-                    </div>
-
-                    <div class="container-input">
-                        <label for="numOfPages">Pages<span aria-label="required">*</span></label>
-                        <input data-form-field type="number" name="numOfPages" placeholder="Number of pages"
-                            min="0">
-                        <span class="error-message"><span aria-label="required">*</span> Number of pages is
-                            required</span>
-                    </div>
-
-                    <div class="container-input">
-                        <label for="language">Language<span aria-label="required">*</span></label>
-                        <input data-form-field type="text" name="language" placeholder="Language"
-                            minlength="2" maxlength="20">
-                        <span class="error-message"><span aria-label="required">*</span> Book language is
-                            required</span>
-                    </div>
-
-                    <div class="container-input">
-                        <label for="read">Read<span aria-label="required">*</span></label>
-                        <select data-form-field name="read">
-                            <option value="" disabled selected>Did you read the book?</option>
-                            <option value=true>Read</option>
-                            <option value=false>Didn't read</option>
-                        </select>
-                        <span class="error-message"><span aria-label="required">*</span> Reading status is
-                            required</span>
-                    </div>
-
-                    <div class="container-btn-submit">
-                        <button id="submit-book" type="submit" class="btn btn-submit">Submit</button>
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-*/

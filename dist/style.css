@@ -22,21 +22,6 @@ body {
     /* background-color: rgb(242, 255, 168); */
 }
 
-.menu-container {
-    width: 17%;
-    background-color: var(--color-grey);
-    border-radius: 10px;
-    /* border: 3px solid black; */
-}
-
-.menu-text {
-    font-size: 2rem;
-}
-
-.tasks-container {
-    width: 78%;
-    /* border: 3px solid yellow; */
-}
 
 .toggle-container {
     width: 5%;
@@ -44,65 +29,3 @@ body {
     border: 3px solid red;
 }
 
-
-.task {
-    border: 3px solid black;
-}
-
-.menu-options > li {
-    cursor: pointer;
-}
-
-.project-title-container {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.project-title-btns {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.project-name-input-edit {
-    display: none;
-}
-
-.modal-window {
-    background-color: turquoise;
-}
-
-.task {
-    /* background-color: #7CFC00; */
-    /* background-color: #98FB98; */
-    /* background-color: #7efd58; */
-
-    /* background-color: #beeb9f;  ZELENA - LOW */
-
-    /* background-color: #ffff9d; ZUTA - MEDIUM*/
-
-    /* background-color: #ff6138;  RED - HIGH*/
-}
-
-/* Copied from w3schools */
-.confirmation-modal {  
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
-}
-
-.confirmation-container {
-    background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
-}
