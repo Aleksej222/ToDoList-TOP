@@ -78,6 +78,8 @@ function createProject() {
    
     if (newProjectCreated) {
         appendProjectToDOM(newProject); 
+        location.reload();  // To avoid bug, where you can't click on the newly created project
+
     }
 
     deleteNewProjectHTML();
