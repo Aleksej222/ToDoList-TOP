@@ -84,44 +84,34 @@ export function createTaskHTML(task) {
     let taskBtns = document.createElement('div');
     taskBtns.classList.add('tasks-btns');
 
-    let doneTaskBtn = document.createElement('button');
+    let doneTaskBtn = document.createElement('i');
     doneTaskBtn.classList.add('btn-done-task');
-    // doneTaskBtn.innerText = 'check';
-
+    doneTaskBtn.classList.add('fa');
+    doneTaskBtn.classList.add('fa-check');
+    
     doneTaskBtn.addEventListener('click', function() {
         deleteTask(task);  // Call delete function for now
     });
 
-    let doneBtnIcon = document.createElement('i');
-    doneBtnIcon.classList.add('fa');
-    doneBtnIcon.classList.add('fa-check');  // !! Task: DONE
-    // doneBtnIcon.classList.add('fa-edit');  // !! Task: EDIT
-    // doneBtnIcon.classList.add('fa-trash'); // !! Task: DELETE
 
-    // doneBtnIcon.addEventListener('click', function() {
-    //     deleteTask(task);  // Call delete function for now
-    // });
-
-
-    doneTaskBtn.appendChild(doneBtnIcon);
-
-    let editTaskBtn = document.createElement('button');
+    let editTaskBtn = document.createElement('i');
     editTaskBtn.classList.add('btn-edit-task');
-    editTaskBtn.innerText = 'pen';
+    editTaskBtn.classList.add('fa');
+    editTaskBtn.classList.add('fa-edit');
 
     editTaskBtn.addEventListener('click', function() {
         updateTask(task);
     });
 
-    let deleteTaskBtn = document.createElement('button');
+    let deleteTaskBtn = document.createElement('i');
     deleteTaskBtn.classList.add('btn-delete-task');
-    deleteTaskBtn.innerText = 'trash-can';
+    deleteTaskBtn.classList.add('fa');
+    deleteTaskBtn.classList.add('fa-trash');
     
     deleteTaskBtn.addEventListener('click', function() {
         deleteTask(task);
     });
 
-    // taskBtns.appendChild(doneBtnIcon);
     taskBtns.appendChild(doneTaskBtn);
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);
@@ -139,4 +129,3 @@ export function createTaskHTML(task) {
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
 // TODO: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
-// TODO: Zamjenit buttonse sa ikonicama (samo ikonice), prebacit event listener na njih

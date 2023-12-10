@@ -16,6 +16,8 @@ let projectNameText;
 let editDoneBtn;
 let cancelEditBtn;
 
+
+
 // ** Create html for new button, and hide old
 function createEditHtml() {
 
@@ -35,11 +37,15 @@ function createEditHtml() {
 
     projectNameText.style.display = 'none';
 
-    editDoneBtn = document.createElement('button');
-    editDoneBtn.textContent = "Done";
+    editDoneBtn = document.createElement('i');
+    editDoneBtn.classList.add('btn-edit-task');
+    editDoneBtn.classList.add('fa');
+    editDoneBtn.classList.add('fa-check');
 
-    cancelEditBtn = document.createElement('button');
-    cancelEditBtn.textContent = 'Cancel';
+    cancelEditBtn = document.createElement('i');
+    cancelEditBtn.classList.add('btn-edit-task');
+    cancelEditBtn.classList.add('fa');
+    cancelEditBtn.classList.add('fa-remove');
 
     editDoneBtn.addEventListener('click', editProjectNameClicked);
     cancelEditBtn.addEventListener('click', function() {

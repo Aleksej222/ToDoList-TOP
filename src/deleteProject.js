@@ -31,7 +31,7 @@ function openConfirmationModal() {
     btnConfirm.addEventListener('click', deleteProjectConfirmed);
 
     let btnDeny = document.createElement('button');
-    btnDeny.textContent = 'No';
+    btnDeny.textContent = 'Cancel';
     btnDeny.addEventListener('click', cancelDelete);
 
     confirmationContainer.appendChild(messageText);

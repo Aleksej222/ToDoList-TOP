@@ -52,12 +52,6 @@ listOptionSelected.click();
 let buttonAddProject = document.querySelector('.btn-addProject');
 buttonAddProject.addEventListener('click', addNewProject);
 
-let iconAddProject = document.createElement('i');
-iconAddProject.classList.add('fa');
-iconAddProject.classList.add('fa-plus');  // !! Icon: ADD PROJECT
-
-buttonAddProject.appendChild(iconAddProject);
-
 // ** Edit project name on button click
 let buttonEditProject = document.querySelector('.btn-edit-project');
 buttonEditProject.addEventListener('click', editProjectName);
@@ -71,12 +65,6 @@ buttondeleteProject.addEventListener('click', deleteProject);
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
 
-let iconAddTask = document.createElement('i');
-iconAddTask.classList.add('fa');
-iconAddTask.classList.add('fa-plus-circle');  // !! Icon: ADD TASK
-
-buttonAddTask.appendChild(iconAddTask);
-
 // TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
-// TODO: Zamjenit buttons sa icon (i dodat event listener)
 // TODO: Dodat pravilnu validaciju forme kod dodavanja zadataka
+// TODO: Sklonit modal kad se update zadatak

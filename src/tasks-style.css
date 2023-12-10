@@ -50,8 +50,9 @@
 .tasks-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* gap: .5em 2em; */
+    /* justify-content: space-between; */
+    gap: .5em 1.1em;
+    /* column-gap: 1em; */
 
     border: 3px solid salmon;
 }
