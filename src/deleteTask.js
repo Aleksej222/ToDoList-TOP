@@ -14,7 +14,7 @@ export function deleteTask(taskDeleted) {
         
             if (taskDeleted.id == task.id) {
                 allProjects[i].tasks.splice(j,1);  // Delete the correct task
-                // localStorage.setItem('allProjects', JSON.stringify(allProjects));
+                localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
                 selectedProject = allProjects[i];  // Set selected project, so it picks correct value if tasks is deleted from main option
                 changeNumberOfTasksHtml('decrease', allProjects[i].tasks.length);

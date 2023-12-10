@@ -86,11 +86,24 @@ export function createTaskHTML(task) {
 
     let doneTaskBtn = document.createElement('button');
     doneTaskBtn.classList.add('btn-done-task');
-    doneTaskBtn.innerText = 'done';
+    // doneTaskBtn.innerText = 'check';
 
     doneTaskBtn.addEventListener('click', function() {
         deleteTask(task);  // Call delete function for now
     });
+
+    let doneBtnIcon = document.createElement('i');
+    doneBtnIcon.classList.add('fa');
+    doneBtnIcon.classList.add('fa-check');  // !! Task: DONE
+    // doneBtnIcon.classList.add('fa-edit');  // !! Task: EDIT
+    // doneBtnIcon.classList.add('fa-trash'); // !! Task: DELETE
+
+    // doneBtnIcon.addEventListener('click', function() {
+    //     deleteTask(task);  // Call delete function for now
+    // });
+
+
+    doneTaskBtn.appendChild(doneBtnIcon);
 
     let editTaskBtn = document.createElement('button');
     editTaskBtn.classList.add('btn-edit-task');
@@ -108,6 +121,7 @@ export function createTaskHTML(task) {
         deleteTask(task);
     });
 
+    // taskBtns.appendChild(doneBtnIcon);
     taskBtns.appendChild(doneTaskBtn);
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);
@@ -124,5 +138,5 @@ export function createTaskHTML(task) {
 
 
 // !! Bug: Required znak * prikaze samo na zadnjem polju
-// TODO: Sprecit visestruko pojavljivanje add task html (napravit pravilan modal window)
 // TODO: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)
+// TODO: Zamjenit buttonse sa ikonicama (samo ikonice), prebacit event listener na njih
