@@ -84,6 +84,14 @@ export function createTaskHTML(task) {
     let taskBtns = document.createElement('div');
     taskBtns.classList.add('tasks-btns');
 
+    let doneTaskBtn = document.createElement('button');
+    doneTaskBtn.classList.add('btn-done-task');
+    doneTaskBtn.innerText = 'done';
+
+    doneTaskBtn.addEventListener('click', function() {
+        deleteTask(task);  // Call delete function for now
+    });
+
     let editTaskBtn = document.createElement('button');
     editTaskBtn.classList.add('btn-edit-task');
     editTaskBtn.innerText = 'pen';
@@ -100,6 +108,7 @@ export function createTaskHTML(task) {
         deleteTask(task);
     });
 
+    taskBtns.appendChild(doneTaskBtn);
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);
 
