@@ -48,17 +48,20 @@
 }
 
 .tasks-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    gap: .6em .8em;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
     /* justify-content: space-between; */
-    gap: .5em 1.1em;
+    /* gap: .5em 1.1em; */
     /* column-gap: 1em; */
 
     border: 3px solid salmon;
 }
 
 .task {
-    width: 32.5%;
+    /* width: 32.5%; */
     /* !! Sta radit sa visinom zadatka */
     /* !! Kad su dva zadatka bude veliki razmak, i kad je jedan onda izgleda lose  */
     

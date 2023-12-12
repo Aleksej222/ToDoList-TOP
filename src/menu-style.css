@@ -1,12 +1,28 @@
 .menu-container {
     width: 17%;
-    background-color: var(--color-grey);
-    border-radius: 10px;
+    /* background-color: var(--color-grey); */
+    background-color: #cde9ff;
+    /* border-radius: 10px; */
     /* border: 3px solid black; */
 }
 
+.menu-main {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* background-color: rgb(55, 124, 184); */
+}
+
 .menu-text {
-    font-size: 2rem;
+    font-size: 2.3rem;
+    /* padding-left: 1em; */
+    /* margin: 0.2 auto; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+.projects-text {
+    font-size: 1.5rem;
 }
 
 .menu-options > li {

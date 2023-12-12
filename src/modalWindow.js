@@ -174,8 +174,7 @@ export function createModalWindowHTML(action, task) {
             updateTaskClicked(task);
         });
     }
-   
-
+    
     let btnCacnel = document.createElement('button');
     btnCacnel.innerText = 'Cancel';
     btnCacnel.setAttribute('type', 'button');

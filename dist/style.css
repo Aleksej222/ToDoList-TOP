@@ -12,14 +12,18 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .container {
     display: flex;
-    padding: 2em .5em 1em 2em;
-    gap: 1em;
-    height: 100vh;
+    /* padding: 2em .5em 1em 2em; */
+    /* padding: 0 0; */
+    /* gap: 1em; */
+    /* height: 100vh; */
     /* background-color: rgb(242, 255, 168); */
+    min-height: 100%;
+    height: max-content;
 }
 
 
