@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     gap: 1em;
+    /* background-color: cadetblue; */
 }
 
 .project-title-btns {
@@ -12,32 +13,6 @@
 
 .project-name-input-edit {
     display: none;
-}
-
-/* Copied from w3schools */
-.confirmation-modal {  
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
-}
-
-.confirmation-container {
-    background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
-}
-
-.modal-window {
-    /* background-color: turquoise; */
 }
 
 .tasks-container {
@@ -63,7 +38,6 @@
 .task {
     /* width: 32.5%; */
     /* !! Sta radit sa visinom zadatka */
-    /* !! Kad su dva zadatka bude veliki razmak, i kad je jedan onda izgleda lose  */
     
     /* ZELENA - LOW */
     /* background-color: #beeb9f; */
@@ -74,4 +48,33 @@
     /* RED - HIGH */
     /* background-color: #ff6138; */
     border: 3px solid black;
+}
+
+/* Copied from w3schools */
+.confirmation-modal {  
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+}
+
+.confirmation-container {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
+
+.modal-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cde9ff;
 }

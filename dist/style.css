@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&family=Pacifico&family=Permanent+Marker&family=Shadows+Into+Light&family=Source+Code+Pro&display=swap');
+
 :root {
     --color-grey: #E5E4E2;
     /* --color-blue: rgba(16, 132, 190, 0.8); */
@@ -13,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .container {
