@@ -25,13 +25,8 @@ export function createModalWindowHTML(action, task) {
     } else if (action == 'update') {
         addTaskTitle.innerText = 'Update Task';
     }
-    
-    let closeTask = document.createElement('span');
-    closeTask.classList.add('close-modal');
-    closeTask.innerText = '&times;  ';
 
     modalTop.appendChild(addTaskTitle);
-    modalTop.appendChild(closeTask);
 
     let containerTaskInfo = document.createElement('div');
     containerTaskInfo.classList.add('container-task-info');
@@ -39,15 +34,11 @@ export function createModalWindowHTML(action, task) {
     let formTaskInfo = document.createElement('form');
     // TODO: Set attributes later (for everything), look at html example
 
-    let spanRequired = document.createElement('span');  // This span element is used multiple times
-    spanRequired.innerText = '*';
-
     let containerInput1 = document.createElement('div');
     containerInput1.classList.add('container-input');
 
     let labelTitle = document.createElement('label');
     labelTitle.innerText = 'Title';
-    labelTitle.appendChild(spanRequired);
 
     let inputTitle = document.createElement('input');
     // inputTitle.classList.add('task');
@@ -59,7 +50,6 @@ export function createModalWindowHTML(action, task) {
 
     let spanTitleError = document.createElement('span');
     spanTitleError.classList.add('error-message');
-    spanTitleError.appendChild(spanRequired);
 
     containerInput1.appendChild(labelTitle);
     containerInput1.appendChild(inputTitle);
@@ -71,7 +61,6 @@ export function createModalWindowHTML(action, task) {
 
     let labelDate = document.createElement('label');
     labelDate.innerText = 'Date';
-    labelDate.appendChild(spanRequired);
 
     let inputDate = document.createElement('input');
     inputDate.type = 'date';
@@ -88,7 +77,6 @@ export function createModalWindowHTML(action, task) {
 
     let spanDateError = document.createElement('span');
     spanDateError.classList.add('error-message');
-    spanDateError.appendChild(spanRequired);
 
     containerInput2.appendChild(labelDate);
     containerInput2.appendChild(inputDate);
@@ -100,7 +88,6 @@ export function createModalWindowHTML(action, task) {
 
     let labelDescription = document.createElement('label');
     labelDescription.innerText = 'Description';
-    labelDescription.appendChild(spanRequired);
 
     let inputDescription = document.createElement('textarea');
     // inputDescription.classList.add('task');
@@ -112,7 +99,6 @@ export function createModalWindowHTML(action, task) {
 
     let spanDescriptionError = document.createElement('span');
     spanDescriptionError.classList.add('error-message');
-    spanDescriptionError.appendChild(spanRequired);
 
     containerInput3.appendChild(labelDescription);
     containerInput3.appendChild(inputDescription);
@@ -124,7 +110,6 @@ export function createModalWindowHTML(action, task) {
 
     let labelDropdown = document.createElement('label');
     labelDropdown.innerText = 'Priority';
-    labelDropdown.appendChild(spanRequired);
 
     let inputDropdown = document.createElement('select');
     inputDropdown.classList.add('task-priority');
@@ -152,13 +137,16 @@ export function createModalWindowHTML(action, task) {
 
     let spanDropdownError = document.createElement('span');
     spanDropdownError.classList.add('error-message');
-    spanDropdownError.appendChild(spanRequired);
 
     containerInput4.appendChild(labelDropdown);
     containerInput4.appendChild(inputDropdown);
     containerInput4.appendChild(spanDropdownError);
 
+    let containerButtons = document.createElement('div');
+    containerButtons.classList.add('container-buttons');
+
     let btnSubmit = document.createElement('button');
+    btnSubmit.classList.add('btn-modal');
     btnSubmit.setAttribute('type', 'submit');
    
     if (action == 'add') {
@@ -177,15 +165,18 @@ export function createModalWindowHTML(action, task) {
     
     let btnCacnel = document.createElement('button');
     btnCacnel.innerText = 'Cancel';
+    btnCacnel.classList.add('btn-modal');
     btnCacnel.setAttribute('type', 'button');
     btnCacnel.addEventListener('click', closeModalWindow);
+
+    containerButtons.appendChild(btnSubmit);
+    containerButtons.appendChild(btnCacnel);
     
     formTaskInfo.appendChild(containerInput1);
     formTaskInfo.appendChild(containerInput2);
     formTaskInfo.appendChild(containerInput3);
     formTaskInfo.appendChild(containerInput4);
-    formTaskInfo.appendChild(btnSubmit);
-    formTaskInfo.appendChild(btnCacnel);
+    formTaskInfo.appendChild(containerButtons);
 
     containerTaskInfo.appendChild(formTaskInfo);
 
