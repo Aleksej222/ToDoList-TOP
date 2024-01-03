@@ -146,6 +146,7 @@ export function createModalWindowHTML(action, task) {
     containerButtons.classList.add('container-buttons');
 
     let btnSubmit = document.createElement('button');
+    btnSubmit.classList.add('btn');
     btnSubmit.classList.add('btn-modal');
     btnSubmit.setAttribute('type', 'submit');
    
@@ -163,14 +164,15 @@ export function createModalWindowHTML(action, task) {
         });
     }
     
-    let btnCacnel = document.createElement('button');
-    btnCacnel.innerText = 'Cancel';
-    btnCacnel.classList.add('btn-modal');
-    btnCacnel.setAttribute('type', 'button');
-    btnCacnel.addEventListener('click', closeModalWindow);
+    let btnCancel = document.createElement('button');
+    btnCancel.innerText = 'Cancel';
+    btnCancel.classList.add('btn');
+    btnCancel.classList.add('btn-modal');
+    btnCancel.setAttribute('type', 'button');
+    btnCancel.addEventListener('click', closeModalWindow);
 
     containerButtons.appendChild(btnSubmit);
-    containerButtons.appendChild(btnCacnel);
+    containerButtons.appendChild(btnCancel);
     
     formTaskInfo.appendChild(containerInput1);
     formTaskInfo.appendChild(containerInput2);

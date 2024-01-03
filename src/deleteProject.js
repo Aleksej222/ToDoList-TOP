@@ -26,17 +26,24 @@ function openConfirmationModal() {
     let messageText = document.createElement('span');
     messageText.textContent = 'Are you sure that you want to delete the whole project?'; 
 
+    let btnsContainer = document.createElement('div');
+    btnsContainer.classList.add('confirmation-buttons-container');
+
     let btnConfirm = document.createElement('button');
+    btnConfirm.classList.add('btn');
     btnConfirm.textContent = 'Yes';
     btnConfirm.addEventListener('click', deleteProjectConfirmed);
 
     let btnDeny = document.createElement('button');
+    btnDeny.classList.add('btn');
     btnDeny.textContent = 'Cancel';
     btnDeny.addEventListener('click', cancelDelete);
 
+    btnsContainer.appendChild(btnConfirm);
+    btnsContainer.appendChild(btnDeny);
+
     confirmationContainer.appendChild(messageText);
-    confirmationContainer.appendChild(btnConfirm);
-    confirmationContainer.appendChild(btnDeny);
+    confirmationContainer.appendChild(btnsContainer);
 
     confirmationModal.appendChild(confirmationContainer);
     taskContainer.insertAdjacentElement('beforebegin',confirmationModal);

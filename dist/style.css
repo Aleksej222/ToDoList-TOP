@@ -22,6 +22,26 @@ button {
     cursor: pointer;
 }
 
+.btn {
+    padding: 12px 23px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    font-size: .7em;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.btn:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
 .container {
     display: grid;
     grid-template-columns: 17% 78% 5%;

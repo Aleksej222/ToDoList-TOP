@@ -13,14 +13,6 @@
     
 }
 
-.confirmation-container {
-    background-color: #fefefe;
-    margin: 7% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
-}
-
 .modal-window {
     font-size: 1.7rem;
     display: flex;
@@ -66,22 +58,19 @@
     /* border: 4px solid red; */
 }
 
-.btn-modal {
-    padding: 12px 23px;
-    border: 0;
-    border-radius: 100px;
-    background-color: #2ba8fb;
-    color: #ffffff;
-    font-weight: Bold;
-    font-size: .7em;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+.confirmation-container {
+    font-size: 1.8rem;
+    background-color: #fefefe;
+    margin: 7% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.btn-modal:active {
-    background-color: #3d94cf;
-    transition: all 0.25s;
-    -webkit-transition: all 0.25s;
-    box-shadow: none;
-    transform: scale(0.98);
-  }
+.confirmation-buttons-container {
+    background-color: aqua;
+    
+}
