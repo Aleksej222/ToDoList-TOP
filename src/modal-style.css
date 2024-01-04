@@ -20,6 +20,7 @@
     align-items: center;
     border-radius: 15px;
     background-color: #cde9ff;
+    /* background-color: salmon !important; */
 }
 
 .modal-window h3 {
@@ -43,7 +44,6 @@
 .container-input input,textarea,select {
     font-size: 1.4rem;
     margin-top: .3em;
-    border-radius: 7px;
 }
 
 .container-input label::after {
@@ -60,7 +60,7 @@
 
 .confirmation-container {
     font-size: 1.8rem;
-    background-color: #fefefe;
+    background-color: #cde9ff;
     margin: 7% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -71,6 +71,11 @@
 }
 
 .confirmation-buttons-container {
-    background-color: aqua;
-    
+    margin-top: .8em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: .6em;
+    text-align: center;
+    /* background-color: aqua; */
 }

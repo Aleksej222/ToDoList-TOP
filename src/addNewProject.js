@@ -30,14 +30,17 @@ function drawNewProjectHTML() {
 
     // ** Kreirat simple input field i kvacicu pored u listi (vidit dizajn na TOP primjeru)
     let input = document.createElement('input');
+    input.classList.add('input-field');
     input.setAttribute('maxLength', 25);
     // input.setAttribute('required','');
 
     let btnAddProject = document.createElement('button');
+    btnAddProject.classList.add('btn');
     btnAddProject.innerText = 'Add project';
     btnAddProject.addEventListener('click', createProject);
 
     let btnCancel = document.createElement('button');
+    btnCancel.classList.add('btn');
     btnCancel.innerText = 'Cancel';
     btnCancel.addEventListener('click', deleteNewProjectHTML);
 

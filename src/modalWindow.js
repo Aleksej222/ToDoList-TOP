@@ -41,6 +41,7 @@ export function createModalWindowHTML(action, task) {
     labelTitle.innerText = 'Title';
 
     let inputTitle = document.createElement('input');
+    inputTitle.classList.add('input-field');
     // inputTitle.classList.add('task');
     inputTitle.classList.add('task-name');
 
@@ -64,6 +65,7 @@ export function createModalWindowHTML(action, task) {
 
     let inputDate = document.createElement('input');
     inputDate.type = 'date';
+    inputDate.classList.add('input-field');
     // inputDate.classList.add('task');
     inputDate.classList.add('task-date');
 

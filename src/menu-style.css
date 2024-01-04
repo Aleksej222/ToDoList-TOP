@@ -39,4 +39,22 @@
     font-size: 1rem;
 }
 
+.new-project-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: .4em;
+    align-items: center;
+    background-color: salmon;
+}
+
+.new-project-container input {
+    font-size: 1.2rem;
+    padding: .1em 0;
+}
+
+.new-project-container button {
+    font-size: 1rem;
+}
+
+/* TODO: Input stavit u main style (da svi inputi budu isti) */
 /* TODO: Popravit dizajn kod dodavanja zadataka, i error message (da ne makne add project ako ima error message, da makne gresku kasnije) */

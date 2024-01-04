@@ -6,6 +6,7 @@
 }
 
 .project-title-btns {
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     gap: 1em;
@@ -50,6 +51,10 @@
     border: 3px solid black;
 }
 
+.btn-add-task {
+    font-size: 1rem;
+    margin-top: 2em;  /* TODO: Pozicijonirat dugme kasnije u cosak (ili nac dobro mjesto za dugme)   */
+}
 
 /* ** Buttonse u zadatku ne dirat (ako ostane da dizajn bude ko sticky notes) */
 /* ** Ako se dizajn zadatka mijenja promjenit i buttonse */
