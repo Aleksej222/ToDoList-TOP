@@ -44,7 +44,7 @@
     flex-direction: column;
     row-gap: .4em;
     align-items: center;
-    background-color: salmon;
+    /* background-color: salmon; */
 }
 
 .new-project-container input {
@@ -54,6 +54,12 @@
 
 .new-project-container button {
     font-size: 1rem;
+}
+
+.error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: .1em 1em;
 }
 
 /* TODO: Input stavit u main style (da svi inputi budu isti) */

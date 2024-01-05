@@ -34,6 +34,10 @@ function drawNewProjectHTML() {
     input.setAttribute('maxLength', 25);
     // input.setAttribute('required','');
 
+    let errorMsg = document.createElement('span');
+    errorMsg.classList.add('error-message');
+    errorMsg.innerText = '';
+
     let btnAddProject = document.createElement('button');
     btnAddProject.classList.add('btn');
     btnAddProject.innerText = 'Add project';
@@ -45,6 +49,7 @@ function drawNewProjectHTML() {
     btnCancel.addEventListener('click', deleteNewProjectHTML);
 
     newProjectContainer.appendChild(input);
+    newProjectContainer.appendChild(errorMsg);
     newProjectContainer.appendChild(btnAddProject);
     newProjectContainer.appendChild(btnCancel);
 
@@ -82,10 +87,10 @@ function createProject() {
     if (newProjectCreated) {
         appendProjectToDOM(newProject); 
         location.reload();  // To avoid bug, where you can't click on the newly created project
-
+        deleteNewProjectHTML();
     }
 
-    deleteNewProjectHTML();
+    // deleteNewProjectHTML();
 }
 
 // ** Append new project to the DOM
@@ -113,30 +118,31 @@ export function appendProjectToDOM(project) {
 export function checkIfProjectValid(newProjectTitle) {
 
     let isValid = false;
-    let errorMsg = '';
+    
+    let errorMsg = document.querySelector('.error-message');
+    let errorMsgText = '';
 
     let isDuplicate = projectTitleDuplicate(newProjectTitle);
     if (isDuplicate) {
-        errorMsg = 'Project with that name already exists.';
+        errorMsgText = 'Project with that name already exists.';
     }
 
     let isEmpty = projectTitleEmpty(newProjectTitle);
     if (isEmpty) {
-        errorMsg = 'Project name can\'t be empty.';
+        errorMsgText = 'Project name can\'t be empty.';
     }    
 
     let isTooLong = projectTitleTooLong(newProjectTitle);
     if (isTooLong) {
-        errorMsg = 'Project name is too long.';
+        errorMsgText = 'Project name is too long.';
     }
 
     let isMainOption = projectTitleIsMainOption(newProjectTitle);
     if (isMainOption) {
-        errorMsg = "Project name can't be the same as the main option name.";
+        errorMsgText = "Project name can't be the same as the main option name.";
     }
 
-    let errorMsgSpan = document.querySelector('.error-message');
-    errorMsgSpan.innerText = errorMsg;
+    errorMsg.innerText = errorMsgText;
 
     isValid = (isDuplicate == false);
     isValid = isValid && (isEmpty == false);
