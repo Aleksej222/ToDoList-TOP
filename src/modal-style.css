@@ -70,6 +70,11 @@
     align-items: center;
 }
 
+.delete-confirmation-text {
+    text-align: center;
+    padding: 0 3.5em;  
+}
+
 .confirmation-buttons-container {
     margin-top: .8em;
     width: 100%;

@@ -4,58 +4,17 @@ import { checkIfProjectValid } from "./addNewProject";
 
 // ** Edit project title on button click
 export function editProjectName() {
-    
-   createEditHtml();
+
+    // createEditHtml();
+    openEditProjectModal();
 
 }
 
-let editProjectNameBtn;
-let deleteProjectBtn;
 let projectNameInput;
 let projectNameText;
-let editDoneBtn;
-let cancelEditBtn;
 
-
-
-// ** Create html for new button, and hide old
-function createEditHtml() {
-
-    editProjectNameBtn = document.querySelector('.btn-edit-project');
-    deleteProjectBtn = document.querySelector('.btn-delete-project');
-    
-    editProjectNameBtn.style.display = 'none';
-    deleteProjectBtn.style.display = 'none';
-
-    let projectTitleBtns = document.querySelector('.project-title-btns');
-
-    projectNameInput = document.querySelector('.project-name-input-edit');
-    projectNameText = document.querySelector('.project-name');
-
-    projectNameInput.style.display = 'block';
-    projectNameInput.value = projectNameText.textContent;
-
-    projectNameText.style.display = 'none';
-
-    editDoneBtn = document.createElement('i');
-    editDoneBtn.classList.add('btn-edit-task');
-    editDoneBtn.classList.add('fa');
-    editDoneBtn.classList.add('fa-check');
-
-    cancelEditBtn = document.createElement('i');
-    cancelEditBtn.classList.add('btn-edit-task');
-    cancelEditBtn.classList.add('fa');
-    cancelEditBtn.classList.add('fa-remove');
-
-    editDoneBtn.addEventListener('click', editProjectNameClicked);
-    cancelEditBtn.addEventListener('click', function() {
-        cancelEditHtml(false);
-    });
-
-    projectTitleBtns.appendChild(editDoneBtn);
-    projectTitleBtns.appendChild(cancelEditBtn);
-
-}
+let updateModal;
+let updateContainer;
 
 // ** Do the logic for project renaming
 function editProjectNameClicked() {
@@ -84,6 +43,8 @@ function editProjectNameClicked() {
 
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
+        deleteModal();
+
     } 
 
     cancelEditHtml(saveNewName);
@@ -98,12 +59,64 @@ function cancelEditHtml(save) {
     }
 
     projectNameText.style.display = 'block';
-    projectNameInput.style.display = 'none';
-
-    editProjectNameBtn.style.display = 'block';
-    deleteProjectBtn.style.display = 'block';
-
-    editDoneBtn.style.display = 'none';
-    cancelEditBtn.style.display = 'none';
 
 }
+
+// ** Create html for edit project modal window
+function openEditProjectModal() {
+
+    let taskContainer = document.querySelector('.tasks-container');
+
+    updateModal = document.createElement('div');
+    updateModal.classList.add('confirmation-modal');
+
+    updateContainer = document.createElement('div');
+    updateContainer.classList.add('confirmation-container');
+
+    let modalTitle = document.createElement('h2');
+    modalTitle.textContent = 'Edit project name';
+    
+    projectNameInput = document.createElement('input');
+    projectNameInput.classList.add('input-field');
+    projectNameInput.classList.add('project-name-input-edit');
+    projectNameInput.setAttribute('type','text');
+    
+    projectNameText = document.querySelector('.project-name');
+    projectNameInput.value = projectNameText.textContent;
+
+    let errorMsg = document.createElement('span');
+    errorMsg.classList.add('error-message');
+    errorMsg.innerText = '';
+
+    let btnsContainer = document.createElement('div');
+    btnsContainer.classList.add('confirmation-buttons-container');
+
+    let btnConfirm = document.createElement('button');
+    btnConfirm.classList.add('btn');
+    btnConfirm.textContent = 'Update';
+    btnConfirm.addEventListener('click', editProjectNameClicked);
+
+    let btnDeny = document.createElement('button');
+    btnDeny.classList.add('btn');
+    btnDeny.textContent = 'Cancel';
+    btnDeny.addEventListener('click', deleteModal);
+
+    btnsContainer.appendChild(btnConfirm);
+    btnsContainer.appendChild(btnDeny);
+
+    updateContainer.appendChild(modalTitle);
+    updateContainer.appendChild(projectNameInput);
+    updateContainer.appendChild(errorMsg);
+    updateContainer.appendChild(btnsContainer);
+
+    updateModal.appendChild(updateContainer);
+    taskContainer.insertAdjacentElement('beforebegin',updateModal);
+
+}
+
+function deleteModal() {
+    updateModal.style.display = 'none';
+}
+
+
+// TODO: Sve modal windowse prebacit u jednu funkciju (za brisanje modala obavezno)

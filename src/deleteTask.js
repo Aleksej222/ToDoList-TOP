@@ -25,3 +25,5 @@ export function deleteTask(taskDeleted) {
     
     showTasksInAProject();
 }
+
+// TODO: Dodat confirmation modal za brisanje zadatka

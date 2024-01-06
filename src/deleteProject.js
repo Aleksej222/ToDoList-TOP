@@ -24,6 +24,7 @@ function openConfirmationModal() {
     confirmationContainer.classList.add('confirmation-container');
     
     let messageText = document.createElement('span');
+    messageText.classList.add('delete-confirmation-text');
     messageText.textContent = 'Are you sure that you want to delete the whole project?'; 
 
     let btnsContainer = document.createElement('div');
