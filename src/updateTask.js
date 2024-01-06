@@ -2,6 +2,7 @@ import { createModalWindowHTML } from "./modalWindow";
 import { allProjects } from ".";
 import { showTasksInAProject } from "./showTasksInAProject";
 import { validateTask } from "./validateTask";
+import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 // ** Function for task update
 export function updateTask(task) {
@@ -34,6 +35,7 @@ export function updateTaskClicked(taskUpdated) {
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
         showTasksInAProject();
+        setTaskBackgroundColor(taskPriority, taskUpdated.id);
 
     }    
     

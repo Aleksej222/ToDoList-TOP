@@ -7,6 +7,7 @@ import { deleteTask } from "./deleteTask";
 import { changeNumberOfTasksHtml } from "./changeNumberOfTasksHtml";
 import { createModalWindowHTML, closeModalWindow } from "./modalWindow";
 import { validateTask } from "./validateTask";
+import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 // ** Main function that creates task
 export function addNewTask() {
@@ -59,6 +60,7 @@ export function addTaskClicked(e) {
         closeModalWindow();
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
+        setTaskBackgroundColor(newTask.priority, newTask.id);
     }
     
 }
@@ -68,6 +70,7 @@ export function createTaskHTML(task) {
 
     let taskContainer = document.createElement('div');
     taskContainer.classList.add('task');
+    taskContainer.setAttribute('id', task.id);
 
     let taskDate = document.createElement('span');
     taskDate.classList.add('task-date');

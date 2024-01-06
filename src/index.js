@@ -7,6 +7,7 @@ import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
+import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 export let allProjects;
 
@@ -44,6 +45,7 @@ listOptions.forEach(option => {
     option.addEventListener('click', showCorrectProject);
     
 });
+
 
 // ** Simulate click event, so that a function for showing tasks inside a project is called
 listOptionSelected.click();
