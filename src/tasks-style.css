@@ -43,19 +43,23 @@
     flex-direction: column;
     justify-content: space-between;
     
-    /* ZELENA - LOW */
-    /* background-color: #beeb9f; */
-    
-    /*  ZUTA - MEDIUM */
-    /* background-color: #ffff9d; */
-    
-    /* RED - HIGH */
-    /* background-color: #ff6138; */
-    border: 3px solid black;
+    /* border: 3px solid black; */
+}
+
+.task-priority-low {
+    background-color: #beeb9f;
+}
+
+.task-priority-medium {
+    background-color: #ffff9d;
+}
+
+.task-priority-high {
+    background-color: #ff6138;
 }
 
 .tasks-btns {
-    background-color: salmon;  /* Stavit bijelo kasnije */
+    /* background-color: #cde9ff; */
 }
 
 .btn-add-task {

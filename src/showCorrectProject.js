@@ -3,6 +3,7 @@ import { createTaskHTML } from "./addNewTask";
 import { getAllTasks } from "./getAllTasks";
 import { getTodayTasks } from "./getTodayTasks";
 import { getThisWeekTasks } from "./getThisWeekTasks";
+import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 export let selectedProject  // Send selected project to addNewTask
 let listOptionSelected;
@@ -69,6 +70,7 @@ function displayProjectTasks(listOptionSelected, selectedProjectTasks) {
     selectedProjectTasks.forEach(task => {
         
         tasksList.appendChild(createTaskHTML(task));
+        setTaskBackgroundColor(task.priority, task.id);
 
     });
 

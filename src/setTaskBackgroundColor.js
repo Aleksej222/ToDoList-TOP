@@ -1,25 +1,28 @@
 // ** Set task background color based on task prioritu
 export function setTaskBackgroundColor(taskPriority, taskId) {
     
+    let taskClassColor;
     let taskHtml = document.querySelector(`.task[id="${taskId}"]`);
-    let backgorundColor = '#beeb9f';  // Green
+
+    console.log(taskHtml);
 
     switch (taskPriority) {
         case 'low':
-            backgorundColor = '#beeb9f';  // Green
+            taskClassColor = 'task-priority-low';  // Green
             break;
     
         case 'medium':
-            backgorundColor = '#ffff9d';  // Yellow
+            taskClassColor = 'task-priority-medium';  // Yellow
             break;
 
         case 'high':
-            backgorundColor = '#ff6138';  // Red
+            taskClassColor = 'task-priority-high';  // Red
             break;
     }
-
-    console.log(backgorundColor);
-    taskHtml.style.backgroundColor = backgorundColor; 
+ 
+    taskHtml.classList.add(taskClassColor);
+    let allTasks = document.querySelectorAll('.task');
+    // console.log(allTasks); 
 }
 
 // ?? Boja bude samo na jednom zadatku
