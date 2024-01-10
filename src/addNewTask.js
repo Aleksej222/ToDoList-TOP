@@ -60,7 +60,7 @@ export function addTaskClicked(e) {
         closeModalWindow();
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
-        // setTaskBackgroundColor(newTask.priority, newTask.id);
+        setTaskBackgroundColor(newTask.priority, newTask.id);
     }
     
 }
