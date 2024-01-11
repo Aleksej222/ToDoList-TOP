@@ -37,12 +37,26 @@
 
 .task {
     height: 320px;
-    /* width: 32.5%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 15px;
+
     /* border: 3px solid black; */
+}
+
+.tasks-btns {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    padding: .3em 1em;
+    /* text-align: end; */
+    /* background-color: limegreen; */
+}
+
+.tasks-btns i {
+    /* font-size: 4rem; */
 }
 
 .task-priority-low {
@@ -59,10 +73,6 @@
 .task-priority-high {
     /* background-color: #ff6138; */
     background-color: #ffd4aa;
-}
-
-.tasks-btns {
-    /* background-color: #cde9ff; */
 }
 
 .btn-add-task {

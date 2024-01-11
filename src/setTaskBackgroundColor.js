@@ -4,11 +4,9 @@ export function setTaskBackgroundColor(taskPriority, taskId) {
     let taskClassColor;
     let taskHtml = document.querySelector(`.task[id="${taskId}"]`);
 
-    console.log(taskHtml);
-
     switch (taskPriority) {
         case 'low':
-            taskClassColor = 'task-priority-low';  // Green
+            taskClassColor = 'task-priority-low';  // Grey
             break;
     
         case 'medium':
@@ -20,11 +18,5 @@ export function setTaskBackgroundColor(taskPriority, taskId) {
             break;
     }
  
-    taskHtml.classList.add(taskClassColor);
-    let allTasks = document.querySelectorAll('.task');
-    // console.log(allTasks); 
+    taskHtml.classList.add(taskClassColor); 
 }
-
-// ?? Boja bude samo na jednom zadatku
-// TODO: Morace se mijenjat pristup (.task ne postoji u index.js)
-// ?? Kako postavit boju na svakom zadatku na onload

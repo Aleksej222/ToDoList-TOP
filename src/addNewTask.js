@@ -72,6 +72,9 @@ export function createTaskHTML(task) {
     taskContainer.classList.add('task');
     taskContainer.setAttribute('id', task.id);
 
+    let taskContent = document.createElement('div');
+    taskContent.classList.add('task-content');
+
     let taskDate = document.createElement('span');
     taskDate.classList.add('task-date');
     taskDate.innerText = task.date;
@@ -115,13 +118,16 @@ export function createTaskHTML(task) {
         deleteTask(task);
     });
 
+    
     taskBtns.appendChild(doneTaskBtn);
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);
 
-    taskContainer.appendChild(taskDate);
-    taskContainer.appendChild(taskTitle);
-    taskContainer.appendChild(taskDescription);
+    taskContent.appendChild(taskDate);
+    taskContent.appendChild(taskTitle);
+    taskContent.appendChild(taskDescription);
+
+    taskContainer.appendChild(taskContent);
     taskContainer.appendChild(taskBtns);
 
     return taskContainer;
