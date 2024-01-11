@@ -7,7 +7,6 @@ import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
-import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 export let allProjects;
 

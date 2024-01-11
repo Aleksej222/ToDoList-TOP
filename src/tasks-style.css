@@ -36,27 +36,61 @@
 }
 
 .task {
-    height: 320px;
+    height: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border-radius: 15px;
-
+    border: 1px solid black;
     /* border: 3px solid black; */
 }
 
-.tasks-btns {
+.task-content {
+    height: 100%;
+    /* background-color: rgb(165, 105, 31); */
+}
+
+.task-date {
+    font-size: 1.3rem;
+    display: block;
+    text-align: end;
+    padding: .2em .5em;
+    /* width: 100%; */
+    /* background-color: rosybrown; */
+}
+
+.task-title {
+    font-size: 1.8rem;
+    height: 70px;
+    /* margin-bottom: 4em; */
+    text-align: center;
+    background-color: firebrick;
+}
+
+.task-description {
+    font-size: 1.4rem;
+    display: block;
+    height: 155px;
+    padding: 0 .3em;
+    /* overflow-y: scroll; */
+    overflow-y: hidden;
+    overflow-y: scroll;
+    background-color: rebeccapurple;
+
+    /* TODO: Pomjerit deskripciju gore prema naslovu */
+    /* TODO: Nac kako napravit fancy scroll ako tekst prelazi */
+    /* TODO: Pogledat sta sa visinama u task-u */
+}
+
+.task-btns {
     font-size: 1.8rem;
     cursor: pointer;
     display: flex;
     justify-content: space-evenly;
     padding: .3em 1em;
+    /* padding-bottom: .3em; */
     /* text-align: end; */
     /* background-color: limegreen; */
-}
-
-.tasks-btns i {
-    /* font-size: 4rem; */
 }
 
 .task-priority-low {

@@ -88,7 +88,7 @@ export function createTaskHTML(task) {
     taskDescription.innerText = task.description;
 
     let taskBtns = document.createElement('div');
-    taskBtns.classList.add('tasks-btns');
+    taskBtns.classList.add('task-btns');
 
     let doneTaskBtn = document.createElement('i');
     doneTaskBtn.classList.add('btn-done-task');
