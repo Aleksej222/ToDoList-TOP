@@ -77,7 +77,6 @@
     /* background-color: rebeccapurple; */
 
     /* TODO: Pomjerit deskripciju gore prema naslovu */
-    /* TODO: Nac kako napravit fancy scroll ako tekst prelazi */
     /* TODO: Pogledat sta sa visinama u task-u */
 }
 
@@ -111,10 +110,8 @@
 
 .btn-add-task {
     font-size: 1rem;
-    margin-top: 1.5em;  /* TODO: Pozicijonirat dugme kasnije u cosak (ili nac dobro mjesto za dugme)   */
+    margin-top: 1.5em;
     margin-left: 1em;
     /* margin-bottom: 1em; */
 }
 
-/* ** Buttonse u zadatku ne dirat (ako ostane da dizajn bude ko sticky notes) */
-/* ** Ako se dizajn zadatka mijenja promjenit i buttonse */

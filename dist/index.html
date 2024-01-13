@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/src/menu-style.css">
     <link rel="stylesheet" href="/src/tasks-style.css">
     <link rel="stylesheet" href="/src/modal-style.css">
+    <link rel="stylesheet" href="/src/dark-mode-style.css">
     
     <title>To-Do List</title>
 </head>
@@ -76,7 +77,11 @@
 
         </div> 
 
-        <button id="toggleMode" class="toggle-container">Toggle Mode</button>
+        <!-- <button id="toggleMode" class="toggle-container">Toggle Mode</button> -->
+        <label id="toggleMode" class="toggle-container switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
     </div>
 
     <script src="main.js"></script>
