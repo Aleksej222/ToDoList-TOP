@@ -64,7 +64,7 @@
     height: 70px;
     /* margin-bottom: 4em; */
     text-align: center;
-    background-color: firebrick;
+    /* background-color: firebrick; */
 }
 
 .task-description {
@@ -73,9 +73,8 @@
     height: 155px;
     padding: 0 .3em;
     /* overflow-y: scroll; */
-    overflow-y: hidden;
-    overflow-y: scroll;
-    background-color: rebeccapurple;
+    overflow-y: auto;
+    /* background-color: rebeccapurple; */
 
     /* TODO: Pomjerit deskripciju gore prema naslovu */
     /* TODO: Nac kako napravit fancy scroll ako tekst prelazi */
@@ -88,6 +87,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: .3em 1em;
+    border-top: 1px solid black;
     /* padding-bottom: .3em; */
     /* text-align: end; */
     /* background-color: limegreen; */
@@ -111,7 +111,9 @@
 
 .btn-add-task {
     font-size: 1rem;
-    margin-top: 2em;  /* TODO: Pozicijonirat dugme kasnije u cosak (ili nac dobro mjesto za dugme)   */
+    margin-top: 1.5em;  /* TODO: Pozicijonirat dugme kasnije u cosak (ili nac dobro mjesto za dugme)   */
+    margin-left: 1em;
+    /* margin-bottom: 1em; */
 }
 
 /* ** Buttonse u zadatku ne dirat (ako ostane da dizajn bude ko sticky notes) */

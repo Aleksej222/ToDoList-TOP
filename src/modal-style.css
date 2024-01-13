@@ -61,7 +61,7 @@
 .confirmation-container {
     font-size: 1.8rem;
     background-color: #cde9ff;
-    margin: 7% auto; /* 15% from the top and centered */
+    margin: 3.4% auto; /* 7% auto (original value) 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
