@@ -29,6 +29,10 @@
     font-size: 1.2rem;
 }
 
+.project span{
+    /* background-color: gold; */
+}
+
 .add-project-btn {
     margin-top: 1.5em;
     text-align: center;

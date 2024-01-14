@@ -1,0 +1,28 @@
+@media screen and (max-width: 1300px) {
+
+    .task {
+        height: 320px;
+    }
+
+    .task-date {
+        font-size: 1.1rem;
+    }
+
+    .task-title {
+        font-size: 1.5rem;
+    }
+
+    .task-description {
+        font-size: 1.2rem;
+    }
+
+    /* !! Bug: Ispadne iz div-a */
+    .task-btns {
+        background-color: chocolate;
+        font-size: 1.6rem;
+    }
+    
+}
+
+/* TODO: Add project treba mijenjat prije 1300 */
+/* TODO: Pomjerit modal windowe prije 1300 */
