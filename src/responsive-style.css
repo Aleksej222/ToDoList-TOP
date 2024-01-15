@@ -1,8 +1,12 @@
 @media screen and (max-width: 1300px) {
 
     .task {
-        height: 320px;
+        height: 358px;
+        /* ?? Zasto na 320px buttonsi ispadnu iz diva */
+        /* ** Jer je previse kontenta na tu visinu */
+        /* background-color: aqua !important; */
     }
+
 
     .task-date {
         font-size: 1.1rem;
@@ -18,11 +22,22 @@
 
     /* !! Bug: Ispadne iz div-a */
     .task-btns {
-        background-color: chocolate;
+        /* background-color: chocolate; */
         font-size: 1.6rem;
+        /* position: fixed; */
+        /* padding: 0; */
     }
+
+    /* TODO: Add / Update task modal window prosirit */
+    /* TODO: Edit / Delete project modal window pomjerit prema dole */
     
 }
 
 /* TODO: Add project treba mijenjat prije 1300 */
 /* TODO: Pomjerit modal windowe prije 1300 */
+
+@media screen and (max-width: 1300px) {
+
+    /* TODO: Postavit po 2 zatadtka u redu */
+
+}
