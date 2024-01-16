@@ -61,7 +61,11 @@
 
 .task-title {
     font-size: 1.8rem;
-    height: 70px;
+    font-weight: bold;
+    display: block;
+    padding-top: .3em;
+    height: max-content !important;
+    /* height: 70px; */
     /* margin-bottom: 4em; */
     text-align: center;
     /* background-color: firebrick; */
@@ -70,8 +74,8 @@
 .task-description {
     font-size: 1.4rem;
     display: block;
-    height: 155px;
-    padding: 0 .3em;
+    height: 250px;
+    padding: .4em .6em;
     /* overflow-y: scroll; */
     overflow-y: auto;
     /* background-color: rebeccapurple; */

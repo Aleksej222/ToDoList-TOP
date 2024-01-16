@@ -79,7 +79,7 @@ export function createTaskHTML(task) {
     taskDate.classList.add('task-date');
     taskDate.innerText = task.date;
 
-    let taskTitle = document.createElement('h4');
+    let taskTitle = document.createElement('span');
     taskTitle.classList.add('task-title');
     taskTitle.innerText = task.title;
 
