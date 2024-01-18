@@ -21,10 +21,9 @@
 
     .task-description {
         font-size: 1.2rem;
-        height: 225px;;
+        /* height: 225px;; */
     }
 
-    /* !! Bug: Ispadne iz div-a */
     .task-btns {
         /* background-color: chocolate; */
         font-size: 1.6rem;
@@ -42,22 +41,32 @@
 
 @media screen and (max-width: 1050px) {
 
-    /* TODO: Postavit po 2 zatadtka u redu */
+    .container {
+        grid-template-columns: 22% 69% 9%;
+    }
 
     .tasks-list {
         grid-template-columns: 45% 45%;
 
     }
 
-    .task {
-        height: 300px;
-    }
-
     .task-title {
-        /* height: 30px; */
+        font-size: 1.6rem;
     }
 
-    .btn-add-task {
-        /* margin-top: .11em; */
+}
+
+@media screen and (max-width: 730px) {
+
+    /* TODO: Promjenit kasnije */
+    .container {
+        grid-template-columns: 25% 63% 12%;
     }
+
+    .tasks-list {
+        grid-template-columns: 80%;
+    }
+
+    /* TODO: Centrirat zadatak */
+
 }
