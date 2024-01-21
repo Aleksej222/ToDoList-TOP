@@ -2,11 +2,12 @@
 export function validateTask(task) {
 
     let taskOk = true;
-    // TODO: Dohvatit errorMsg i mijenjat na osnovu greske u HTML-u
+  
+    let errorMsgSpan = document.querySelector('.error-task-validation-message');
     let errorMsg = '';
 
+
     // ** Valid task name, about 15 characters, everything should be alowed
-    // TODO: Dodat validaciju i u HTML (ili mozda ne, provjerit jos)
     if (task.title.length < 1) {
         errorMsg = 'Task name can\'t be empty.';
     }
@@ -22,10 +23,12 @@ export function validateTask(task) {
     taskOk = (errorMsg == '');
 
     if (!taskOk) {
-        alert(errorMsg);
+        errorMsgSpan.textContent = errorMsg;
+
+    } else {
+        errorMsgSpan.textContent = '';    
 
     }
 
     return taskOk;
-
 }

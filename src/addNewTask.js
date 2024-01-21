@@ -118,7 +118,6 @@ export function createTaskHTML(task) {
         deleteTask(task);
     });
 
-    
     taskBtns.appendChild(doneTaskBtn);
     taskBtns.appendChild(editTaskBtn);
     taskBtns.appendChild(deleteTaskBtn);

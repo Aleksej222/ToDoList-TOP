@@ -49,12 +49,8 @@ export function createModalWindowHTML(action, task) {
         inputTitle.value = task.title;
     }
 
-    let spanTitleError = document.createElement('span');
-    spanTitleError.classList.add('error-message');
-
     containerInput1.appendChild(labelTitle);
     containerInput1.appendChild(inputTitle);
-    containerInput1.appendChild(spanTitleError);
     
     // TODO: Kalendar za datum
     let containerInput2 = document.createElement('div');
@@ -77,12 +73,8 @@ export function createModalWindowHTML(action, task) {
         inputDate.value = todayDate; // Correct format: '2020-08-01';
     }
 
-    let spanDateError = document.createElement('span');
-    spanDateError.classList.add('error-message');
-
     containerInput2.appendChild(labelDate);
     containerInput2.appendChild(inputDate);
-    containerInput2.appendChild(spanDateError);
 
     // TODO: Textarea za deskripciju
     let containerInput3 = document.createElement('div');
@@ -99,12 +91,8 @@ export function createModalWindowHTML(action, task) {
         inputDescription.value = task.description;
     }
 
-    let spanDescriptionError = document.createElement('span');
-    spanDescriptionError.classList.add('error-message');
-
     containerInput3.appendChild(labelDescription);
     containerInput3.appendChild(inputDescription);
-    containerInput3.appendChild(spanDescriptionError);
     
     // TODO: Dropdown za priority zadatka
     let containerInput4 = document.createElement('div');
@@ -137,12 +125,12 @@ export function createModalWindowHTML(action, task) {
         inputDropdown.value = task.priority;
     }
 
-    let spanDropdownError = document.createElement('span');
-    spanDropdownError.classList.add('error-message');
-
     containerInput4.appendChild(labelDropdown);
     containerInput4.appendChild(inputDropdown);
-    containerInput4.appendChild(spanDropdownError);
+
+    let errorMsgSpan = document.createElement('span');
+    errorMsgSpan.classList.add('error-task-validation-message');
+    errorMsgSpan.textContent = '';
 
     let containerButtons = document.createElement('div');
     containerButtons.classList.add('container-buttons');
@@ -180,6 +168,9 @@ export function createModalWindowHTML(action, task) {
     formTaskInfo.appendChild(containerInput2);
     formTaskInfo.appendChild(containerInput3);
     formTaskInfo.appendChild(containerInput4);
+
+    formTaskInfo.appendChild(errorMsgSpan);
+    
     formTaskInfo.appendChild(containerButtons);
 
     containerTaskInfo.appendChild(formTaskInfo);
