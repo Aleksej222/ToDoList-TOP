@@ -30,5 +30,7 @@ export function validateTask(task) {
 
     }
 
+    // !! BUG: Task se moze update-at iako ima gresku
+    console.log(taskOk);
     return taskOk;
 }
