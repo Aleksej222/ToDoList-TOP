@@ -60,13 +60,16 @@
 
     /* TODO: Promjenit kasnije */
     .container {
-        grid-template-columns: 25% 63% 12%;
+        /* grid-template-columns: 25% 63% 12%; */
+        grid-template-columns: 32% 56% 12%;
     }
 
     .tasks-list {
         grid-template-columns: 80%;
+        /* background-color: brown; */
     }
 
     /* TODO: Centrirat zadatak */
+    /* TODO: Napravit hamburger menu za projekte */
 
 }
