@@ -88,10 +88,11 @@
 .error-task-validation-message {
     font-size: 1.2rem;
     display: block;
-    width: 100%;
-    /* word-wrap: break-word; */
-    word-break: break-all;
+    /* width: 100%; */
+    width: 315px;
+    word-wrap: break-word;
+    /* word-break: break-all; */
     /* width: 300px !important; */
-    background-color: white;
+    /* background-color: white; */
     color: red;
 }

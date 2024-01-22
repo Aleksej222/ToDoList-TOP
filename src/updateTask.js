@@ -22,15 +22,16 @@ export function updateTaskClicked(taskUpdated) {
     let taskDescription = document.querySelector('textarea.task-description').value;
     let taskPriority = document.querySelector('select.task-priority').value;
 
+    let taskValid = false;
+    
     taskUpdated.title = taskName;
     taskUpdated.date = taskDate;
     taskUpdated.description = taskDescription;
     taskUpdated.priority = taskPriority;
 
-    let taskValid = false;
     taskValid = validateTask(taskUpdated);
 
-    if (taskValid) {
+    if (taskValid) {   
 
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
@@ -40,5 +41,3 @@ export function updateTaskClicked(taskUpdated) {
     }    
     
 }
-
-// TODO: Prepisat validaciju forme i za update (vjv napravit posebnu funkciju)
