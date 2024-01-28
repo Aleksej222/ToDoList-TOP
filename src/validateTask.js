@@ -6,7 +6,7 @@ export function validateTask(task) {
     let errorMsgSpan = document.querySelector('.error-task-validation-message');
     let errorMsg = '';
 
-    console.log(task);
+    // console.log(task);
     // ** Valid task name, about 15 characters, everything should be alowed
     if (task.title.length < 1) {
         errorMsg = 'Task name can\'t be empty.';

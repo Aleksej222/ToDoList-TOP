@@ -54,6 +54,10 @@
         font-size: 1.6rem;
     }
 
+    .container .btn {
+        font-size: .9rem;
+    }
+
 }
 
 @media screen and (max-width: 730px) {
@@ -68,6 +72,11 @@
         grid-template-columns: 80%;
         /* background-color: brown; */
     }
+
+    .container .btn {
+        /* padding: 12px 13px; */
+    }
+
 
     /* TODO: Centrirat zadatak */
     /* TODO: Napravit hamburger menu za projekte */
