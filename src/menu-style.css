@@ -6,6 +6,73 @@
     /* border: 3px solid black; */
 }
 
+.nav-checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+}
+
+.hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+input[type="checkbox"]:checked~.menu-items {
+    transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+
+.nav-container input[type="checkbox"]:checked~.logo {
+    display: none;
+}
+
 .menu-main {
     padding-top: 1.27em;
     text-align: center;
@@ -24,13 +91,21 @@
     font-size: 1.8rem;
 }
 
-.menu-options > li {
+.menu-options>li {
     cursor: pointer;
     font-size: 1.2rem;
 }
 
-.project span{
+.menu-options li {
+    /* display: flex; */
+    /* background-color: hotpink; */
+}
+
+.menu-options li span {
+    /* display: inline-block; */
+    text-align: end;
     /* background-color: gold; */
+    padding-left: .2em;
 }
 
 .add-project-btn {
@@ -67,6 +142,8 @@
     font-size: 1.2rem;
     padding: .1em 1em;
 }
+
+/* TODO: Stajling za hamburger meni, dovrsit sve */
 
 /* TODO: Input stavit u main style (da svi inputi budu isti) */
 /* TODO: Popravit dizajn kod dodavanja zadataka, i error message (da ne makne add project ako ima error message, da makne gresku kasnije) */
