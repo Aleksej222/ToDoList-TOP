@@ -62,10 +62,19 @@
 
 @media screen and (max-width: 730px) {
 
+    .burger-container {
+        display: block;
+        background-color: burlywood;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
     /* TODO: Promjenit kasnije */
     .container {
         /* grid-template-columns: 25% 63% 12%; */
-        grid-template-columns: 32% 56% 12%;
+        grid-template-columns: 12% 76% 12%;
     }
 
     .tasks-list {
@@ -79,9 +88,9 @@
 
 
     /* TODO: Centrirat zadatak */
-    /* TODO: Napravit hamburger menu za projekte */
+    /* TODO: Kako prikazat projekte kad je kliknut hamb. menu */
+    /* TODO: Kako onda postavit menu na width 100%, o ostalo sakrit */
+    /* ** Primjer hamb menu-u koji to radi: */
+    /* ** https://codepen.io/alvarotrigo/pen/wvrzPWL */
 
 }
-
-/* ** Link za hamburger menu: */
-/* https://codepen.io/alvarotrigo/pen/wvrzPWL */
