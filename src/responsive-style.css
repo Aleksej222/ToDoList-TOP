@@ -8,7 +8,6 @@
         height: 358px;
         /* ?? Zasto na 320px buttonsi ispadnu iz diva */
         /* ** Jer je previse kontenta na tu visinu */
-        /* background-color: aqua !important; */
     }
 
     .task-date {
@@ -25,10 +24,7 @@
     }
 
     .task-btns {
-        /* background-color: chocolate; */
         font-size: 1.6rem;
-        /* position: fixed; */
-        /* padding: 0; */
     }
 
     /* TODO: Add / Update task modal window prosirit */
@@ -47,7 +43,6 @@
 
     .tasks-list {
         grid-template-columns: 45% 45%;
-
     }
 
     .task-title {
@@ -76,9 +71,7 @@
 
     .tasks-list {
         grid-template-columns: 80%;
-        /* background-color: brown; */
     }
-
 
     /* TODO: Centrirat zadatak */
     /* TODO: Kako prikazat projekte kad je kliknut hamb. menu */
@@ -98,11 +91,17 @@
     .burger-container {
         grid-column-start: 1;
         grid-column-end: 2;
-        /* background-color: yellow; */
+    }
+
+    .burger {
+        margin-top: 1.3em;
+        margin-left: 1.5em;
     }
 
     .toggle-container {
-        grid-area: 'row1-col2';
+        display: flex;
+        justify-self: end;
+        margin-right: 1.2em;
     }
 
     .tasks-container {
@@ -130,4 +129,5 @@
     }
 }
 
+/* !! Bug: Form design break-a malo prije 500px, treba popravit */
 /* !! Design breaks at 210px, its ok, won't use time to fix */
