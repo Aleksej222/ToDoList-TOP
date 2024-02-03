@@ -64,16 +64,13 @@
 
     .burger-container {
         display: block;
-        background-color: burlywood;
     }
 
     .menu-container {
         display: none;
     }
 
-    /* TODO: Promjenit kasnije */
     .container {
-        /* grid-template-columns: 25% 63% 12%; */
         grid-template-columns: 12% 76% 12%;
     }
 
@@ -94,3 +91,7 @@
     /* ** https://codepen.io/alvarotrigo/pen/wvrzPWL */
 
 }
+
+
+/* ?? Postavit grid-area, postavit klase dodatne */
+/* ** Napravit burger i dark-mode btn row1, project title row2 */

@@ -1,7 +1,6 @@
 .burger-container {
-    /* margin-top: 2em; */
     display: none;
-    /* background-color: hotpink; */
+    /* background-color: burlywood; */
 }
 
 .burger {
@@ -11,6 +10,8 @@
     background: transparent;
     cursor: pointer;
     display: block;
+    margin: 1.6em auto;
+    /* background-color: yellow; */
 }
 
 .burger input {
