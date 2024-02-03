@@ -79,10 +79,6 @@
         /* background-color: brown; */
     }
 
-    .container .btn {
-        /* padding: 12px 13px; */
-    }
-
 
     /* TODO: Centrirat zadatak */
     /* TODO: Kako prikazat projekte kad je kliknut hamb. menu */
@@ -92,6 +88,46 @@
 
 }
 
+@media screen and (max-width: 500px) {
 
-/* ?? Postavit grid-area, postavit klase dodatne */
-/* ** Napravit burger i dark-mode btn row1, project title row2 */
+    .container {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 5% 95%;
+    }
+
+    .burger-container {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        /* background-color: yellow; */
+    }
+
+    .toggle-container {
+        grid-area: 'row1-col2';
+    }
+
+    .tasks-container {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-area: 'row2';
+    }
+
+    .project-title-container {
+        flex-direction: column;
+    }
+
+    .project-title-btns {
+        flex-direction: column;
+    }
+
+    .container .btn {
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+
+    .tasks-list {
+        margin-top: .8em;
+    }
+}
+
+/* !! Design breaks at 210px, its ok, won't use time to fix */
