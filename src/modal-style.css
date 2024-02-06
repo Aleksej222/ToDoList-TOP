@@ -29,9 +29,6 @@
 
 .container-task-info {
     display: flex;
-    /* justify-self: flex-start; */
-    /* width: 100%; */
-    /* border: 3px solid black; */
 }
 
 .container-input {
@@ -49,6 +46,7 @@
 .container-input label::after {
     content: '*';
     padding-left: .2em;
+    color: red;
 }
 
 .container-buttons {
@@ -91,8 +89,5 @@
     /* width: 100%; */
     width: 315px;
     word-wrap: break-word;
-    /* word-break: break-all; */
-    /* width: 300px !important; */
-    /* background-color: white; */
     color: red;
 }
