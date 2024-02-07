@@ -143,7 +143,44 @@
 
     .tasks-list {
         margin-top: .8em;
+    } 
+    
+}
+
+@media screen and (max-width: 365px) {
+
+    .confirmation-container {
+        /* width: 50vw; */
     }
+
+    .modal-window {
+        /* width: 50vw; */
+        font-size: 1.1rem;
+    }
+    
+    .modal-window h3 {
+        font-size: 2rem;
+    }
+
+    .container-task-info {
+        height: 80vh;
+        border: 3px solid black;
+    }
+
+    .container-input input,textarea,select {
+        font-size: 1.3rem;
+    }
+
+    .container-buttons  {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1em;
+    }
+
+    .container-buttons button {
+        font-size: 1.3rem !important;
+    }
+
 }
 
 /* !! Bug: Form design break-a malo prije 500px, treba popravit */
