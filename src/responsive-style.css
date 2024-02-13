@@ -149,22 +149,22 @@
 
 @media screen and (max-width: 365px) {
 
-    .confirmation-container {
-        /* width: 50vw; */
-    }
-
     .modal-window {
-        /* width: 50vw; */
+        margin: auto;
         font-size: 1.1rem;
     }
     
     .modal-window h3 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .container-task-info {
         height: 80vh;
-        border: 3px solid black;
+    }
+
+    .container-task-info form {
+        width: 250px;
+        margin: auto;
     }
 
     .container-input input,textarea,select {
@@ -182,6 +182,3 @@
     }
 
 }
-
-/* !! Bug: Form design break-a malo prije 500px, treba popravit */
-/* !! Design breaks at 210px, its ok, won't use time to fix */
