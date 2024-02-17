@@ -149,6 +149,10 @@
 
 @media screen and (max-width: 365px) {
 
+    .confirmation-modal {
+        overflow: hidden;
+    }
+
     .modal-window {
         margin: auto;
         font-size: 1.1rem;
@@ -163,7 +167,8 @@
     }
 
     .container-task-info form {
-        width: 250px;
+        /* width: 250px; */
+        width: 70%;
         margin: auto;
     }
 
@@ -181,4 +186,16 @@
         font-size: 1.3rem !important;
     }
 
+    .task-title {
+        font-size: 1.2rem;
+    }
+
+    .task-description {
+        font-size: 1rem;
+    }
+
 }
+
+
+/* !! Bug: opis u zadatku sa dugackim imenom ispadne iz containera */
+/* TODO: Postavit height na task title (pr. kao i na description) */
