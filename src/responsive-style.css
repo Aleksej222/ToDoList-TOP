@@ -94,7 +94,6 @@
     /* TODO: Kako onda postavit menu na width 100%, o ostalo sakrit */
     /* ** Primjer hamb menu-u koji to radi: */
     /* ** https://codepen.io/alvarotrigo/pen/wvrzPWL */
-
 }
 
 @media screen and (max-width: 500px) {
@@ -197,5 +196,3 @@
 }
 
 
-/* !! Bug: opis u zadatku sa dugackim imenom ispadne iz containera */
-/* TODO: Postavit height na task title (pr. kao i na description) */
