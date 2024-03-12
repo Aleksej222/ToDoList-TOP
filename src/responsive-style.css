@@ -63,7 +63,15 @@
 
     .menu-container {
         display: none;
+        margin-top: 2em;
+        
     }
+
+    /* TODO: Centrirat li tackice zajedno sa tekstom */
+    .main-options-container li {
+        /* text-align: center; */
+    }
+
 
     .container {
         grid-template-columns: 12% 76% 12%;
@@ -90,8 +98,6 @@
    }
 
     /* TODO: Centrirat zadatak */
-    /* TODO: Kako prikazat projekte kad je kliknut hamb. menu */
-    /* TODO: Kako onda postavit menu na width 100%, o ostalo sakrit */
     /* ** Primjer hamb menu-u koji to radi: */
     /* ** https://codepen.io/alvarotrigo/pen/wvrzPWL */
 }
