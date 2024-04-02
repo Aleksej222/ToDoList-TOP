@@ -66,6 +66,18 @@ button {
     border-radius: 7px;
 }
 
+.color-cde9ff {
+    background-color: #cde9ff;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-none {
+    display: none !important;
+}
+
 .container {
     display: grid;
     grid-template-columns: 17% 78% 5%;

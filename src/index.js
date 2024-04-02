@@ -7,7 +7,7 @@ import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
-import { setMenuContentVisibility } from "./responsiveDesign";
+import { setMenuContentVisibility, setCorrectDisplay } from "./responsiveDesign";
 
 export let allProjects;
 
@@ -62,16 +62,30 @@ buttonEditProject.addEventListener('click', editProjectName);
 let buttondeleteProject = document.querySelector('.btn-delete-project');
 buttondeleteProject.addEventListener('click', deleteProject);
 
-
 // ** Add task on button click
 let buttonAddTask = document.querySelector('.btn-add-task');
 buttonAddTask.addEventListener('click', addNewTask);
 
-
 // ** Hamburger menu design functionality
 let buttonHamburgerMenu = document.querySelector("input[type='checkbox']#burger");
-// console.log(buttonHamburgerMenu);
+// buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
+
 buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
+
+
+// ** Function for setting correct display
+// let windowWidth = window.screen.width;
+// window.addEventListener("resize", function() {
+    
+//     if (windowWidth > 730) {
+//         setCorrectDisplay()
+//     }
+
+
+//     // console.log(windowWidth > 730);
+//     // console.log(typeof windowWidth);
+
+// }, true);
 
 // TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
 // TODO: Dodat pravilnu validaciju forme kod dodavanja zadataka

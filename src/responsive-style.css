@@ -195,3 +195,22 @@
 }
 
 
+@media screen and (min-width: 730px) {
+
+    .task-title {
+        /* font-size: 4rem; */
+    }
+
+    .burger-container {
+        /* display: none; */
+    }
+
+    .tasks-container {
+        /* display: block; */
+    }
+
+    .menu-container {
+        /* display: block !important; */
+    }
+
+}
