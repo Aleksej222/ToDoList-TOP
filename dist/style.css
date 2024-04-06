@@ -82,15 +82,6 @@ button {
     display: none !important;
 }
 
-.menu-normal-display {
-    /* background-color: ; */
-}
-
-.task-container-normal-display {
-    /* display: flex; */
-    /* display: none !important; */
-}
-
 .container {
     display: grid;
     grid-template-columns: 17% 78% 5%;

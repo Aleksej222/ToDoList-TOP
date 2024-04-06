@@ -7,13 +7,13 @@ import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
-import { setMenuContentVisibility, setCorrectDisplay, removeMenuContentVisibility } from "./responsiveDesign";
+import { setMenuContentVisibility, removeMenuContentVisibility } from "./responsiveDesign";
 
 export let allProjects;
 
 // ** Get projects from local storage if they exist
 if (localStorage.getItem('allProjects')) {
-    
+
     allProjects = localStorage.getItem('allProjects');
     allProjects = JSON.parse(allProjects);
     showProjects();  // ** Call function if projects exist
@@ -43,7 +43,7 @@ let listOptionSelected = listOptions[0];  // Default All tasks as selected optio
 listOptions.forEach(option => {
     // console.log(option);
     option.addEventListener('click', showCorrectProject);
-    
+
 });
 
 
@@ -68,33 +68,14 @@ buttonAddTask.addEventListener('click', addNewTask);
 
 // ** Hamburger menu design functionality
 let buttonHamburgerMenu = document.querySelector("input[type='checkbox']#burger");
-// buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
-
 buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
 
-
-// ** Function for setting correct display
+// ** Remove displaying menu over the whole screen if width is > 730px
 let windowWidth = window.screen.width;
-
-
-var onresize = function(e) {
-    //note i need to pass the event as an argument to the function
-    let windowWidth = e.target.outerWidth;
-    // let height = e.target.outerHeight;
-
-    if ((windowWidth > 730) && (windowWidth <= 731)) {
-        console.log(windowWidth);
-        // setCorrectDisplay(windowWidth);
-        removeMenuContentVisibility();
-    }
-}
-window.addEventListener("resize", onresize);
-
-
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
     
     if (windowWidth > 730) {
-        // setCorrectDisplay(windowWidth);
+        removeMenuContentVisibility();
     }
 });
 
