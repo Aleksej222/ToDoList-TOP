@@ -7,7 +7,7 @@ import { setTodayTasksNumber } from "./setTodayTasksNumber";
 import { setThisWeekTasksNumber } from "./setThisWeekTasksNumber";
 import { editProjectName } from "./editProjectName";
 import { deleteProject } from "./deleteProject";
-import { setMenuContentVisibility, setCorrectDisplay } from "./responsiveDesign";
+import { setMenuContentVisibility, setCorrectDisplay, removeMenuContentVisibility } from "./responsiveDesign";
 
 export let allProjects;
 
@@ -74,18 +74,29 @@ buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
 
 
 // ** Function for setting correct display
-// let windowWidth = window.screen.width;
-// window.addEventListener("resize", function() {
+let windowWidth = window.screen.width;
+
+
+var onresize = function(e) {
+    //note i need to pass the event as an argument to the function
+    let windowWidth = e.target.outerWidth;
+    // let height = e.target.outerHeight;
+
+    if ((windowWidth > 730) && (windowWidth <= 731)) {
+        console.log(windowWidth);
+        // setCorrectDisplay(windowWidth);
+        removeMenuContentVisibility();
+    }
+}
+window.addEventListener("resize", onresize);
+
+
+window.addEventListener("resize", function() {
     
-//     if (windowWidth > 730) {
-//         setCorrectDisplay()
-//     }
-
-
-//     // console.log(windowWidth > 730);
-//     // console.log(typeof windowWidth);
-
-// }, true);
+    if (windowWidth > 730) {
+        // setCorrectDisplay(windowWidth);
+    }
+});
 
 // TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
 // TODO: Dodat pravilnu validaciju forme kod dodavanja zadataka

@@ -70,12 +70,25 @@ button {
     background-color: #cde9ff;
 }
 
+.color-ffffff {
+    background-color: #ffffff;
+}
+
 .display-block {
     display: block !important;
 }
 
 .display-none {
     display: none !important;
+}
+
+.menu-normal-display {
+    /* background-color: ; */
+}
+
+.task-container-normal-display {
+    /* display: flex; */
+    /* display: none !important; */
 }
 
 .container {

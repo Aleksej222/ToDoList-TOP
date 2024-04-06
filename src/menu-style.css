@@ -65,7 +65,13 @@
     left: 5px;
 }
 
+.remove-menu-display {
+    display: block;
+    width: 17%;
+}
+
 .menu-container {
+    display: block;
     /* width: 17%; */
     /* background-color: var(--color-grey); */
     background-color: #cde9ff;
