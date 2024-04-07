@@ -18,8 +18,6 @@ export function addNewProject() {
     if (document.querySelector('.new-project-container') == null) {
         projectsHtml.appendChild(drawNewProjectHTML());
     }
-
-    //console.log(this);  // 'this' is button that is clicked
 }
 
 // ** Create HTML for new project
@@ -28,11 +26,18 @@ function drawNewProjectHTML() {
     newProjectContainer = document.createElement('div');
     newProjectContainer.classList.add('new-project-container');
 
-    // ** Kreirat simple input field i kvacicu pored u listi (vidit dizajn na TOP primjeru)
+    // ** Create a simple input field
     let input = document.createElement('input');
     input.classList.add('input-field');
     input.setAttribute('maxLength', 25);
     // input.setAttribute('required','');
+    input.addEventListener('keypress', function(e) {
+
+        if (e.key == 'Enter') {
+            createProject();
+        }
+
+    });
 
     let errorMsg = document.createElement('span');
     errorMsg.classList.add('error-message');
@@ -54,8 +59,6 @@ function drawNewProjectHTML() {
     newProjectContainer.appendChild(btnCancel);
 
     return newProjectContainer;
-
-    // TODO: Dodat klase i stajling, i sta sve treba na elemente
 }
 
 // ** Delete HTML that is created on add project button
@@ -90,7 +93,6 @@ function createProject() {
         deleteNewProjectHTML();
     }
 
-    // deleteNewProjectHTML();
 }
 
 // ** Append new project to the DOM
@@ -106,7 +108,7 @@ export function appendProjectToDOM(project) {
     let numberOfTasks = document.createElement('span');
     numberOfTasks.classList.add('number-of-tasks');
     
-    numberOfTasks.innerText = "         " + project.tasks.length;  // TODO: Fix format later (kasnije koristit css)
+    numberOfTasks.innerText = "         " + project.tasks.length;  // TODO: Fix format later (using css)
 
     createdProject.appendChild(numberOfTasks);
 
@@ -187,11 +189,3 @@ function projectTitleIsMainOption(title) {
 
     return isMainOption;
 }
-
-
-
-
-// TODO: Omogucit dodavanje projekta na enter tipku 
-// !! Bug: Ne moze se otvorit projekt koji je tek dodan
-// !! Bug: sa razmakom kod broja zadataka
-// TODO: Popravit dizajn (3 taba razmaka) kod broja zadataka u projektu

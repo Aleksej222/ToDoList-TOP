@@ -80,4 +80,5 @@ window.addEventListener("resize", function () {
 // !! Bug: When updating tasks, number of tasks doesn't change if the date is set to today, but the task appears in the 'Today' project option.
 // !! Bug: When adding/deleting tasks, number changes but there is no space between the project name and the number of tasks.
 
-// TODO: Remove modal window when task update is complete
+// TODO: Remove modal window when task update is complete.
+// TODO: Fix design when adding/removing tasks (number issue)
