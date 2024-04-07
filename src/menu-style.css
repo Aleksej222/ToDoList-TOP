@@ -1,6 +1,5 @@
 .burger-container {
     display: none;
-    /* background-color: burlywood; */
 }
 
 .burger {
@@ -11,7 +10,6 @@
     cursor: pointer;
     display: block;
     margin: 1.6em auto;
-    /* background-color: yellow; */
 }
 
 .burger input {
@@ -75,8 +73,6 @@
     /* width: 17%; */
     /* background-color: var(--color-grey); */
     background-color: #cde9ff;
-    /* border-radius: 10px; */
-    /* border: 3px solid black; */
 }
 
 .menu-main {
@@ -103,15 +99,9 @@
     padding-right: .1em;
 }
 
-.menu-options li {
-    /* display: flex; */
-    /* background-color: hotpink; */
-}
-
 .menu-options li span {
     /* display: inline-block; */
     text-align: end;
-    /* background-color: gold; */
     padding-left: .2em;
 }
 
@@ -131,7 +121,6 @@
     flex-direction: column;
     row-gap: .4em;
     align-items: center;
-    /* background-color: salmon; */
 }
 
 .new-project-container input {
@@ -149,6 +138,3 @@
     font-size: 1.2rem;
     padding: .1em 1em;
 }
-
-/* TODO: Input stavit u main style (da svi inputi budu isti) */
-/* TODO: Popravit dizajn kod dodavanja zadataka, i error message (da ne makne add project ako ima error message, da makne gresku kasnije) */

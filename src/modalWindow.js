@@ -32,7 +32,6 @@ export function createModalWindowHTML(action, task) {
     containerTaskInfo.classList.add('container-task-info');
 
     let formTaskInfo = document.createElement('form');
-    // TODO: Set attributes later (for everything), look at html example
 
     let containerInput1 = document.createElement('div');
     containerInput1.classList.add('container-input');
@@ -42,7 +41,6 @@ export function createModalWindowHTML(action, task) {
 
     let inputTitle = document.createElement('input');
     inputTitle.classList.add('input-field');
-    // inputTitle.classList.add('task');
     inputTitle.classList.add('task-name');
 
     if (action == 'update') {
@@ -52,7 +50,6 @@ export function createModalWindowHTML(action, task) {
     containerInput1.appendChild(labelTitle);
     containerInput1.appendChild(inputTitle);
     
-    // TODO: Kalendar za datum
     let containerInput2 = document.createElement('div');
     containerInput2.classList.add('container-input');
 
@@ -177,21 +174,16 @@ export function createModalWindowHTML(action, task) {
 
     modalWindow.appendChild(modalTop);
     modalWindow.appendChild(containerTaskInfo);
-    // modalContent.appendChild(containerModal);
-    // modalWindow.appendChild(modalContent);
 
     confirmationModal.appendChild(modalWindow);
 
-    // return modalWindow;
     return confirmationModal;
 }
 
 // ** Close the modal window on button click
 export function closeModalWindow() {
-
     let modalWindow = document.querySelector('.modal-window');
     modalWindow.remove();
 
     confirmationModal.style.display = 'none';
-
 }

@@ -16,6 +16,11 @@ export function validateTask(task) {
         errorMsg = 'Task name can\'t be longer than 30 characters.';
     }
 
+    console.log(task.date);
+    if (task.date == '') {
+        errorMsg = 'Task date can\'t be empty.';
+    }
+
     if (task.description.length > 300) {
         errorMsg = 'Task description can\'t be longer than 300 characters.';
     }
