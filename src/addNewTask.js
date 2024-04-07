@@ -11,16 +11,12 @@ import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 // ** Main function that creates task
 export function addNewTask() {
-    
     openModalWindow();
 }
 
 // ** Open modal window on add task button click
 function openModalWindow() {
-
     const tasksContainer = document.querySelector('.tasks-container');
-
-    // TODO: Dodat position absolute (tako nekako), pravilno pozicionirat modal window
     tasksContainer.appendChild(createModalWindowHTML('add', null));
 
 }
@@ -43,11 +39,8 @@ export function addTaskClicked(e) {
 
     let newTask = new Task(taskId, taskName, taskDescription, taskDate, taskPriority);
 
-    // console.log(newTask);
     taskValid = validateTask(newTask);
 
-    // console.log(selectedProject);
-    
     if (taskValid) {
         newTaskCreated = true;
         selectedProject.tasks.push(newTask);
@@ -58,6 +51,7 @@ export function addTaskClicked(e) {
 
     if (newTaskCreated) {
         closeModalWindow();
+
         tasksList.appendChild(createTaskHTML(newTask));
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
         setTaskBackgroundColor(newTask.priority, newTask.id);
@@ -99,7 +93,6 @@ export function createTaskHTML(task) {
         deleteTask(task);  // Call delete function for now
     });
 
-
     let editTaskBtn = document.createElement('i');
     editTaskBtn.classList.add('btn-edit-task');
     editTaskBtn.classList.add('fa');
@@ -130,10 +123,4 @@ export function createTaskHTML(task) {
     taskContainer.appendChild(taskBtns);
 
     return taskContainer;
-
-    // !! Color changes based on priority of the task
 }  
-
-
-// !! Bug: Required znak * prikaze samo na zadnjem polju
-// TODO: Na update broja zadataka izbrise razmak (popravit sa css stajlingom)

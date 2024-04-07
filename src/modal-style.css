@@ -42,7 +42,7 @@
     margin-top: .3em;
 }
 
-.container-input label::after {
+.container-input:first-child label::after {
     content: '*';
     padding-left: .2em;
     color: red;
