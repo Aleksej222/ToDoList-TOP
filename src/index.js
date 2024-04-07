@@ -71,8 +71,9 @@ let buttonHamburgerMenu = document.querySelector("input[type='checkbox']#burger"
 buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
 
 // ** Remove displaying menu over the whole screen if width is > 730px
-let windowWidth = window.screen.width;
+
 window.addEventListener("resize", function () {
+    let windowWidth = window.screen.width;
     
     if (windowWidth > 730) {
         removeMenuContentVisibility();
