@@ -11,13 +11,9 @@ export function getTodayTasks() {
 
         if (task.date == todayDate) {
             todayTasks.push(task);
-
         }
 
     });
 
     return todayTasks;
-
 }
-
-// !! Bug: (od prije) ne prikaze novo dodane zadatke na prvi klik, mora se promjenit selected opcija i onda odabrat ponovo

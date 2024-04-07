@@ -73,6 +73,3 @@ function cancelDelete() {
     confirmationModal.style.display = 'none';
 
 }
-
-
-// TODO: Dodat stajling za confirmation modal

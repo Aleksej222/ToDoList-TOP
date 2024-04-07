@@ -4,10 +4,7 @@ import { checkIfProjectValid } from "./addNewProject";
 
 // ** Edit project title on button click
 export function editProjectName() {
-
-    // createEditHtml();
     openEditProjectModal();
-
 }
 
 let projectNameInput;
@@ -117,6 +114,3 @@ function openEditProjectModal() {
 function deleteModal() {
     updateModal.style.display = 'none';
 }
-
-
-// TODO: Sve modal windowse prebacit u jednu funkciju (za brisanje modala obavezno)

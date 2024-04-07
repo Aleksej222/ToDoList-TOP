@@ -36,8 +36,6 @@ export function getLastWeekDate() {
         day = '0' + day;
     }
 
-    
     lastWeekDate = year.toString() + '-' + month.toString()+ '-' + day.toString();
     return lastWeekDate;
-
 }
