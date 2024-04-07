@@ -38,14 +38,11 @@ setTodayTasksNumber();
 setThisWeekTasksNumber()
 
 let listOptions = document.querySelectorAll('.menu-options > li');
-let listOptionSelected = listOptions[0];  // Default All tasks as selected option 
+let listOptionSelected = listOptions[0];  // Default 'All tasks' as selected option 
 
 listOptions.forEach(option => {
-    // console.log(option);
     option.addEventListener('click', showCorrectProject);
-
 });
-
 
 // ** Simulate click event, so that a function for showing tasks inside a project is called
 listOptionSelected.click();
@@ -71,7 +68,6 @@ let buttonHamburgerMenu = document.querySelector("input[type='checkbox']#burger"
 buttonHamburgerMenu.addEventListener('click', setMenuContentVisibility);
 
 // ** Remove displaying menu over the whole screen if width is > 730px
-
 window.addEventListener("resize", function () {
     let windowWidth = window.screen.width;
     
@@ -80,6 +76,8 @@ window.addEventListener("resize", function () {
     }
 });
 
-// TODO: Kad se dodaje novi projekt popravit error gresku, da kad se klikne add da nestane greska
-// TODO: Dodat pravilnu validaciju forme kod dodavanja zadataka
-// TODO: Sklonit modal kad se update zadatak
+
+// !! Bug: When updating tasks, number of tasks doesn't change if the date is set to today, but the task appears in the 'Today' project option.
+// !! Bug: When adding/deleting tasks, number changes but there is no space between the project name and the number of tasks.
+
+// TODO: Remove modal window when task update is complete

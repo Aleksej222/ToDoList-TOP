@@ -85,11 +85,6 @@ button {
 .container {
     display: grid;
     grid-template-columns: 17% 78% 5%;
-    /* padding: 2em .5em 1em 2em; */
-    /* padding: 0 0; */
-    /* gap: 1em; */
-    /* height: 100vh; */
-    /* background-color: rgb(242, 255, 168); */
     min-height: 100%;
     height: max-content;
 }

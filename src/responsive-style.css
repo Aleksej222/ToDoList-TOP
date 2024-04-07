@@ -6,8 +6,6 @@
 
     .task {
         height: 358px;
-        /* ?? Zasto na 320px buttonsi ispadnu iz diva */
-        /* ** Jer je previse kontenta na tu visinu */
     }
 
     .task-date {
@@ -20,20 +18,13 @@
 
     .task-description {
         font-size: 1.2rem;
-        /* height: 225px;; */
     }
 
     .task-btns {
         font-size: 1.6rem;
     }
-
-    /* TODO: Add / Update task modal window prosirit */
-    /* TODO: Edit / Delete project modal window pomjerit prema dole */
     
 }
-
-/* TODO: Add project treba mijenjat prije 1300 */
-/* TODO: Pomjerit modal windowe prije 1300 */
 
 @media screen and (max-width: 1050px) {
 
@@ -90,15 +81,11 @@
     font-size: 2.2rem;
    }
 
-    /* TODO: Centrirat zadatak */
-    /* ** Primjer hamb menu-u koji to radi: */
-    /* ** https://codepen.io/alvarotrigo/pen/wvrzPWL */
 }
 
 @media screen and (max-width: 500px) {
 
     .container {
-        /* grid-template-columns: 50% 50%; */
         grid-template-rows: 5% 95%;
     }
 
@@ -116,7 +103,6 @@
     .toggle-container {
         display: flex;
         justify-self: end;
-        /* margin-right: 1.2em; */
     }
 
     .tasks-container {
@@ -165,7 +151,6 @@
     }
 
     .container-task-info form {
-        /* width: 250px; */
         width: 70%;
         margin: auto;
     }
@@ -190,27 +175,6 @@
 
     .task-description {
         font-size: 1rem;
-    }
-
-}
-
-
-@media screen and (min-width: 730px) {
-
-    .task-title {
-        /* font-size: 4rem; */
-    }
-
-    .burger-container {
-        /* display: none; */
-    }
-
-    .tasks-container {
-        /* display: block; */
-    }
-
-    .menu-container {
-        /* display: block !important; */
     }
 
 }
