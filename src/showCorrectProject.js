@@ -10,7 +10,6 @@ let listOptionSelected;
 
 // ** Set allProjects array as an empty array if it doesn't exist in local storage
 if (!allProjects) {
-
     allProjects = [];
 }
 
@@ -18,7 +17,7 @@ if (!allProjects) {
 export function showCorrectProject() {
 
     let projectNameText = document.querySelector('.project-name');
-    if (projectNameText.style.display == 'none') return;  // If edit of project is in process stop function from showing project
+    if (projectNameText.style.display == 'none') return;  // If project edit is in process stop function from showing project
 
     listOptionSelected = this.id;
     let selectedProjectTasks;
@@ -98,6 +97,3 @@ function clearTasksHTML() {
     let tasksList = document.querySelector('.tasks-list');
     tasksList.innerHTML = '';
 }
-
-// !! Bug: ne prikaze title novo dodanog projekta (listOptions u index fajlu vjv pravi problem, ucita se samo jednom i onda ne dobije nove projekte)
-// !! Bug: ne prikaze zadatak koji je tek dodan u all tasks, today tasks i this week tasks (bez refresh-a stranice)

@@ -59,7 +59,6 @@ export function createModalWindowHTML(action, task) {
     let inputDate = document.createElement('input');
     inputDate.type = 'date';
     inputDate.classList.add('input-field');
-    // inputDate.classList.add('task');
     inputDate.classList.add('task-date');
 
     if (action == 'update') {
@@ -73,7 +72,6 @@ export function createModalWindowHTML(action, task) {
     containerInput2.appendChild(labelDate);
     containerInput2.appendChild(inputDate);
 
-    // TODO: Textarea za deskripciju
     let containerInput3 = document.createElement('div');
     containerInput3.classList.add('container-input');
 
@@ -81,7 +79,6 @@ export function createModalWindowHTML(action, task) {
     labelDescription.innerText = 'Description';
 
     let inputDescription = document.createElement('textarea');
-    // inputDescription.classList.add('task');
     inputDescription.classList.add('task-description');
 
     if (action == 'update') {
@@ -91,7 +88,6 @@ export function createModalWindowHTML(action, task) {
     containerInput3.appendChild(labelDescription);
     containerInput3.appendChild(inputDescription);
     
-    // TODO: Dropdown za priority zadatka
     let containerInput4 = document.createElement('div');
     containerInput4.classList.add('container-input');
 
@@ -143,7 +139,6 @@ export function createModalWindowHTML(action, task) {
         btnSubmit.addEventListener('click', addTaskClicked);
 
     } else if (action == 'update') {
-        // btnSubmit.setAttribute('type', 'submit');
         btnSubmit.innerText = 'Update task';
         btnSubmit.addEventListener('click', function(e) {
             e.preventDefault();

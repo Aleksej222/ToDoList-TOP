@@ -6,7 +6,6 @@ export function validateTask(task) {
     let errorMsgSpan = document.querySelector('.error-task-validation-message');
     let errorMsg = '';
 
-    // console.log(task);
     // ** Valid task name, about 15 characters, everything should be alowed
     if (task.title.length < 1) {
         errorMsg = 'Task name can\'t be empty.';
@@ -16,7 +15,6 @@ export function validateTask(task) {
         errorMsg = 'Task name can\'t be longer than 30 characters.';
     }
 
-    console.log(task.date);
     if (task.date == '') {
         errorMsg = 'Task date can\'t be empty.';
     }
@@ -35,6 +33,5 @@ export function validateTask(task) {
 
     }
 
-    // !! BUG: Na update task izgleda ko da je updatean iako ima gresku, na refresh izgubi novu vrednost
     return taskOk;
 }

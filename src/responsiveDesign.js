@@ -6,12 +6,9 @@ export function setMenuContentVisibility() {
     let tasksContainer = document.querySelector('.tasks-container');
     let menuContainer = document.querySelector('.menu-container');
 
-
     container.classList.toggle('color-cde9ff');
     tasksContainer.classList.toggle('display-none');
     menuContainer.classList.toggle('display-block');
-
-
 }
 
 // ** If window width is bigger than 730px set correct display
@@ -27,6 +24,3 @@ export function removeMenuContentVisibility() {
     menuContainer.classList.remove('display-block');
 
 }
-
-
-// !! Bug: hambg menu ikonica se ne vrati na originalni prikaz kad se resize-a window

@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     gap: 1em;
-    /* background-color: cadetblue; */
 }
 
 .project-title-btns {
@@ -18,10 +17,8 @@
 }
 
 .tasks-container {
-    /* width: 78%; */
     width: 100%;
     height: fit-content;
-    /* border: 3px solid yellow; */
 }
 
 .tasks-list {
@@ -30,9 +27,6 @@
     grid-template-columns: 30.5% 30.5% 30.5%;
     justify-content: space-evenly;
     row-gap: .8em;
-    /* gap: .6em .8em; */
-
-    /* border: 3px solid salmon; */
 }
 
 .task {
@@ -42,7 +36,6 @@
     justify-content: space-between;
     border-radius: 15px;
     border: 1px solid black;
-    /* border: 3px solid black; */
 }
 
 .task-date {
@@ -50,8 +43,6 @@
     display: block;
     text-align: end;
     padding: .2em .5em;
-    /* width: 100%; */
-    /* background-color: rosybrown; */
 }
 
 .task-title {
@@ -60,10 +51,7 @@
     display: block;
     padding-top: .3em;
     height: max-content !important;
-    /* height: 70px; */
-    /* margin-bottom: 4em; */
     text-align: center;
-    /* background-color: firebrick; */
 }
 
 .task-description {
@@ -73,10 +61,6 @@
     padding: .4em .6em;
     /* overflow-y: scroll; */
     overflow-y: auto;
-    /* background-color: rebeccapurple; */
-
-    /* TODO: Pomjerit deskripciju gore prema naslovu */
-    /* TODO: Pogledat sta sa visinama u task-u */
 }
 
 .task-btns {
@@ -86,15 +70,11 @@
     justify-content: space-evenly;
     padding: .3em 1em;
     border-top: 1px solid black;
-    /* padding-bottom: .3em; */
-    /* text-align: end; */
-    /* background-color: limegreen; */
 }
 
 .task-priority-low {
     /* background-color: #beeb9f; */
     background-color: #f4f4f4;
-    /* border: 3px solid green; */
 }
 
 .task-priority-medium {
@@ -111,6 +91,5 @@
     font-size: 1rem;
     margin-top: 1.5em;
     margin-left: 1em;
-    /* margin-bottom: 1em; */
 }
 

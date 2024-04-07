@@ -77,9 +77,10 @@ window.addEventListener("resize", function () {
 });
 
 
-// !! Bug: When updating tasks, number of tasks doesn't change if the date is set to today, but the task appears in the 'Today' project option.
-// !! Bug: When adding/deleting tasks, number changes but there is no space between the project name and the number of tasks.
-// !! Bug: when editing project name, works the first time, but can't edit again.
+// !! Bug: on updating tasks, number of tasks doesn't change if the date is set to today, but the task appears in the 'Today' project option.
+// !! Bug: on adding/deleting tasks, number changes but there is no space between the project name and the number of tasks.
+// !! Bug: on editing project name, works the first time, but can't edit again.
+// !! Bug: on resizing window, hamburger menu icon doesn't revert to original state
 
 // TODO: Code optimization.
 // TODO: Add dark mode styling.

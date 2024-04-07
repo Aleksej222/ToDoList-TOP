@@ -6,12 +6,8 @@ import { setTaskBackgroundColor } from "./setTaskBackgroundColor";
 
 // ** Function for task update
 export function updateTask(task) {
-    // console.log(task);
-  
-
     const tasksContainer = document.querySelector('.tasks-container');
     tasksContainer.appendChild(createModalWindowHTML('update', task));
-
 }
 
 // ** Update task button was clicked, update task with new values
@@ -32,12 +28,10 @@ export function updateTaskClicked(taskUpdated) {
     taskValid = validateTask(taskUpdated);
 
     if (taskValid) {   
-
         localStorage.setItem('allProjects', JSON.stringify(allProjects));
 
         showTasksInAProject();
         setTaskBackgroundColor(taskPriority, taskUpdated.id);
 
     }    
-    
 }
